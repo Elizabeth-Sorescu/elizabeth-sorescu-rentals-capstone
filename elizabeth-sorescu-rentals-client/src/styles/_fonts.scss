@@ -1,0 +1,18 @@
+@use "./variables" as *;
+
+@font-face {
+  font-family: "Reddit_Mono";
+  font-weight: 400;
+  src: url($font-redditmono-regular-ttf);
+}
+
+@font-face {
+  font-family: "Reddit_Mono";
+  font-weight: 600;
+  src: url($font-redditmono-semibold-ttf);
+}
+@font-face {
+  font-family: "Reddit_Mono";
+  font-weight: 700;
+  src: url($font-redditmono-bold-ttf);
+}
