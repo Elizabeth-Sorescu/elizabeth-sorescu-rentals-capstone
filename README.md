@@ -424,7 +424,7 @@ Phase 1: Sprint 1 (Week 1)
 
 - Create server
 
-  - express project with routing, with placeholder 30 responses
+  - express project with routing, with placeholder 20 responses
 
 - Create migrations
 
@@ -439,6 +439,7 @@ Phase 1: Sprint 1 (Week 1)
     - Implement a list of all properties page
     - Create GET /api/ properties
 
+Phase 1: Sprint 2 (Week 2)
 -Feature: List a single property with specific id of the landlord
 
     - Implement a single property page
@@ -454,6 +455,7 @@ Phase 1: Sprint 1 (Week 1)
     - Implement a list of all tenants at the backend
     - Create GET /api/tenants
 
+Phase 1: Sprint 3 (Week 3)
 -Feature: List all tenants with specific if of a property of the landlord
 
     - Implement a view of a list of all tenants page of a specific property's id
@@ -502,6 +504,10 @@ Phase 5: (This phase will not be implemented yet)
   - Server: Update expected requests / responses on protected endpoints
   - Client: Store JWT in local storage, include JWT on axios calls
 
+## About
+
+- This repository is developed as my BrainStation Capstone project, aiming to streamline property rental management for individuals like myself who have diverse commitments beyond this interest. I aspire to create a solution that not only simplifies rental management but also enhances the overall experience for property landlords and tenants alike.
+
 ## References
 
 - Green House Circle Icon
@@ -518,5 +524,3 @@ Phase 5: (This phase will not be implemented yet)
 
 - Draw SQL DB Schema Diagram Tool
   https://drawsql.app/teams/eli-rental-team/diagrams/eli-proj
-#   e l i z a b e t h - s o r e s c u - r e n t a l s - c a p s t o n e  
- 
