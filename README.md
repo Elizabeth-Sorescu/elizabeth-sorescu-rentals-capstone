@@ -452,7 +452,7 @@ Phase 1: Sprint 1 (Week 1)
 
 - Create migrations
 
-- Gather 15 sample properties in 4 different cities
+- Gather 15 sample properties in different cities
 
 - Create seeds with sample properties, tenants and landlords data
 
