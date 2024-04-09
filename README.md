@@ -452,7 +452,7 @@ Phase 1: Sprint 1 (Week 1)
 
 - Create migrations
 
-- Gather 15 sample properties in 4 different cities
+- Gather 15 sample properties in different cities
 
 - Create seeds with sample properties, tenants and landlords data
 
@@ -480,7 +480,7 @@ Phase 1: Sprint 2 (Week 2)
     - Create GET /api/tenants
 
 Phase 1: Sprint 3 (Week 3)
--Feature: List all tenants with specific if of a property of the landlord
+-Feature: List all tenants with specific id of a property of the landlord
 
     - Implement a view of a list of all tenants page of a specific property's id
     - Create GET /api/properties/:id/tenants
