@@ -4,11 +4,11 @@ const landlordsData = require("../seed-data/landlords");
 
 exports.seed = async function (knex) {
   // Deletes ALL existing entries
+  await knex("landlords").del();
   await knex("properties").del();
   await knex("tenants").del();
-  await knex("landlords").del();
 
+  await knex("landlords").insert(landlordsData);
   await knex("properties").insert(propertiesData);
   await knex("tenants").insert(tenantsData);
-  await knex("landlords").insert(landlordsData);
 };
