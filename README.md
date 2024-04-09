@@ -199,7 +199,7 @@ Tenant’s rating feature functionality
 - Get all properties if the user is logged in
 
 - Response body example:
-  [
+- [
   {
   id: 1,
   landlord_id: 1,
@@ -242,7 +242,7 @@ Tenant’s rating feature functionality
 - Post a new property
 
 - Request body example:
-  [
+- [
   {
   property_name: "Richmond",
   street_address: "789 No. 3 Road",
@@ -287,7 +287,7 @@ Parameters:
 - id : property id as number
 
 - Response body example:
-  {
+- {
   id: 3,
   landlord_id: 1,
   property_name: "Vancouver",
@@ -315,7 +315,7 @@ Parameters:
 
 - /api/properties/1/tenants
 - Response body example:
-  [
+- [
   {
   id: 1,
   property_id: 1,
@@ -378,7 +378,7 @@ Parameters:
 -Get all tenants from all properties
 
 - Response body example:
-  [
+- [
   {
   id: 1,
   property_id: 1,
