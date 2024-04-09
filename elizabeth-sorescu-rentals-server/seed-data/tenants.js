@@ -42,6 +42,8 @@ module.exports = [
     num_reviews: 5,
     email: "glory.lin@hotmail.com",
     phone: "2363570864",
+    password: "test",
+    role: "tenant",
   },
   {
     id: 4,
