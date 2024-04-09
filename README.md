@@ -448,11 +448,11 @@ Phase 1: Sprint 1 (Week 1)
 
 - Create server
 
-  - express project with routing, with placeholder 20 responses
+  - express project with routing, with placeholder 10 responses
 
 - Create migrations
 
-- Gather 15 sample properties in different cities
+- Gather 10 sample properties in different cities
 
 - Create seeds with sample properties, tenants and landlords data
 
