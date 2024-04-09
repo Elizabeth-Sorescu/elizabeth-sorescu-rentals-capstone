@@ -5,12 +5,6 @@
 exports.up = function (knex) {
   return knex.schema.createTable("landlords", (table) => {
     table.increments("id").primary();
-    table
-      .integer("property_id")
-      .unsigned()
-      .references("properties.id")
-      .onUpdate("CASCADE")
-      .onDelete("CASCADE");
     table.string("landlord_name", 255).notNullable();
     table.string("messages", 255).notNullable();
     table.decimal("rating").notNullable();
