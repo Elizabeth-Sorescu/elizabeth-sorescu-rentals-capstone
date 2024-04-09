@@ -530,7 +530,7 @@ Phase 5: (This phase will not be implemented yet)
 - Green House Circle Icon
   https://www.123rf.com/photo_15843360_home-icon-glossy-green-button.html
 
-- ChatGpt
+- Chatgpt for Sample Data
   https://chat.openai.com/
 
 - Social Media Icons
