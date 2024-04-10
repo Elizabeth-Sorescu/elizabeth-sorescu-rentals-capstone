@@ -18,10 +18,29 @@ function Signup() {
       <p className="slogan">
         Empower Your Rental Journey: Connect, Document, Resolve.
       </p>
-      <h1>Signup</h1>
-      <label></label>
 
       <form id="signup-form" onSubmit={handleSubmit} ref={formRef}>
+        <section id="input">
+          <h1 id="input__heading">Signup</h1>
+          <label>NAME</label>
+          <input id="input__name" />
+          <label>PHONE</label>
+          <input id="input__phone" />
+          <label>EMAIL</label>
+          <input id="input__email" />
+          <label>PASSWORD</label>
+          <input id="input__password" />
+          <p>Click one that applies to your role</p>
+          <input
+            type="radio"
+            id="input__landlord"
+            name="landlord"
+            value="landlord"
+          />
+          <label for="landlord">Landlord</label>
+          <input type="radio" id="input__tenant" name="tenant" value="tenant" />
+          <label for="tenant">Tenant</label>
+        </section>
         <button type="submit" form="signup-form" value="Signup" id="signup-btn">
           Submit
         </button>
