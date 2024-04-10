@@ -1,8 +1,13 @@
 @use "../../styles/partials/variables";
 @use "../../styles/partials/mixins";
 
-// .rentals-logo {
-//   border: 1px solid red;
-//   width: 2rem;
-//   height: 2rem;
-// }
+.rentals-logo {
+  border: 1px solid red;
+  width: 20rem; //80rem
+  height: 5rem; //30rem
+  display: flex;
+  cursor: pointer;
+  position: absolute;
+  top: 25%;
+  left: 40%;
+}
