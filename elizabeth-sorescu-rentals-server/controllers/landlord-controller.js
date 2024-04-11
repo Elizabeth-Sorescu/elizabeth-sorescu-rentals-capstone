@@ -33,7 +33,7 @@ const getAllLandlords = async (_req, res) => {
 
     res.status(200).json(landlordData);
   } catch (error) {
-    res.status(400).send(`Error retrieving warehouses: ${error}`);
+    res.status(400).send(`Error retrieving landlords: ${error}`);
   }
 };
 
