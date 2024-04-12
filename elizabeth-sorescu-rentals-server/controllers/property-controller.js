@@ -194,7 +194,7 @@ const getTenantsOfAPropertydById = async (req, res) => {
     const propertyTenantData = tenants.map((item) => {
       const {
         id,
-        tenant_name,
+        name,
         room_location,
         monthly_rent,
         messages,
@@ -208,7 +208,7 @@ const getTenantsOfAPropertydById = async (req, res) => {
 
       return {
         id,
-        tenant_name,
+        name,
         room_location,
         monthly_rent,
         messages,

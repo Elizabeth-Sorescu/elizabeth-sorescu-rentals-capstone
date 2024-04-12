@@ -6,7 +6,7 @@ module.exports = [
   {
     id: 1,
     property_id: 1,
-    tenant_name: "Marie Taylor",
+    name: "Marie Taylor",
     room_location: "1: Master bedroom",
     monthly_rent: 650,
     messages: "I created a request for the washer repair.",
@@ -20,7 +20,7 @@ module.exports = [
   {
     id: 2,
     property_id: 1,
-    tenant_name: "Mercedez Muga",
+    name: "Mercedez Muga",
     room_location: "1: Master bedroom",
     monthly_rent: 650,
     messages: "I cannot pay this month's rent",
@@ -34,7 +34,7 @@ module.exports = [
   {
     id: 3,
     property_id: 1,
-    tenant_name: "Glory Lin",
+    name: "Glory Lin",
     room_location: "2: Single room west-side",
     monthly_rent: 1100,
     messages: "I lost the mail key.",
@@ -48,7 +48,7 @@ module.exports = [
   {
     id: 4,
     property_id: 1,
-    tenant_name: "Esther Victoria",
+    name: "Esther Victoria",
     room_location: "2: Single room east-side",
     monthly_rent: 1100,
     messages: "I just fill in the form to end my tenancy by June.",
@@ -62,7 +62,7 @@ module.exports = [
   {
     id: 5,
     property_id: 2,
-    tenant_name: "Anne Smith",
+    name: "Anne Smith",
     room_location: "1: 2nd floor south-side",
     monthly_rent: 900,
     messages: "Is there parking available for visitors?",
@@ -77,7 +77,7 @@ module.exports = [
   {
     id: 6,
     property_id: 2,
-    tenant_name: "Mary Cruz",
+    name: "Mary Cruz",
     room_location: "2: 2nd floor east-side",
     monthly_rent: 900,
     messages: "Are utilities included in the rent?",
@@ -91,7 +91,7 @@ module.exports = [
   {
     id: 7,
     property_id: 2,
-    tenant_name: "Alice Kim",
+    name: "Alice Kim",
     room_location: "3: 2nd floor west-side",
     monthly_rent: 900,
     messages: "Can I bring my pet cat?",
@@ -105,7 +105,7 @@ module.exports = [
   {
     id: 8,
     property_id: 2,
-    tenant_name: "Danica Santos",
+    name: "Danica Santos",
     room_location: "4: 1st floor room",
     monthly_rent: 900,
     messages:
@@ -120,7 +120,7 @@ module.exports = [
   {
     id: 9,
     property_id: 2,
-    tenant_name: "Emma Garcia",
+    name: "Emma Garcia",
     room_location: "5: Basement east-side",
     monthly_rent: 900,
     messages: "When is the move-in date for this property?",
@@ -134,7 +134,7 @@ module.exports = [
   {
     id: 10,
     property_id: 2,
-    tenant_name: "Emily Chui",
+    name: "Emily Chui",
     room_location: "6: Basement west-side",
     monthly_rent: 900,
     messages: "When is the move-in date for this property?",
@@ -148,7 +148,7 @@ module.exports = [
   {
     id: 11,
     property_id: 6,
-    tenant_name: "Carla Aquino",
+    name: "Carla Aquino",
     room_location: "3: Study room",
     monthly_rent: 2500,
     messages: "Are utilities included in the rent?",

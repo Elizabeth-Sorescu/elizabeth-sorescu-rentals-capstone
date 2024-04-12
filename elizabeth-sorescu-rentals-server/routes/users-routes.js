@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const landlordController = require("../controllers/landlord-controller");
+// const landlordController = require("../controllers/landlord-controller");
 const knex = require("knex")(require("../knexfile"));
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -38,7 +38,8 @@ router.post("/register", async (req, res) => {
   try {
     if (role === "landlord") {
       await knex("landlords").insert(newLandlord);
-    } else {
+    }
+    if (role === "tenant") {
       await knex("tenants").insert(newTenant);
     }
     res.status(201).send("Registered successfully");
@@ -53,21 +54,29 @@ router.post("/register", async (req, res) => {
 // -   Expected body: { email, password }
 // -   Response format: { token: "JWT_TOKEN_HERE" }
 router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, role } = req.body;
 
   if (!email || !password) {
     return res.status(400).send("Please enter the required fields");
   }
 
   // Find the user
-  const user = await knex("landlords").where({ email: email }).first();
+  let user = null;
+  if (role === "landlord") {
+    user = await knex("landlords").where({ email: email }).first();
+  } else {
+    user = await knex("tenants").where({ email: email }).first();
+  }
   if (!user) {
     return res.status(400).send("Invalid email");
   }
 
   // Validate the password
-  const isPasswordCorrect = bcrypt.compareSync(password, user.password);
-  if (!isPasswordCorrect) {
+  const isPasswordCorrect = bcrypt.compareSync(password, user.password); //returns false
+  if (isPasswordCorrect) {
+    console.log(isPasswordCorrect);
+    console.log(password);
+    console.log(user.password);
     return res.status(400).send("Invalid password");
   }
 
@@ -87,7 +96,7 @@ router.post("/login", async (req, res) => {
 // -   Gets information about the currently logged in user.
 // -   If no valid JWT is provided, this route will respond with 401 Unauthorized.
 // -   Expected headers: { Authorization: "Bearer JWT_TOKEN_HERE" }
-router.get("/current", async (req, res) => {
+router.get("/profile", async (req, res) => {
   // If there is no auth header provided
   if (!req.headers.authorization) {
     return res.status(401).send("Please login");
@@ -102,29 +111,17 @@ router.get("/current", async (req, res) => {
     const decoded = jwt.verify(authToken, process.env.JWT_KEY);
 
     // Respond with the appropriate user data
-    const user = await knex("landlords").where({ id: decoded.id }).first();
+    const user = null;
+    if (role === "landlord") {
+      user = await knex("landlords").where({ id: decoded.id }).first();
+    } else {
+      user = await knex("tenants").where({ id: decoded.id }).first();
+    }
     delete user.password;
     res.json(user);
   } catch (error) {
     return res.status(401).send("Invalid auth token");
   }
 });
-//////////////////////////////////////////////
-//routes handlers of other components and pages
-router
-  .route("/")
-  .get(landlordController.getAllLandlords)
-  .post(landlordController.postNewLandlord);
-
-router
-  .route("/:id")
-  .get(landlordController.getLandlordById)
-  .delete(landlordController.deleteLandlordById)
-  .patch(landlordController.updateLandlordData);
-
-// Lists all properties in a specific landlord id
-router
-  .route("/:id/properties")
-  .get(landlordController.getPropertiesOfALandlordById);
 
 module.exports = router;

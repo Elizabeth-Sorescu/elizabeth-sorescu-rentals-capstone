@@ -8,7 +8,7 @@ const getAllTenants = async (_req, res) => {
       const {
         id,
         property_id,
-        tenant_name,
+        name,
         room_location,
         monthly_rent,
         messages,
@@ -23,7 +23,7 @@ const getAllTenants = async (_req, res) => {
       return {
         id,
         property_id,
-        tenant_name,
+        name,
         room_location,
         monthly_rent,
         messages,
@@ -67,7 +67,7 @@ const postNewTenant = async (req, res) => {
   try {
     const {
       property_id,
-      tenant_name,
+      name,
       room_location,
       monthly_rent,
       messages,
@@ -82,7 +82,7 @@ const postNewTenant = async (req, res) => {
     // Insert new tenant into the database
     const [newItemId] = await knex("tenants").insert({
       property_id,
-      tenant_name,
+      name,
       room_location,
       monthly_rent,
       messages,
@@ -100,7 +100,7 @@ const postNewTenant = async (req, res) => {
       .select(
         "id",
         "property_id",
-        "tenant_name",
+        "name",
         "room_location",
         "monthly_rent",
         "messages",

@@ -8,7 +8,7 @@ const getAllLandlords = async (_req, res) => {
     const landlordData = data.map((landlordInfo) => {
       const {
         id,
-        landlord_name,
+        name,
         messages,
         rating,
         num_reviews,
@@ -20,7 +20,7 @@ const getAllLandlords = async (_req, res) => {
 
       return {
         id,
-        landlord_name,
+        name,
         messages,
         rating,
         num_reviews,
@@ -61,7 +61,7 @@ const getLandlordById = async (req, res) => {
 const postNewLandlord = async (req, res) => {
   try {
     const {
-      landlord_name,
+      name,
       messages,
       rating,
       num_reviews,
@@ -73,7 +73,7 @@ const postNewLandlord = async (req, res) => {
 
     // Insert new landlord into the database
     const [newItemId] = await knex("landlords").insert({
-      landlord_name,
+      name,
       messages,
       rating,
       num_reviews,
@@ -88,7 +88,7 @@ const postNewLandlord = async (req, res) => {
       .where({ id: newItemId })
       .select(
         "id",
-        "landlord_name",
+        "name",
         "messages",
         "rating",
         "num_reviews",

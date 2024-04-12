@@ -5,7 +5,7 @@
 module.exports = [
   {
     id: 1,
-    landlord_name: "Eli Za",
+    name: "Eli Za",
     messages: "Please fill-in the form for ending the tenancy. Thanks.",
     rating: 4.3,
     num_reviews: 10,
@@ -16,7 +16,7 @@ module.exports = [
   },
   {
     id: 2,
-    landlord_name: "Esther Lee",
+    name: "Esther Lee",
     messages: "Reminder: Rent is due by the end of the month. Thank you.",
     rating: 4.8,
     num_reviews: 15,
@@ -27,7 +27,7 @@ module.exports = [
   },
   {
     id: 3,
-    landlord_name: "Marius Smith",
+    name: "Marius Smith",
     messages:
       "Maintenance work will be conducted next week. Please ensure availability.",
     rating: 4.5,

@@ -11,16 +11,21 @@ exports.up = function (knex) {
       .references("properties.id")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
-    table.string("tenant_name", 255).notNullable();
-    table.string("room_location", 255).notNullable();
-    table.decimal("monthly_rent").notNullable();
-    table.string("messages", 255).notNullable();
-    table.decimal("rating").notNullable();
-    table.integer("num_reviews").notNullable();
-    table.string("email", 255).notNullable();
-    table.string("phone", 255).notNullable();
-    table.string("password", 255).notNullable();
-    table.string("role", 255).notNullable();
+    table.string("name", 255).notNullable().defaultTo("Anonymous Tenant");
+    table.string("room_location", 255).notNullable().defaultTo("No room");
+    table.decimal("monthly_rent").notNullable().defaultTo(2000).defaultTo(0);
+    table
+      .string("messages", 255)
+      .notNullable()
+      .defaultTo(
+        "Thank you for choosing Rentals! We're thrilled to welcome you aboard. Your registration is complete, and you're now part of our community."
+      );
+    table.decimal("rating").notNullable().defaultTo("1");
+    table.integer("num_reviews").notNullable().defaultTo("1");
+    table.string("email", 255).notNullable().defaultTo("");
+    table.string("phone", 255).notNullable().defaultTo("");
+    table.string("password", 255).notNullable().defaultTo("");
+    table.string("role", 255).notNullable().defaultTo("tenant");
     table.timestamp("created_at").defaultTo(knex.fn.now());
     table
       .timestamp("updated_at")
