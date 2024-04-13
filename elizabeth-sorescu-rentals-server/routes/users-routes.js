@@ -1,5 +1,4 @@
 const router = require("express").Router();
-// const landlordController = require("../controllers/landlord-controller");
 const knex = require("knex")(require("../knexfile"));
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -55,17 +54,14 @@ router.post("/register", async (req, res) => {
 // -   Response format: { token: "JWT_TOKEN_HERE" }
 router.post("/login", async (req, res) => {
   const { email, password, role } = req.body;
-
-  if (!email || !password) {
+  let user = req.body;
+  if ((!email || !password, !role)) {
     return res.status(400).send("Please enter the required fields");
   }
-
   // Find the user
-  let user = { email, password, role };
   if (role === "landlord") {
     user = await knex("landlords").where({ email: email }).first();
-  }
-  if (role === "tenant") {
+  } else {
     user = await knex("tenants").where({ email: email }).first();
   }
   if (!user) {
@@ -80,10 +76,9 @@ router.post("/login", async (req, res) => {
     console.log(user.password);
     return res.status(400).send("Invalid password");
   }
-
   // Generate a token
   const token = jwt.sign(
-    { id: user.id, email: user.email },
+    { id: user.id, email: user.email, role: user.role },
     process.env.JWT_KEY,
     {
       expiresIn: "24h",
@@ -98,54 +93,39 @@ router.post("/login", async (req, res) => {
 // -   If no valid JWT is provided, this route will respond with 401 Unauthorized.
 // -   Expected headers: { Authorization: "Bearer JWT_TOKEN_HERE" }
 router.get("/profile", async (req, res) => {
-  // If there is no auth header provided
-  if (!req.headers.authorization) {
-    return res.status(401).send("Please login");
-  }
-
-  // Parse the bearer token
-  const authHeader = req.headers.authorization;
-  const authToken = authHeader.split(" ")[1];
-
-  // Verify the token
   try {
+    const { email, password, role } = req.body;
+    if ((!email || !password, !role)) {
+      return res.status(400).send("Please enter the required fields");
+    }
+    let user = req.body;
+    // Parse the bearer token
+    const authHeader = req.headers.authorization;
+    const authToken = authHeader.split(" ")[1];
     const decoded = jwt.verify(authToken, process.env.JWT_KEY);
 
+    // If there is no auth header provided
+    if (!req.headers.authorization) {
+      return res.status(401).send("Please login");
+    }
+
+    // Verify the token
     // Respond with the appropriate user data
-    let user = null;
-    userLandlord = await knex("landlords").where({ id: decoded.id }).first();
-    userTenant = await knex("tenants").where({ id: decoded.id }).first();
-    if (userLandlord.role === "landlord") {
+    if (user.role === "landlord") {
+      user = await knex("landlords").where({ email: decoded.email }).first();
+
       delete user.password;
       console.log(user);
       res.json(user);
-      return (user = userLandlord);
     } else {
+      user = await knex("tenants").where({ email: decoded.email }).first();
       delete user.password;
       console.log(user);
       res.json(user);
-      return (user = userTenant);
     }
   } catch (error) {
-    // console.log(user);
     console.log(error);
     return res.status(401).send("Invalid auth token");
-
-    ////////////////////////////////
-    //     let user = null;
-
-    //     if (role === "landlord") {
-    //       user = await knex("landlords").where({ id: decoded.id }).first();
-    //     } else {
-    //       user = await knex("tenants").where({ id: decoded.id }).first();
-    //       role = "tenant";
-    //     }
-    //     delete user.password;
-    //     console.log(user);
-    //     res.json(user);
-    //   } catch (error) {
-    //     console.log(error);
-    //     return res.status(401).send("Invalid auth token");
   }
 });
 
