@@ -33,7 +33,8 @@ router.post("/register", async (req, res) => {
     password: hashedPassword,
     role,
   };
-  // Insert it into our database
+
+  // Insert it into the Rentals database
   try {
     if (role === "landlord") {
       await knex("landlords").insert(newLandlord);
@@ -50,7 +51,7 @@ router.post("/register", async (req, res) => {
 
 // ## POST /api/users/login
 // -   Generates and responds a JWT for the user to use for future authorization.
-// -   Expected body: { email, password }
+// -   Expected body: { email, password, role }
 // -   Response format: { token: "JWT_TOKEN_HERE" }
 router.post("/login", async (req, res) => {
   const { email, password, role } = req.body;
@@ -92,6 +93,7 @@ router.post("/login", async (req, res) => {
 // -   Gets information about the currently logged in user.
 // -   If no valid JWT is provided, this route will respond with 401 Unauthorized.
 // -   Expected headers: { Authorization: "Bearer JWT_TOKEN_HERE" }
+// -   Expected body: { email, password, role }
 router.get("/profile", async (req, res) => {
   try {
     const { email, password, role } = req.body;
@@ -117,7 +119,8 @@ router.get("/profile", async (req, res) => {
       delete user.password;
       console.log(user);
       res.json(user);
-    } else {
+    }
+    if (user.role === "tenant") {
       user = await knex("tenants").where({ email: decoded.email }).first();
       delete user.password;
       console.log(user);
