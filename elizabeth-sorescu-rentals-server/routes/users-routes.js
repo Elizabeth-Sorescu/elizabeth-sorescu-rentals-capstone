@@ -61,16 +61,17 @@ router.post("/login", async (req, res) => {
   }
 
   // Find the user
-  let user = null;
+  let user = { email, password, role };
   if (role === "landlord") {
     user = await knex("landlords").where({ email: email }).first();
-  } else {
+  }
+  if (role === "tenant") {
     user = await knex("tenants").where({ email: email }).first();
   }
   if (!user) {
     return res.status(400).send("Invalid email");
   }
-
+  console.log(user);
   // Validate the password
   const isPasswordCorrect = bcrypt.compareSync(password, user.password); //returns false
   if (isPasswordCorrect) {
@@ -88,7 +89,7 @@ router.post("/login", async (req, res) => {
       expiresIn: "24h",
     }
   );
-
+  console.log(user);
   res.json({ token });
 });
 
@@ -111,16 +112,40 @@ router.get("/profile", async (req, res) => {
     const decoded = jwt.verify(authToken, process.env.JWT_KEY);
 
     // Respond with the appropriate user data
-    const user = null;
-    if (role === "landlord") {
-      user = await knex("landlords").where({ id: decoded.id }).first();
+    let user = null;
+    userLandlord = await knex("landlords").where({ id: decoded.id }).first();
+    userTenant = await knex("tenants").where({ id: decoded.id }).first();
+    if (userLandlord.role === "landlord") {
+      delete user.password;
+      console.log(user);
+      res.json(user);
+      return (user = userLandlord);
     } else {
-      user = await knex("tenants").where({ id: decoded.id }).first();
+      delete user.password;
+      console.log(user);
+      res.json(user);
+      return (user = userTenant);
     }
-    delete user.password;
-    res.json(user);
   } catch (error) {
+    // console.log(user);
+    console.log(error);
     return res.status(401).send("Invalid auth token");
+
+    ////////////////////////////////
+    //     let user = null;
+
+    //     if (role === "landlord") {
+    //       user = await knex("landlords").where({ id: decoded.id }).first();
+    //     } else {
+    //       user = await knex("tenants").where({ id: decoded.id }).first();
+    //       role = "tenant";
+    //     }
+    //     delete user.password;
+    //     console.log(user);
+    //     res.json(user);
+    //   } catch (error) {
+    //     console.log(error);
+    //     return res.status(401).send("Invalid auth token");
   }
 });
 
