@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
-import Welcome from "./components/Welcome/Welcome.js";
-import Signup from "./components/Signup/Signup.js";
+import Welcome from "./pages/Welcome/Welcome.js";
+import Signup from "./pages/Signup/Signup.js";
+import Login from "./pages/Login/Login.js";
+import Profile from "./pages/Profile/Profile.js";
 
 function App() {
   return (
@@ -13,6 +15,13 @@ function App() {
 
           {/* Routes for signup */}
           <Route path="/signup" element={<Signup />} />
+
+          {/* Routes for signup */}
+          <Route path="/login" element={<Login />} />
+
+          {/* Routes for welcomepage */}
+          <Route path="/profile" element={<Profile />} />
+
           {/* Route for a properties list page*/}
           {/* <Route path="/properties" element={<Properties />} /> */}
 

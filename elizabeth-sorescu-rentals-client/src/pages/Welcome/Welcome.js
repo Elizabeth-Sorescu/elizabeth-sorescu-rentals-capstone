@@ -1,6 +1,6 @@
 import logo from "../../assets/logos/rentals-logo.png";
 import { NavLink, useNavigate } from "react-router-dom";
-import "../Welcome/Welcome.scss";
+import "./Welcome.scss";
 
 function Welcome() {
   let navigate = useNavigate();
