@@ -94,7 +94,7 @@ router.post("/login", async (req, res) => {
 // -   If no valid JWT is provided, this route will respond with 401 Unauthorized.
 // -   Expected headers: { Authorization: "Bearer JWT_TOKEN_HERE" }
 // -   Expected body: { email, password, role }
-router.get("/profile", async (req, res) => {
+router.get("/current/user", async (req, res) => {
   try {
     // Parse the bearer token from the Authorization header
     const authHeader = req.headers.authorization;
