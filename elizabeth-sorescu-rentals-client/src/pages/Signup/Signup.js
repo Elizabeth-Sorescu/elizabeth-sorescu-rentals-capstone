@@ -23,7 +23,6 @@ function Signup() {
 
     const createNewUser = async () => {
       let response = userInput;
-      // let response = null;
 
       try {
         response = await axios.post(

@@ -47,31 +47,6 @@ function Login() {
     createNewLogin();
   };
 
-  /////////////////////////
-
-  //   const handleSubmit = (event) => {
-  //     event.preventDefault();
-
-  //     axios
-  //       .post("http://localhost:8080/api/users/login", {
-  //         email: event.target.email.value,
-  //         password: event.target.password.value,
-  //         role: event.target.role.value,
-  //       })
-  //       .then((response) => {
-  //         sessionStorage.setItem("token", response.data.token);
-  //         setSuccess(true);
-  //         setError("");
-  //         navigate("/profile");
-  //         console.log(response.data.name); //undefined
-  //         console.log(response.data.email); //undefined
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //         setError(error.response.data);
-  //       });
-  //   };
-
   return (
     <main className="login-page">
       <form className="login" onSubmit={handleSubmit} ref={formRef}>

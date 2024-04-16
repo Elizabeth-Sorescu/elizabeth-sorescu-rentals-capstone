@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Header from "../../components/Header/Header";
 
 function Profile() {
   const [user, setUser] = useState(null);
@@ -61,20 +62,19 @@ function Profile() {
 
   return (
     <main className="profile">
-      {/* <h1 className="profile__title">Profile</h1> */}
-
-      <p>Hi, {user.name}!</p>
-
-      {/* <h2>Welcome back!</h2> */}
-      <p>Email: {user.email}</p>
-      <p>Phone: {user.phone}</p>
-      <p>id: {user.id}</p>
-      <p>role: {user.role}</p>
-      <p>Payment Details</p>
-      <p>Settings</p>
-      <button className="profile__logout" onClick={handleLogout}>
-        Log out
-      </button>
+      <Header />
+      <section>
+        <h1>Hi, {user.name}!</h1>
+        <p>Email: {user.email}</p>
+        <p>Phone: {user.phone}</p>
+        <p>id: {user.id}</p>
+        <p>role: {user.role}</p>
+        <p>Payment Details</p>
+        <p>Settings</p>
+        <button className="profile__logout" onClick={handleLogout}>
+          Log out
+        </button>
+      </section>
     </main>
   );
 }
