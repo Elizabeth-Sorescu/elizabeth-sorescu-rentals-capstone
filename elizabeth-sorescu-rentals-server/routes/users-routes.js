@@ -129,35 +129,3 @@ router.get("/current/user", async (req, res) => {
 });
 
 module.exports = router;
-// try {
-//   let user = req.body;
-//   if (!user.email || !user.password || !user.role) {
-//     return res.status(400).send("Please enter the required fields");
-//   }
-//   // Parse the bearer token
-//   const authHeader = req.headers.authorization;
-//   const authToken = authHeader.split(" ")[1];
-//   const decoded = jwt.verify(authToken, process.env.JWT_KEY);
-//   // If there is no auth header provided
-//   if (!req.headers.authorization) {
-//     return res.status(401).send("Please login");
-//   }
-//   // Verify the token
-//   // Respond with the appropriate user data
-//   if (user.role === "landlord") {
-//     user = await knex("landlords").where({ email: decoded.email }).first();
-//     delete user.password;
-//     console.log(user);
-//     res.json(user);
-//   }
-//   if (user.role === "tenant") {
-//     user = await knex("tenants").where({ email: decoded.email }).first();
-//     delete user.password;
-//     console.log(user);
-//     res.json(user);
-//   }
-// } catch (error) {
-//   console.log(error);
-//   return res.status(401).send("Invalid auth token");
-// }
-// });

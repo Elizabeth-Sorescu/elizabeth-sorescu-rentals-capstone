@@ -1,6 +1,5 @@
 const knex = require("knex")(require("../knexfile"));
-// const { validateNewLandlord } = require("../utils/warehouseHelpers");
-// const { v4: uuidv4 } = require("uuid");
+
 //GET ALL landlords data
 const getAllLandlords = async (_req, res) => {
   try {
