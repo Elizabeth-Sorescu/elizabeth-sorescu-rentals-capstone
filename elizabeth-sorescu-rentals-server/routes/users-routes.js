@@ -96,11 +96,15 @@ router.post("/login", async (req, res) => {
 // -   Expected body: { email, password, role }
 router.get("/profile", async (req, res) => {
   try {
-    const { email, password, role } = req.body;
-    if ((!email || !password, !role)) {
+    let user = req.body;
+    // const { userInput } = req.body;
+    // console.log("line 100 email:" + userInput.email);
+    // console.log("line 101 password:" + userInput.password);
+    // console.log("line 102 role:" + userInput.role);
+    if (!user.email || !user.password || !user.role) {
       return res.status(400).send("Please enter the required fields");
     }
-    let user = req.body;
+
     // Parse the bearer token
     const authHeader = req.headers.authorization;
     const authToken = authHeader.split(" ")[1];
@@ -119,12 +123,18 @@ router.get("/profile", async (req, res) => {
       delete user.password;
       console.log(user);
       res.json(user);
+      console.log("line 100 email:" + user.email);
+      console.log("line 101 password:" + user.password);
+      console.log("line 102 role:" + user.role);
     }
     if (user.role === "tenant") {
       user = await knex("tenants").where({ email: decoded.email }).first();
       delete user.password;
       console.log(user);
       res.json(user);
+      console.log("line 100 email:" + user.email);
+      console.log("line 101 password:" + user.password);
+      console.log("line 102 role:" + user.role);
     }
   } catch (error) {
     console.log(error);
