@@ -20,7 +20,7 @@ function Login() {
       password: password.value,
       role: role.value,
     };
-    debugger;
+
     const createNewLogin = async () => {
       let response = null;
 
@@ -32,8 +32,7 @@ function Login() {
         sessionStorage.setItem("token", response.data.token);
         setSuccess(true);
         setError("");
-        // <Profile userInput={userInput} />;
-        // navigate("/profile", (userInput = { userInput }));
+
         navigate("/profile", {
           state: {
             userInput: userInput,
