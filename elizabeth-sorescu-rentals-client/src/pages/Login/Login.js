@@ -1,5 +1,6 @@
 import "./Login.scss";
 // import Input from "../../components/Input/Input";
+// import Profile from "../Profile/Profile";
 import axios from "axios";
 import { useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -19,7 +20,7 @@ function Login() {
       password: password.value,
       role: role.value,
     };
-
+    debugger;
     const createNewLogin = async () => {
       let response = null;
 
@@ -31,7 +32,13 @@ function Login() {
         sessionStorage.setItem("token", response.data.token);
         setSuccess(true);
         setError("");
-        navigate("/profile");
+        // <Profile userInput={userInput} />;
+        // navigate("/profile", (userInput = { userInput }));
+        navigate("/profile", {
+          state: {
+            userInput: userInput,
+          },
+        });
         console.log(response.data); //
         // console.log(response.data.email); //
       } catch (error) {
@@ -88,6 +95,7 @@ function Login() {
         </div>
 
         <button className="login-btn">Login</button>
+
         {success && <div className="login__message">Go to profile!</div>}
         {error && <div className="login__message">{error}</div>}
       </form>
