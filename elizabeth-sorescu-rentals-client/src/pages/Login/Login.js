@@ -1,6 +1,4 @@
 import "./Login.scss";
-// import Input from "../../components/Input/Input";
-// import Profile from "../Profile/Profile";
 import axios from "axios";
 import { useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -50,8 +48,6 @@ function Login() {
   return (
     <main className="login-page">
       <form className="login" onSubmit={handleSubmit} ref={formRef}>
-        {/* <h1 className="login__title">Log in</h1> */}
-
         <label>EMAIL</label>
         <input type="text" name="email" id="email" />
 

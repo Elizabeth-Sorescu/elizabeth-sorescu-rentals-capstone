@@ -22,7 +22,7 @@ function Header() {
         </div>
         <div className="header-nav__menu--pic">
           <Link to="/properties">
-            <img src={homeIcon} alt="user profile icon"></img>
+            <img src={homeIcon} alt="home icon"></img>
           </Link>
         </div>
       </div>

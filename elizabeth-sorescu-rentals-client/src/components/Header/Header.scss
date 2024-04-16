@@ -7,15 +7,13 @@
   box-sizing: border-box;
 }
 .header-nav {
-  //   background-color: yellow;
   height: 80px;
   width: 100vw;
 }
 
 .header-nav__logo {
-  //   border: 1px solid blue;
-  width: 8vw; //80rem
-  height: 2rem; //30rem
+  width: 8vw;
+  height: 2rem;
   display: flex;
   padding-left: 1.25rem;
   cursor: pointer;
@@ -33,7 +31,5 @@
 
 .header-nav__menu--pic {
   cursor: pointer;
-
-  //   border: 1px solid blue;
   margin-left: 0.5rem;
 }
