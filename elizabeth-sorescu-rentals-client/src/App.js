@@ -20,7 +20,7 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           {/* Routes for welcomepage */}
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/current/user" element={<Profile />} />
 
           {/* Route for a properties list page*/}
           {/* <Route path="/properties" element={<Properties />} /> */}

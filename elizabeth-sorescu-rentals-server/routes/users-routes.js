@@ -96,46 +96,32 @@ router.post("/login", async (req, res) => {
 // -   Expected body: { email, password, role }
 router.get("/profile", async (req, res) => {
   try {
-    let user = req.body;
-    // const { userInput } = req.body;
-    // console.log("line 100 email:" + userInput.email);
-    // console.log("line 101 password:" + userInput.password);
-    // console.log("line 102 role:" + userInput.role);
-    if (!user.email || !user.password || !user.role) {
-      return res.status(400).send("Please enter the required fields");
-    }
-
-    // Parse the bearer token
+    // Parse the bearer token from the Authorization header
     const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res
+        .status(401)
+        .send("Please provide a valid authentication token");
+    }
     const authToken = authHeader.split(" ")[1];
     const decoded = jwt.verify(authToken, process.env.JWT_KEY);
 
-    // If there is no auth header provided
-    if (!req.headers.authorization) {
-      return res.status(401).send("Please login");
-    }
-
-    // Verify the token
-    // Respond with the appropriate user data
-    if (user.role === "landlord") {
+    // Fetch user data based on the decoded email
+    let user;
+    if (decoded.role === "landlord") {
       user = await knex("landlords").where({ email: decoded.email }).first();
-
-      delete user.password;
-      console.log(user);
-      res.json(user);
-      console.log("line 100 email:" + user.email);
-      console.log("line 101 password:" + user.password);
-      console.log("line 102 role:" + user.role);
-    }
-    if (user.role === "tenant") {
+    } else if (decoded.role === "tenant") {
       user = await knex("tenants").where({ email: decoded.email }).first();
-      delete user.password;
-      console.log(user);
-      res.json(user);
-      console.log("line 100 email:" + user.email);
-      console.log("line 101 password:" + user.password);
-      console.log("line 102 role:" + user.role);
+    } else {
+      return res.status(401).send("Invalid user role");
     }
+
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
+    delete user.password;
+    res.json(user);
   } catch (error) {
     console.log(error);
     return res.status(401).send("Invalid auth token");
@@ -143,3 +129,35 @@ router.get("/profile", async (req, res) => {
 });
 
 module.exports = router;
+// try {
+//   let user = req.body;
+//   if (!user.email || !user.password || !user.role) {
+//     return res.status(400).send("Please enter the required fields");
+//   }
+//   // Parse the bearer token
+//   const authHeader = req.headers.authorization;
+//   const authToken = authHeader.split(" ")[1];
+//   const decoded = jwt.verify(authToken, process.env.JWT_KEY);
+//   // If there is no auth header provided
+//   if (!req.headers.authorization) {
+//     return res.status(401).send("Please login");
+//   }
+//   // Verify the token
+//   // Respond with the appropriate user data
+//   if (user.role === "landlord") {
+//     user = await knex("landlords").where({ email: decoded.email }).first();
+//     delete user.password;
+//     console.log(user);
+//     res.json(user);
+//   }
+//   if (user.role === "tenant") {
+//     user = await knex("tenants").where({ email: decoded.email }).first();
+//     delete user.password;
+//     console.log(user);
+//     res.json(user);
+//   }
+// } catch (error) {
+//   console.log(error);
+//   return res.status(401).send("Invalid auth token");
+// }
+// });

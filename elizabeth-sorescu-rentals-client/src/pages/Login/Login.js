@@ -33,13 +33,12 @@ function Login() {
         setSuccess(true);
         setError("");
 
-        navigate("/profile", {
+        navigate("/current/user", {
           state: {
             userInput: userInput,
           },
         });
-        console.log(response.data); //
-        // console.log(response.data.email); //
+        console.log(response.data);
       } catch (error) {
         console.error(error);
         setError(error.response.data);
