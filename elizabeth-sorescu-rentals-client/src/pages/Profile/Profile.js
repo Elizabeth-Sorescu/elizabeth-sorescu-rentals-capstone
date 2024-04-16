@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 function Profile() {
   const [user, setUser] = useState(null);
@@ -75,6 +76,7 @@ function Profile() {
           Log out
         </button>
       </section>
+      <Footer />
     </main>
   );
 }
