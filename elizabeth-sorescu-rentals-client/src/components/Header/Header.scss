@@ -12,13 +12,12 @@
   width: 100vw;
 }
 
-.logo {
+.header-nav__logo {
   //   border: 1px solid blue;
-  width: 40vw; //80rem
+  width: 8vw; //80rem
   height: 2rem; //30rem
   display: flex;
   padding-left: 1.25rem;
-  //   padding-top: 0.5rem;
   cursor: pointer;
   position: absolute;
   top: 5%;
@@ -26,26 +25,15 @@
 }
 
 .header-nav__menu {
-  //   border: 1px solid red;
   float: right;
-  margin-right: 30px;
+  margin-right: 35px;
   margin-top: 50px;
+  display: flex;
 }
-// .icon {
-//   border: 1px solid red;
-// }
 
-// .icon__item {
-//   background-color: pink;
-//   width: 4rem;
-//   //   height: 3rem;
-// }
+.header-nav__menu--pic {
+  cursor: pointer;
 
-// .icon__item--pic {
-//   border: 1px solid green;
-// }
-
-// .icon__item--label {
-//   border: 1px solid green;
-//   width: 3rem;
-// }
+  //   border: 1px solid blue;
+  margin-left: 0.5rem;
+}
