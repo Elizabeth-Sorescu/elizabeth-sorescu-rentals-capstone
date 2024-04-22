@@ -3,7 +3,7 @@ import "./App.scss";
 import Welcome from "./pages/Welcome/Welcome.js";
 import Signup from "./pages/Signup/Signup.js";
 import Login from "./pages/Login/Login.js";
-import Landing from "./pages/Profile/Landing.js";
+import Landing from "./pages/Landing/Landing.js";
 
 function App() {
   return (

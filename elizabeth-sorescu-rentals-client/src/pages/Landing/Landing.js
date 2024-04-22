@@ -1,9 +1,11 @@
 import axios from "axios";
+import "../Landing/Landing.scss";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Properties from "../../components/Properties/Properties";
 import Footer from "../../components/Footer/Footer";
+import addIcon from "../../assets/icons/add.svg";
 
 function Landing() {
   const [user, setUser] = useState(null);
@@ -62,6 +64,11 @@ function Landing() {
     );
   }
 
+  // This click event handler navigates to another component
+  const handleAddProperty = () => {
+    console.log("Image clicked!");
+  };
+
   return (
     <main className="profile">
       <Header />
@@ -75,7 +82,13 @@ function Landing() {
           Log out
         </button>
       </section>
-      <Properties />
+      <Properties user={user} />
+      <img
+        className="add-btn"
+        src={addIcon}
+        alt="add button"
+        onClick={handleAddProperty}
+      ></img>
       <Footer />
     </main>
   );
