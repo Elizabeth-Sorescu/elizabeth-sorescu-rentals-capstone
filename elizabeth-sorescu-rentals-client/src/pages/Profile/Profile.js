@@ -70,6 +70,7 @@ function Profile() {
         <p>Phone: {user.phone}</p>
         <p>id: {user.id}</p>
         <p>role: {user.role}</p>
+
         <p>Payment Details</p>
         <p>Settings</p>
         <button className="profile__logout" onClick={handleLogout}>

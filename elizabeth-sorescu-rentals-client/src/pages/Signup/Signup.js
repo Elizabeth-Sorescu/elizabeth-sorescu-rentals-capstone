@@ -1,4 +1,4 @@
-import logo from "../../assets/logos/rentals-logo.png";
+import logo from "../../assets/logos/rentals-logo-final.svg";
 import "./Signup.scss";
 import { useRef, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
@@ -37,7 +37,6 @@ function Signup() {
         console.error(error);
         setSuccess(false);
         setError(error.response.data);
-        // return;
         return alert("Please enter required fields.");
       }
     };
