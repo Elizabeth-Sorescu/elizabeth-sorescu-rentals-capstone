@@ -3,7 +3,7 @@ import "./App.scss";
 import Welcome from "./pages/Welcome/Welcome.js";
 import Signup from "./pages/Signup/Signup.js";
 import Login from "./pages/Login/Login.js";
-import Profile from "./pages/Profile/Profile.js";
+import Landing from "./pages/Profile/Landing.js";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           {/* Routes for welcomepage */}
-          <Route path="/current/user" element={<Profile />} />
+          <Route path="/current/user" element={<Landing />} />
 
           {/* Route for a properties list page*/}
           {/* <Route path="/properties" element={<Properties />} /> */}

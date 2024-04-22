@@ -2,9 +2,10 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
+import Properties from "../../components/Properties/Properties";
 import Footer from "../../components/Footer/Footer";
 
-function Profile() {
+function Landing() {
   const [user, setUser] = useState(null);
   const [failedAuth, setFailedAuth] = useState(false);
 
@@ -70,16 +71,14 @@ function Profile() {
         <p>Phone: {user.phone}</p>
         <p>id: {user.id}</p>
         <p>role: {user.role}</p>
-
-        <p>Payment Details</p>
-        <p>Settings</p>
         <button className="profile__logout" onClick={handleLogout}>
           Log out
         </button>
       </section>
+      <Properties />
       <Footer />
     </main>
   );
 }
 
-export default Profile;
+export default Landing;
