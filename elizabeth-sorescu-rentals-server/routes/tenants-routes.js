@@ -13,4 +13,9 @@ router
   .delete(tenantController.deleteTenantById)
   .patch(tenantController.updateTenantData);
 
+// Lists all properties in a specific tenant id
+router
+  .route("/:id/properties")
+  .get(tenantController.getPropertiesOfATenantById);
+
 module.exports = router;

@@ -8,12 +8,13 @@ exports.up = function (knex) {
     table
       .integer("property_id")
       .unsigned()
-      .references("properties.id")
+      .references("id")
+      .inTable("properties")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
     table.string("name", 255).notNullable().defaultTo("Anonymous Tenant");
     table.string("room_location", 255).notNullable().defaultTo("No room");
-    table.decimal("monthly_rent").notNullable().defaultTo(2000).defaultTo(0);
+    table.decimal("monthly_rent").notNullable().defaultTo(0);
     table
       .string("messages", 255)
       .notNullable()

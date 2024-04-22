@@ -209,6 +209,7 @@ const getPropertiesOfALandlordById = async (req, res) => {
     });
   }
 };
+
 module.exports = {
   getAllLandlords,
   getLandlordById,

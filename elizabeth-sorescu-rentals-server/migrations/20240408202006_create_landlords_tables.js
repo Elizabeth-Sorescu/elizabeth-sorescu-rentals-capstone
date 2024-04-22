@@ -12,8 +12,8 @@ exports.up = function (knex) {
       .defaultTo(
         "Thank you for choosing Rentals! We're thrilled to welcome you aboard. Your registration is complete, and you're now part of our community."
       );
-    table.decimal("rating").notNullable().defaultTo("1");
-    table.integer("num_reviews").notNullable().defaultTo("1");
+    table.decimal("rating").notNullable().defaultTo(1);
+    table.integer("num_reviews").notNullable().defaultTo(1);
     table.string("email", 255).notNullable().defaultTo("");
     table.string("phone", 255).notNullable().defaultTo("");
     table.string("password", 255).notNullable().defaultTo("");

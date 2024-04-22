@@ -169,10 +169,66 @@ const updateTenantData = async (req, res) => {
   }
 };
 
+//Get all properties of a single tenant by id
+const getPropertiesOfATenantById = async (req, res) => {
+  try {
+    const properties = await knex("tenants")
+      .join("properties", "properties.id", "tenants.property_id")
+      .where({ "tenants.id": req.params.id });
+    const tenantPropertyData = properties.map((item) => {
+      const {
+        id,
+        property_name,
+        street_address,
+        city,
+        country,
+        description,
+        type,
+        monthly_rent,
+        rating,
+        num_reviews,
+        mortgage,
+        strata_fee,
+        property_tax,
+        maintenance_fee,
+      } = item;
+
+      return {
+        id,
+        property_name,
+        street_address,
+        city,
+        country,
+        description,
+        type,
+        monthly_rent,
+        rating,
+        num_reviews,
+        mortgage,
+        strata_fee,
+        property_tax,
+        maintenance_fee,
+      };
+    });
+    if (properties.length === 0) {
+      return res.status(404).json({
+        message: `Tenant with ID ${req.params.id} is not found`,
+      });
+    } else {
+      res.status(200).json(tenantPropertyData);
+    }
+  } catch (error) {
+    res.status(404).json({
+      message: `Unable to retrieve properties of a tenant with ID ${req.params.id}: ${error}`,
+    });
+  }
+};
+
 module.exports = {
   getAllTenants,
   getTenantById,
   postNewTenant,
   deleteTenantById,
   updateTenantData,
+  getPropertiesOfATenantById,
 };
