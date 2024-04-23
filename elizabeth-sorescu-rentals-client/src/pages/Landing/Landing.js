@@ -93,7 +93,6 @@ function Landing() {
         className="add-btn"
         src={addIcon}
         alt="add button"
-        // onClick={() => handleAddProperty(user.id, user.role, user)}
         onClick={() => handleAddProperty({ user })}
       />
 

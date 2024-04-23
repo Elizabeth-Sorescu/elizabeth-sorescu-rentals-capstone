@@ -1,15 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import backBtn from "../../assets/icons/back-button.svg";
 import Header from "../Header/Header";
 
-const AddPropertyForm = ({ user }) => {
+const AddPropertyLandlordForm = ({ user }) => {
   const [userPropertyData, setUserPropertyData] = useState([]);
   const { id } = useParams();
-  const navigate = useNavigate();
-
-  console.log(id);
 
   useEffect(() => {
     // get data from the api using the user data passed as props
@@ -19,7 +16,6 @@ const AddPropertyForm = ({ user }) => {
           `http://localhost:8080/api/landlords/${id}/properties`
         );
         setUserPropertyData(resp.data);
-        console.log(resp.data);
       } catch (error) {
         console.error("Error fetching properties:", error);
       }
@@ -28,6 +24,7 @@ const AddPropertyForm = ({ user }) => {
   }, [id]);
 
   const formRef = useRef();
+  const typeInputRef = useRef(); // Create a ref for the Type input
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -41,7 +38,7 @@ const AddPropertyForm = ({ user }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setNewProperty({ ...userPropertyData, ...newProperty, [name]: value });
+    setNewProperty({ ...newProperty, [name]: value });
   };
 
   const handleSubmit = async (e) => {
@@ -63,26 +60,50 @@ const AddPropertyForm = ({ user }) => {
       city: city.value,
       description: description.value,
       monthly_rent: monthly_rent.value,
-      landlord_id: id, // Include landlord_id in form data so it would take automatically landlord's id as input
+      landlord_id: id,
     };
 
-    // create new property
+    // Create new property
     try {
       const response = await axios.post(
         "http://localhost:8080/api/properties",
         newPropertyInput
       );
-      console.log("Form submitted successfully");
+
       setSuccess(true);
       setError("");
-      setNewProperty(response.data);
-      console.log(response.data);
+      // setNewProperty(response.data);
+      // Clear input fields after form submitted
+
+      setNewProperty({
+        property_name: "",
+        street_address: "",
+        city: "",
+        description: "",
+        monthly_rent: "",
+      });
+      typeInputRef.current.focus(); // Return focus to the Type input
     } catch (error) {
       console.error("Failed to submit form:", error);
       setSuccess(false);
       setError(error.response.data);
     }
   };
+
+  useEffect(() => {
+    let timeoutId;
+    if (success) {
+      // Automatically hide the success message after 3 seconds
+      timeoutId = setTimeout(() => {
+        setSuccess(false);
+      }, 4000);
+    }
+
+    return () => {
+      // Clear the timeout if component unmounts or success state changes
+      clearTimeout(timeoutId);
+    };
+  }, [success]);
 
   return (
     <div>
@@ -99,6 +120,7 @@ const AddPropertyForm = ({ user }) => {
           <input
             type="text"
             name="type"
+            ref={typeInputRef} // Assign ref to the Type input
             value={newProperty.type || ""}
             onChange={handleChange}
           />
@@ -157,17 +179,18 @@ const AddPropertyForm = ({ user }) => {
         >
           Submit
         </button>
-        {success &&
-          // && (
-          //     <div className="addProperty__message">
-          //       Successfully added new property!
-          //     </div>
-          //   )
-          navigate(`/current/user`)}
+        {success && (
+          // &&
+          <div className="addProperty__message">
+            Successful! You can now view the new property on this
+            <Link to="/current/user"> list </Link> or click the back button.
+          </div>
+        )}
+
         {error && <div className="add-property__message">{error}</div>}
       </form>
     </div>
   );
 };
 
-export default AddPropertyForm;
+export default AddPropertyLandlordForm;
