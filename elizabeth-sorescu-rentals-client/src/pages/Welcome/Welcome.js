@@ -1,4 +1,4 @@
-import backdrop from "../../assets/images/welcome-backdrop.svg";
+import backdrop from "../../assets/images/welcome-backdrop2.svg";
 import { useNavigate } from "react-router-dom";
 import "./Welcome.scss";
 

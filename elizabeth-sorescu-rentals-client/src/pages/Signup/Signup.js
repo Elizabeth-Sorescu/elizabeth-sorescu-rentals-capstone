@@ -31,10 +31,10 @@ function Signup() {
         );
         setSuccess(true);
         setError("");
-        console.log("Signup FE success");
+        console.log("Registered new user successfully");
         return response.data;
       } catch (error) {
-        console.error(error);
+        console.error("Failed to submit form:", error);
         setSuccess(false);
         setError(error.response.data);
         return alert("Please enter required fields.");

@@ -1,15 +1,16 @@
 import axios from "axios";
 import "../Landing/Landing.scss";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Properties from "../../components/Properties/Properties";
 import Footer from "../../components/Footer/Footer";
 import addIcon from "../../assets/icons/add.svg";
 
 function Landing() {
-  const [user, setUser] = useState(null);
+  let [user, setUser] = useState(null);
   const [failedAuth, setFailedAuth] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
@@ -64,9 +65,14 @@ function Landing() {
     );
   }
 
-  // This click event handler navigates to another component
-  const handleAddProperty = () => {
-    console.log("Image clicked!");
+  const handleAddProperty = ({ user }) => {
+    if (user.role === "landlord") {
+      navigate(`/landlords/${user.id}`);
+    }
+    // This is for sprint 2 development
+    if (user.role === "tenant") {
+      navigate(`/tenants/${user.id}`);
+    }
   };
 
   return (
@@ -87,8 +93,10 @@ function Landing() {
         className="add-btn"
         src={addIcon}
         alt="add button"
-        onClick={handleAddProperty}
-      ></img>
+        // onClick={() => handleAddProperty(user.id, user.role, user)}
+        onClick={() => handleAddProperty({ user })}
+      />
+
       <Footer />
     </main>
   );
