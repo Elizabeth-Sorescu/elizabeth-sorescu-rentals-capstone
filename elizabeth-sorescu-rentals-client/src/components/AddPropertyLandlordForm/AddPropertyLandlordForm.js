@@ -4,7 +4,7 @@ import axios from "axios";
 import backBtn from "../../assets/icons/back-button.svg";
 import Header from "../Header/Header";
 
-const AddPropertyLandlordForm = ({ user }) => {
+const AddPropertyLandlordForm = () => {
   const [userPropertyData, setUserPropertyData] = useState([]);
   const { id } = useParams();
 
@@ -65,16 +65,15 @@ const AddPropertyLandlordForm = ({ user }) => {
 
     // Create new property
     try {
-      const response = await axios.post(
+      await axios.post(
         "http://localhost:8080/api/properties",
         newPropertyInput
       );
 
       setSuccess(true);
       setError("");
-      // setNewProperty(response.data);
-      // Clear input fields after form submitted
 
+      // Clear input fields after the form is submitted
       setNewProperty({
         property_name: "",
         street_address: "",
