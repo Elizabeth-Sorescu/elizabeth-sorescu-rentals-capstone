@@ -100,7 +100,7 @@ Desktop Flexibility:
 ### Tech Stack
 
 - React
-- TypeScript
+- Javascript
 - MySQL
 - Express
 - Client libraries:
