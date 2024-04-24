@@ -5,7 +5,7 @@ import axios from "axios";
 import Header from "../Header/Header";
 import PropertyTenantsList from "../PropertyTenantsList/PropertyTenantsList";
 
-function SinglePropertyDetails() {
+function SinglePropertyDetails({ property }) {
   const [propertyData, setPropertyData] = useState([]);
   const [tenantsData, setTenantsData] = useState([]);
   const { id } = useParams();

@@ -6,8 +6,12 @@ import Header from "../Header/Header";
 
 function PropertyTenantsList({ propertyTenants }) {
   const navigate = useNavigate();
-  const handleAddProperty = () => {
-    navigate(`/tenants`);
+  //   const handleAddTenant = () => {
+  //     navigate(`/tenants`); //this will navigate to AddTenantLandlordForm component
+  //   };
+
+  const handleAddTenant = () => {
+    navigate(`/tenants`, { state: { propertyTenants } });
   };
   return (
     <main>
@@ -19,6 +23,7 @@ function PropertyTenantsList({ propertyTenants }) {
               <p> {tenant.id}</p>
               <p> {tenant.name}</p>
               <p> {tenant.room_location}</p>
+              <p>Property id: {tenant.property_id}</p>
             </div>
           );
         })}
@@ -27,7 +32,8 @@ function PropertyTenantsList({ propertyTenants }) {
           className="add-btn"
           src={addBtn}
           alt="add button"
-          onClick={() => handleAddProperty({ propertyTenants })}
+          onClick={handleAddTenant}
+          //   onClick={() => handleAddTenant({ propertyTenants })}
         />
       </div>
     </main>
