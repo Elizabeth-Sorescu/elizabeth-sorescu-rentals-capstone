@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import backBtn from "../../assets/icons/back-button.svg";
 import Header from "../Header/Header";
@@ -7,10 +7,9 @@ import Header from "../Header/Header";
 const AddTenantLandlordForm = () => {
   const [tenantData, setTenantData] = useState([]);
   const [propertyData, setPropertyData] = useState([]);
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-  let { id } = useParams();
-  id = propertyData.id;
-  console.log(id);
   useEffect(() => {
     // get data from the api using the user data passed as props
     const fetchProperty = async () => {
@@ -58,6 +57,11 @@ const AddTenantLandlordForm = () => {
     phone: "",
   });
 
+  // useEffect(() => {
+  //   // Clear property data state initially
+  //   setPropertyData({});
+  // }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewTenant({ ...newTenant, [name]: value });
@@ -84,7 +88,7 @@ const AddTenantLandlordForm = () => {
       setSuccess(true);
       setError("");
 
-      // Clear input fields after the form is submitted
+      // Clear input fields after the form is submitted successfully
       setNewTenant({
         name: "",
         room_location: "",
@@ -113,7 +117,7 @@ const AddTenantLandlordForm = () => {
       // Clear the timeout if component unmounts or success state changes
       clearTimeout(timeoutId);
     };
-  }, [success]);
+  }, [success, navigate, id]);
 
   return (
     <div>
@@ -185,7 +189,8 @@ const AddTenantLandlordForm = () => {
           // &&
           <div className="add-tenant-message">
             Successful! You can now view the newly added tenant on this
-            <Link to="/properties/:id"> list </Link> or click the back button.
+            <Link to={`/properties/${id}`}> list </Link> or click the back
+            button.
           </div>
         )}
 

@@ -39,7 +39,7 @@ function App() {
             element={<SinglePropertyDetails property={property} />}
           />
           {/* Route for tenant page */}
-          <Route path="/tenants/*" element={<AddTenantLandlordForms />} />
+          <Route path="/tenants/id" element={<AddTenantLandlordForms />} />
           {/* <Route
             path="/tenants/:id"
             element={<AddPropertyTenantForm user={user} />}

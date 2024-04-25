@@ -1,5 +1,5 @@
 import "../Header/Header.scss";
-import logo from "../../assets/logos/rentals-logo-final.svg";
+import logo from "../../assets/logos/rentals-caps-logo1.svg";
 import profileIcon from "../../assets/icons/icons8-user-24.png";
 import homeIcon from "../../assets/icons/icons8-home-24.png";
 import { NavLink, Link } from "react-router-dom";
