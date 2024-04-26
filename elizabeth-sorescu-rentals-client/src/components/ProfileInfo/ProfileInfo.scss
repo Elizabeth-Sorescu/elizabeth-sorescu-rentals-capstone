@@ -1,0 +1,16 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
+.profile-info {
+  background-color: white;
+  position: fixed; //if this is not fixed, the DeleteWarehouse component would be visible on WarehouseCard
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.profile-info__elem {
+  background-color: pink; // $color-white;
+  border-radius: 1%;
+}
