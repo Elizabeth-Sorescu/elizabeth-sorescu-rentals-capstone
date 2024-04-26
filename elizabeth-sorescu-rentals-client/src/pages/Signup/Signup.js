@@ -74,17 +74,14 @@ function Signup() {
     const isLandlordEmailRegistered = landlordUsers.some(
       (user) => user.email === email.value
     );
-    if (isLandlordEmailRegistered) {
-      setError("This email is already registered. Please try another email.");
-      return;
-    }
 
     // Check if a new user is already registered on the tenants table
     const isTenantEmailRegistered = tenantUsers.some(
       (user) => user.email === email.value
     );
-    if (isTenantEmailRegistered) {
-      setError("This email is already registered");
+
+    if (isLandlordEmailRegistered && isTenantEmailRegistered) {
+      setError("This email is already registered.");
       return;
     }
 
