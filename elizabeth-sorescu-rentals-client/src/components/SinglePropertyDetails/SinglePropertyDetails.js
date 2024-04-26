@@ -65,7 +65,10 @@ function SinglePropertyDetails({ property }) {
       </div>
 
       <div className="tenant-card">
-        <PropertyTenantsList propertyTenants={propertyTenants} />
+        <PropertyTenantsList
+          propertyTenants={propertyTenants}
+          setPropertyTenants={setPropertyTenants}
+        />
         {/* {propertyTenants.map((tenant) => {
           return (
             <div>

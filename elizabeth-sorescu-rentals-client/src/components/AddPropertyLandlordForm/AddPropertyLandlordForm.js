@@ -1,3 +1,4 @@
+import "../AddPropertyLandlordForm/AddPropertyLandlordForm.scss";
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
@@ -105,90 +106,92 @@ const AddPropertyLandlordForm = () => {
   }, [success]);
 
   return (
-    <div>
-      <Header />
-      <div className="logo">
-        <Link to="/current/user">
-          <img src={backBtn} alt="back button"></img>
-        </Link>
-      </div>
-      <h2>Add Property</h2>
-      <form id="new-property-form" onSubmit={handleSubmit} ref={formRef}>
-        <label>
-          Type:
-          <input
-            type="text"
-            name="type"
-            ref={typeInputRef} // Assign ref to the Type input
-            value={newProperty.type || ""}
-            onChange={handleChange}
-          />
-        </label>
+    <main className="add-property">
+      <section className="add-property__elem">
+        <Header />
+        <div className="logo">
+          <Link to="/current/user">
+            <img src={backBtn} alt="back button"></img>
+          </Link>
+        </div>
+        <h2>Add Property</h2>
+        <form id="new-property-form" onSubmit={handleSubmit} ref={formRef}>
+          <label>
+            Type:
+            <input
+              type="text"
+              name="type"
+              ref={typeInputRef} // Assign ref to the Type input
+              value={newProperty.type || ""}
+              onChange={handleChange}
+            />
+          </label>
 
-        <label>
-          Property Name:
-          <input
-            type="text"
-            name="property_name"
-            value={newProperty.property_name || ""}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Property Address:
-          <input
-            type="text"
-            name="street_address"
-            value={newProperty.street_address || ""}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          City:
-          <input
-            type="text"
-            name="city"
-            value={newProperty.city || ""}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Description:
-          <input
-            type="text"
-            name="description"
-            value={newProperty.description || ""}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Monthly Rent:
-          <input
-            type="decimal"
-            name="monthly_rent"
-            value={newProperty.monthly_rent || ""}
-            onChange={handleChange}
-          />
-        </label>
-        <button
-          type="submit"
-          form="new-property-form"
-          value="AddProperty"
-          id="submit-btn"
-        >
-          Submit
-        </button>
-        {success && (
-          // &&
-          <div className="addProperty__message">
-            Successful! You can now view the new property on this
-            <Link to="/current/user"> list </Link> or click the back button.
-          </div>
-        )}
+          <label>
+            Property Name:
+            <input
+              type="text"
+              name="property_name"
+              value={newProperty.property_name || ""}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Property Address:
+            <input
+              type="text"
+              name="street_address"
+              value={newProperty.street_address || ""}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            City:
+            <input
+              type="text"
+              name="city"
+              value={newProperty.city || ""}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Description:
+            <input
+              type="text"
+              name="description"
+              value={newProperty.description || ""}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Monthly Rent:
+            <input
+              type="decimal"
+              name="monthly_rent"
+              value={newProperty.monthly_rent || ""}
+              onChange={handleChange}
+            />
+          </label>
+          <button
+            type="submit"
+            form="new-property-form"
+            value="AddProperty"
+            id="submit-btn"
+          >
+            Submit
+          </button>
+          {success && (
+            // &&
+            <div className="addProperty__message">
+              Successful! You can now view the new property on this
+              <Link to="/current/user"> list </Link> or click the back button.
+            </div>
+          )}
 
-        {error && <div className="add-property__message">{error}</div>}
-      </form>
-    </div>
+          {error && <div className="add-property__message">{error}</div>}
+        </form>
+      </section>
+    </main>
   );
 };
 
