@@ -115,7 +115,7 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
               type="checkbox"
               id={`payment-status-${tenant.id}`}
               onChange={() => handlePaidButtonClick(tenant.id)}
-              checked={paymentStatus[tenant.id] || false} // Check if payment status is true
+              checked={paymentStatus[tenant.id] || false}
             />
             <label htmlFor={`payment-status-${tenant.id}`}>
               Payment Status

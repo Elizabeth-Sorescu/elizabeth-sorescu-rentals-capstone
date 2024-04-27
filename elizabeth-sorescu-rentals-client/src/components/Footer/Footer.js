@@ -5,11 +5,6 @@ function Footer() {
     <div>
       <div className="footer-icons">
         <div className="footer-icons__fb">
-          <a href="https://www.facebook.com/" target="_blank">
-            <img src={fbIcon} alt="user profile icon"></img>
-          </a>
-        </div>
-        <div className="footer-icons__fb">
           <img
             src={fbIcon}
             alt="user profile icon"

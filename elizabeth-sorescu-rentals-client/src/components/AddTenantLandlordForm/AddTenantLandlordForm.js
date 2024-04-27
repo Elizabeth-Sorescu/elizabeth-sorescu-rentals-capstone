@@ -1,6 +1,5 @@
 import "../AddTenantLandlordForm/AddTenantLandlordForm.scss";
 import React, { useState, useRef } from "react";
-import axios from "axios";
 
 function AddTenantLandlordForm({ onSubmit, propertyTenants }) {
   const [newTenant, setNewTenant] = useState({
