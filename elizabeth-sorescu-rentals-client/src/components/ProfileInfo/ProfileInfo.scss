@@ -3,7 +3,7 @@
 
 .profile-info {
   background-color: white;
-  position: fixed; //if this is not fixed, the DeleteWarehouse component would be visible on WarehouseCard
+  position: fixed; //if this is not fixed, modal component
   top: 0;
   left: 0;
   right: 0;
@@ -11,6 +11,6 @@
 }
 
 .profile-info__elem {
-  background-color: pink; // $color-white;
+  background-color: pink;
   border-radius: 1%;
 }

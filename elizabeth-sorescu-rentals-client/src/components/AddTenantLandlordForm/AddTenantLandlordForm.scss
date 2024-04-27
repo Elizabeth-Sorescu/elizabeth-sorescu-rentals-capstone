@@ -2,15 +2,14 @@
 @use "../../styles/partials/mixins";
 
 .add-tenant {
-  background-color: white;
-  position: fixed; //if this is not fixed, the DeleteWarehouse component would be visible on WarehouseCard
-  top: 0;
+  background-color: white; //modal
+  position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
 }
 
 .add-tenant__elem {
-  background-color: pink; // $color-white;
+  background-color: pink;
   border-radius: 1%;
 }
