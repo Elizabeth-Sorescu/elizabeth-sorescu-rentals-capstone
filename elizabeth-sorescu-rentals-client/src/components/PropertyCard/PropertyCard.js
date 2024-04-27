@@ -32,8 +32,6 @@ function PropertyCard({ property }) {
   const currentMonthName = monthNames[currentMonthIndex];
 
   const handlePropertyClick = () => {
-    alert();
-    // `I am a property in ${property.property_name} clicked! with ${property.id} `
     navigate(`/properties/${property.id}`);
   };
   return (

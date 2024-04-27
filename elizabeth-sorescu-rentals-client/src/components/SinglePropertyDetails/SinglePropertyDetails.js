@@ -5,7 +5,7 @@ import axios from "axios";
 import Header from "../Header/Header";
 import PropertyTenantsList from "../PropertyTenantsList/PropertyTenantsList";
 
-function SinglePropertyDetails({ property }) {
+function SinglePropertyDetails() {
   const [propertyData, setPropertyData] = useState([]);
   const [tenantsData, setTenantsData] = useState([]);
   const { id } = useParams();
@@ -16,8 +16,7 @@ function SinglePropertyDetails({ property }) {
     const fetchSinglePropertyById = async () => {
       try {
         let resp = await axios.get(
-          `http://localhost:8080/api/properties/${id}`,
-          propertyData
+          `http://localhost:8080/api/properties/${id}`
         );
         setPropertyData(resp.data);
         console.log(propertyData);
@@ -26,16 +25,13 @@ function SinglePropertyDetails({ property }) {
       }
     };
     fetchSinglePropertyById();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     // get data from the api using the user data passed as props
     const fetchAllPropertyTenants = async () => {
       try {
-        let resp = await axios.get(
-          `http://localhost:8080/api/tenants`,
-          tenantsData
-        );
+        let resp = await axios.get(`http://localhost:8080/api/tenants`);
         setTenantsData(resp.data);
         console.log(tenantsData);
       } catch (error) {
@@ -56,7 +52,7 @@ function SinglePropertyDetails({ property }) {
   console.log(propertyTenants);
   return (
     <main>
-      <Header />
+      <Header user={propertyData.landlord_id} handleLogout={() => {}} />
       <div>
         <h1> This is Single property Details</h1>
         <p> {propertyData.id}</p>
@@ -64,20 +60,11 @@ function SinglePropertyDetails({ property }) {
         <p> {propertyData.property_name}</p>
       </div>
 
-      <div className="tenant-card">
+      <div className="tenants-list">
         <PropertyTenantsList
           propertyTenants={propertyTenants}
           setPropertyTenants={setPropertyTenants}
         />
-        {/* {propertyTenants.map((tenant) => {
-          return (
-            <div>
-              <p> {tenant.id}</p>
-              <p> {tenant.name}</p>
-              <p> {tenant.room_location}</p>
-            </div>
-          );
-        })} */}
       </div>
     </main>
   );

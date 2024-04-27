@@ -1,7 +1,8 @@
 import "./Login.scss";
 import axios from "axios";
 import { useRef, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, NavLink } from "react-router-dom";
+import logo from "../../assets/logos/rentals-caps-logo1.svg";
 
 function Login() {
   const formRef = useRef();
@@ -12,6 +13,25 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const { email, password, role } = formRef.current;
+
+    // Validate if email, password, and role are not empty
+    if (!email.value || !password.value || !role.value) {
+      setError("Please fill out all fields.");
+      return;
+    }
+
+    //Validate Email is in acceptable format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    // Validate strength of the password
+    if (password.value.length < 8) {
+      setError("Password must be at least 8 characters long.");
+      return;
+    }
 
     let userInput = {
       email: email.value,
@@ -36,7 +56,6 @@ function Login() {
             userInput: userInput,
           },
         });
-        console.log(response.data);
       } catch (error) {
         console.error(error);
         setError(error.response.data);
@@ -47,6 +66,11 @@ function Login() {
 
   return (
     <main className="login-page">
+      <NavLink to="/">
+        <div className="header-nav__logo">
+          <img src={logo} alt="rentals logo" />
+        </div>
+      </NavLink>
       <form className="login" onSubmit={handleSubmit} ref={formRef}>
         <label>EMAIL</label>
         <input type="text" name="email" id="email" />
@@ -65,7 +89,9 @@ function Login() {
 
         <button className="login-btn">Login</button>
 
-        {success && <div className="login__message">Go to profile!</div>}
+        {success && (
+          <div className="login__message">You have successfuly logged in!</div>
+        )}
         {error && <div className="login__message">{error}</div>}
       </form>
       <p>

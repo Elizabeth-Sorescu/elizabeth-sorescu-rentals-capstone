@@ -12,7 +12,6 @@ function Header({ user, handleLogout }) {
     setShowProfileInfo(!showProfileInfo);
   };
 
-  console.log(showProfileInfo);
   return (
     <nav className="header-nav">
       <label>
@@ -32,7 +31,8 @@ function Header({ user, handleLogout }) {
           </Link>
         </div>
       </div>
-      {showProfileInfo && (
+      {/* Check if user is defined before rendering ProfileInfo */}
+      {user && showProfileInfo && (
         <ProfileInfo user={user} handleLogout={handleLogout} />
       )}
     </nav>
