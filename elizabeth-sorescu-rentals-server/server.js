@@ -13,7 +13,7 @@ const usersRoutes = require("./routes/users-routes");
 app.use(cors()); // Enable CORS for all routes
 app.use(express.json());
 
-app.use("/api/users", usersRoutes); //throw new TypeError('Router.use() requires a middleware function but got a ' + gettype(fn))
+app.use("/api/users", usersRoutes);
 
 // Routes
 app.use("/api/landlords", landlordsRoutes);
