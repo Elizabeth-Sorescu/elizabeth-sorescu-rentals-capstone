@@ -1,10 +1,8 @@
-import logo from "../../assets/logos/rentals-low-logo.svg";
+import logo from "../../assets/logos/main-rentals-logo.svg";
 import "./Signup.scss";
-import { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import axios from "axios";
-
-// To do: Fix bug for email to check for BOTH landlords and tenants tables
 
 function Signup() {
   const formRef = useRef();

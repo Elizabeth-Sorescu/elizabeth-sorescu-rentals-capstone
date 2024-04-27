@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import ProfileInfo from "../../components/ProfileInfo/ProfileInfo";
-import logo from "../../assets/logos/rentals-caps-logo1.svg";
-import profileIcon from "../../assets/icons/icons8-user-24.png";
-import homeIcon from "../../assets/icons/icons8-home-24.png";
+import logo from "../../assets/logos/main-rentals-logo.svg";
+import profileIcon from "../../assets/icons/profile-gray.svg";
+import homeIcon from "../../assets/icons/home-gray.svg";
 import { NavLink, Link } from "react-router-dom";
 
 function Header({ user, handleLogout }) {
