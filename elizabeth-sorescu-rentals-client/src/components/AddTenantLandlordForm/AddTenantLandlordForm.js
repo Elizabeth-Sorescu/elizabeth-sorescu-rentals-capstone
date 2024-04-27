@@ -1,8 +1,8 @@
 import "../AddTenantLandlordForm/AddTenantLandlordForm.scss";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 
-function AddTenantLandlordForm({ onSubmit }) {
+function AddTenantLandlordForm({ onSubmit, propertyTenants }) {
   const [newTenant, setNewTenant] = useState({
     name: "",
     room_location: "",
@@ -19,7 +19,19 @@ function AddTenantLandlordForm({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(propertyTenants);
+    // Check if the new tenant's email already exists among existing tenants
+    const isDuplicateEmail = propertyTenants.some(
+      (tenant) => tenant.email === newTenant.email
+    );
+
+    if (isDuplicateEmail) {
+      console.error("Tenant with this email already exists.");
+      return;
+    }
+
     onSubmit(newTenant);
+    console.log(newTenant);
   };
 
   return (

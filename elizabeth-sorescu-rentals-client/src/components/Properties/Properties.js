@@ -1,3 +1,4 @@
+///////////////////////////////////////////////////////////////
 import PropertyCard from "../PropertyCard/PropertyCard";
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";

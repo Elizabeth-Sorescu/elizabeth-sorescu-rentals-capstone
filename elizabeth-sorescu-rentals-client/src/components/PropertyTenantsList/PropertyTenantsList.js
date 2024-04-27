@@ -20,9 +20,33 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
     setPaymentStatus(initialPaymentStatus);
   }, [propertyTenants]);
 
+  useEffect(() => {
+    // Fetch existing tenants to check for duplicates
+    const fetchTenants = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/api/tenants");
+        setPropertyTenants(response.data);
+      } catch (error) {
+        console.error("Error fetching tenants:", error);
+      }
+    };
+    fetchTenants();
+  }, []);
+
   const handleSubmit = async (newTenant) => {
     const propertyId =
       propertyTenants.length > 0 ? propertyTenants[0].property_id : "";
+
+    // Check if the new tenant's email already exists among property tenants
+    const isDuplicateEmail = propertyTenants.some(
+      (tenant) => tenant.email === newTenant.email
+    );
+
+    if (isDuplicateEmail) {
+      setError("Tenant with this email already exists.");
+      setSuccess(false);
+      return;
+    }
 
     const newTenantInput = { ...newTenant, property_id: propertyId };
 
@@ -101,15 +125,18 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
       </div>
 
       {showAddTenantForm ? (
-        <AddTenantLandlordForm onSubmit={handleSubmit} />
+        <AddTenantLandlordForm
+          onSubmit={handleSubmit}
+          propertyTenants={propertyTenants}
+        />
       ) : (
         <button onClick={() => setShowAddTenantForm(true)}>Add Tenant</button>
       )}
 
+      {error && <div className="error-message">{error}</div>}
       {success && (
         <div className="success-message">Tenant added successfully!</div>
       )}
-      {error && <div className="error-message">{error}</div>}
     </main>
   );
 }

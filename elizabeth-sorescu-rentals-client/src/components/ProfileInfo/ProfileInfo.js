@@ -5,6 +5,7 @@ function ProfileInfo({ user, handleLogout }) {
   return (
     <main className="profile-info">
       <section className="profile-info__elem">
+        <img src="" alt="user avatar"></img>
         <h1>Hi, {user.name}!</h1>
         <p>Email: {user.email}</p>
         <p>Phone: {user.phone}</p>
