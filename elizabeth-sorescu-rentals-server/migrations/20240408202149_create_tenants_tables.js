@@ -15,6 +15,8 @@ exports.up = function (knex) {
     table.string("name", 255).notNullable().defaultTo("Anonymous Tenant");
     table.string("room_location", 255).notNullable().defaultTo("No room");
     table.decimal("monthly_rent").notNullable().defaultTo(0);
+    table.timestamp("rent_payment_date").defaultTo(knex.fn.now());
+
     table
       .string("messages", 255)
       .notNullable()
