@@ -11,7 +11,7 @@ module.exports = [
     num_reviews: 10,
     email: "eli.za@gmail.com",
     phone: 7763970457,
-    password: "testtest",
+    password: "$2a$10$/fFO0Xz6YzkDomjiVCNFSOu1Zd44j7E9DY4R2nj.9yQ02lRbZK.si",
     role: "landlord",
   },
   {
@@ -22,7 +22,7 @@ module.exports = [
     num_reviews: 15,
     email: "esther.lee@gmail.com",
     phone: "7781234567",
-    password: "testtest",
+    password: "$2a$10$/fFO0Xz6YzkDomjiVCNFSOu1Zd44j7E9DY4R2nj.9yQ02lRbZK.si",
     role: "landlord",
   },
   {
@@ -34,7 +34,7 @@ module.exports = [
     num_reviews: 12,
     email: "marius.smith@gmail.com",
     phone: "7789876543",
-    password: "testtest",
+    password: "$2a$10$/fFO0Xz6YzkDomjiVCNFSOu1Zd44j7E9DY4R2nj.9yQ02lRbZK.si",
     role: "landlord",
   },
 ];

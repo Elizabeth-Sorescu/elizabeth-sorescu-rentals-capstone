@@ -55,28 +55,30 @@ router.post("/register", async (req, res) => {
 // -   Response format: { token: "JWT_TOKEN_HERE" }
 router.post("/login", async (req, res) => {
   const { email, password, role } = req.body;
-  let user = req.body;
-  if ((!email || !password, !role)) {
+
+  if (!email || !password || !role) {
     return res.status(400).send("Please enter the required fields");
   }
+
+  let user;
+
   // Find the user
   if (role === "landlord") {
-    user = await knex("landlords").where({ email: email }).first();
-  } else {
-    user = await knex("tenants").where({ email: email }).first();
+    user = await knex("landlords").where({ email }).first();
+  } else if (role === "tenant") {
+    user = await knex("tenants").where({ email }).first();
   }
+
   if (!user) {
     return res.status(400).send("Invalid email");
   }
-  console.log(user);
+
   // Validate the password
-  const isPasswordCorrect = bcrypt.compareSync(password, user.password); //returns false
-  if (isPasswordCorrect) {
-    console.log(isPasswordCorrect);
-    console.log(password);
-    console.log(user.password);
+  const isPasswordCorrect = bcrypt.compareSync(password, user.password);
+  if (!isPasswordCorrect) {
     return res.status(400).send("Invalid password");
   }
+
   // Generate a token
   const token = jwt.sign(
     { id: user.id, email: user.email, role: user.role },
@@ -85,7 +87,7 @@ router.post("/login", async (req, res) => {
       expiresIn: "24h",
     }
   );
-  console.log(user);
+
   res.json({ token });
 });
 

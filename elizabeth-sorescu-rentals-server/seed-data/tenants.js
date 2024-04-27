@@ -15,7 +15,7 @@ module.exports = [
     num_reviews: 11,
     email: "marie.taylor@gmail.com",
     phone: 6046532357,
-    password: "test",
+    password: "$2a$10$/fFO0Xz6YzkDomjiVCNFSOu1Zd44j7E9DY4R2nj.9yQ02lRbZK.si",
     role: "tenant",
   },
   {
@@ -30,7 +30,7 @@ module.exports = [
     num_reviews: 9,
     email: "mercedez.muga @hotmail.com",
     phone: "7783462457",
-    password: "test",
+    password: "$2a$10$/fFO0Xz6YzkDomjiVCNFSOu1Zd44j7E9DY4R2nj.9yQ02lRbZK.si",
     role: "tenant",
   },
   {
@@ -45,7 +45,7 @@ module.exports = [
     num_reviews: 5,
     email: "glory.lin@hotmail.com",
     phone: "2363570864",
-    password: "test",
+    password: "$2a$10$/fFO0Xz6YzkDomjiVCNFSOu1Zd44j7E9DY4R2nj.9yQ02lRbZK.si",
     role: "tenant",
   },
   {
@@ -60,7 +60,7 @@ module.exports = [
     num_reviews: 9,
     email: "esther.victoria@yahoo.com",
     phone: "6049865689",
-    password: "test",
+    password: "$2a$10$/fFO0Xz6YzkDomjiVCNFSOu1Zd44j7E9DY4R2nj.9yQ02lRbZK.si",
     role: "tenant",
   },
   {
@@ -75,7 +75,7 @@ module.exports = [
     num_reviews: 12,
     email: "anne.smith@gmail.com",
     phone: "7781234567",
-    password: "test",
+    password: "$2a$10$/fFO0Xz6YzkDomjiVCNFSOu1Zd44j7E9DY4R2nj.9yQ02lRbZK.si",
     role: "tenant",
   },
 
@@ -91,7 +91,7 @@ module.exports = [
     num_reviews: 11,
     email: "mary.cruz@yahoo.com",
     phone: "7783456789",
-    password: "test",
+    password: "$2a$10$/fFO0Xz6YzkDomjiVCNFSOu1Zd44j7E9DY4R2nj.9yQ02lRbZK.si",
     role: "tenant",
   },
   {
@@ -106,7 +106,7 @@ module.exports = [
     num_reviews: 7,
     email: "alice.kim@hotmail.com",
     phone: "6047654321",
-    password: "test",
+    password: "$2a$10$/fFO0Xz6YzkDomjiVCNFSOu1Zd44j7E9DY4R2nj.9yQ02lRbZK.si",
     role: "tenant",
   },
   {
@@ -122,7 +122,7 @@ module.exports = [
     num_reviews: 10,
     email: "danica.santos@outlook.com",
     phone: "7789876543",
-    password: "test",
+    password: "$2a$10$/fFO0Xz6YzkDomjiVCNFSOu1Zd44j7E9DY4R2nj.9yQ02lRbZK.si",
     role: "tenant",
   },
   {
@@ -137,7 +137,7 @@ module.exports = [
     num_reviews: 8,
     email: "emma.garcia@gmail.com",
     phone: "6042345678",
-    password: "test",
+    password: "$2a$10$/fFO0Xz6YzkDomjiVCNFSOu1Zd44j7E9DY4R2nj.9yQ02lRbZK.si",
     role: "tenant",
   },
   {
@@ -152,7 +152,7 @@ module.exports = [
     num_reviews: 8,
     email: "emily.chui@outlook.com",
     phone: "2364569753",
-    password: "test",
+    password: "$2a$10$/fFO0Xz6YzkDomjiVCNFSOu1Zd44j7E9DY4R2nj.9yQ02lRbZK.si",
     role: "tenant",
   },
   {
@@ -167,7 +167,7 @@ module.exports = [
     num_reviews: 11,
     email: "carla.aquino@yahoo.com",
     phone: "7782348905",
-    password: "test",
+    password: "$2a$10$/fFO0Xz6YzkDomjiVCNFSOu1Zd44j7E9DY4R2nj.9yQ02lRbZK.si",
     role: "tenant",
   },
 ];
