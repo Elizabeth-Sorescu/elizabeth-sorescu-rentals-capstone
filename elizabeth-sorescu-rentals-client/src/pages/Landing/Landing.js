@@ -77,7 +77,7 @@ function Landing() {
   };
 
   return (
-    <main className="profile">
+    <main className="landing">
       <Header user={user} handleLogout={handleLogout} />
       <Properties user={user} />
       <img

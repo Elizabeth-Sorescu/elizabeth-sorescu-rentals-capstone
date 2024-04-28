@@ -1,2 +1,54 @@
-@use "../../styles/partials/variables";
-@use "../../styles/partials/mixins";
+@use "../../styles/partials/fonts" as *;
+
+.signup {
+  border: 1px solid green;
+  font-family: $font-regular;
+  margin: 2rem;
+  color: #737b7d;
+}
+
+.signup__logo {
+  display: flex;
+  justify-content: center;
+}
+
+.signup__form--heading {
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  color: #22215b;
+}
+
+.signup__form--input-label {
+  border: 1px solid blue;
+}
+.signup__form--input-box {
+  background: #f2f3f3;
+  border-radius: 0.5rem;
+  border: none;
+  width: 95%;
+  height: 50px;
+  padding-left: 1rem;
+  margin: 0.5rem 0rem;
+}
+
+input[type="radio"]:checked {
+  accent-color: #008f17;
+}
+
+.signup-btn {
+  background-color: #008f17;
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+  width: 100%;
+  height: 50px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  justify-content: center;
+}
+
+.login-link {
+  text-decoration: none;
+}

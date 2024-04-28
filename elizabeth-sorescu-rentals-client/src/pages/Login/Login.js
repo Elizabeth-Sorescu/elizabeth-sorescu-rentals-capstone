@@ -66,7 +66,7 @@ function Login() {
   };
 
   return (
-    <main className="login-page">
+    <main className="login">
       <NavLink to="/">
         <div className="header-nav__logo">
           <img src={logo} alt="rentals logo" />

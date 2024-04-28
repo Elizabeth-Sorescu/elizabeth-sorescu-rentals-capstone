@@ -1,18 +1,21 @@
-@use "./variables" as *;
+$font-regular: "Poppins-Regular";
+$font-bold: "Poppins-Bold";
+$font-extrabold: "Poppins-ExtraBold";
 
 @font-face {
-  font-family: "Reddit_Mono";
+  font-family: "Poppins-Regular";
   font-weight: 400;
-  src: url($font-redditmono-regular-ttf);
+  src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Reddit_Mono";
+  font-family: "Poppins-Bold";
   font-weight: 600;
-  src: url($font-redditmono-semibold-ttf);
+  src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Reddit_Mono";
+  font-family: "Poppins-ExtraBold";
   font-weight: 700;
-  src: url($font-redditmono-bold-ttf);
+  src: url("../../assets/fonts/Poppins/Poppins-ExtraBold.ttf")
+    format("truetype");
 }

@@ -1,0 +1,7 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/fonts" as *;
+
+.footer-section {
+  font-family: $font-regular;
+}

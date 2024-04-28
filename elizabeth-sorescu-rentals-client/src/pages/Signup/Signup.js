@@ -34,16 +34,10 @@ function Signup() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { name, phone, email, password, role } = formRef.current;
+    const { name, email, password, role } = formRef.current;
 
     // Validate if all fields are non-empty
-    if (
-      !name.value ||
-      !phone.value ||
-      !email.value ||
-      !password.value ||
-      !role.value
-    ) {
+    if (!name.value || !email.value || !password.value || !role.value) {
       setError("Please fill out all fields.");
       return;
     }
@@ -52,13 +46,6 @@ function Signup() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.value)) {
       setError("Please enter a valid email address.");
-      return;
-    }
-
-    // Validate phone number with 10-digit format
-    const phoneRegex = /^\d{10}$/;
-    if (!phoneRegex.test(phone.value)) {
-      setError("Please enter a valid 10-digit phone number.");
       return;
     }
 
@@ -87,7 +74,6 @@ function Signup() {
       // If email is not registered, proceed with user creation
       const userInput = {
         name: name.value,
-        phone: phone.value,
         email: email.value,
         password: password.value,
         role: role.value,
@@ -113,52 +99,79 @@ function Signup() {
   };
 
   return (
-    <main className="signup-page">
+    <main className="signup">
       <NavLink to="/">
-        <div className="rentals-logo">
+        <div className="signup__logo">
           <img className="logo" src={logo} alt="rentals Logo" />
         </div>
       </NavLink>
-      <p className="slogan">
-        Empower Your Rental Journey: Connect, Document, Resolve.
-      </p>
 
-      <form id="signup-form" onSubmit={handleSubmit} ref={formRef}>
-        <h1 id="heading">Sign up</h1>
-        <label>FULLNAME</label>
-        <input type="text" name="name" id="name" />
+      <form className="signup__form" onSubmit={handleSubmit} ref={formRef}>
+        <h1 className="signup__form--heading">Sign up</h1>
+        {/* <div className="signup__form--input-label">NAME</div> */}
+        <input
+          className="signup__form--input-box"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="NAME"
+        />
 
-        <label>PHONE</label>
-        <input type="text" name="phone" id="phone" />
+        {/* <div>EMAIL</div> */}
+        <input
+          className="signup__form--input-box"
+          type="text"
+          name="email"
+          id="email"
+          placeholder="EMAIL"
+        />
 
-        <label>EMAIL</label>
-        <input type="text" name="email" id="email" />
-
-        <label>PASSWORD</label>
-        <div className="password-container">
+        {/* <div>PASSWORD</div> */}
+        <div>
           <input
+            className="signup__form--input-box"
             type={showPassword ? "text" : "password"}
             name="password"
             id="password"
+            placeholder="PASSWORD"
           />
-          <input
-            type="checkbox"
-            id="show-password"
-            onChange={() => setShowPassword(!showPassword)}
-          />
-          <label htmlFor="show-password">Show Password</label>
+          <div>
+            <input
+              type="checkbox"
+              id="show-password"
+              onChange={() => setShowPassword(!showPassword)}
+            />
+            <label htmlFor="show-password">Show</label>
+          </div>
         </div>
 
         <p>Click one that applies to your role</p>
         <div id="roles">
-          <input type="radio" id="landlord" name="role" value="landlord" />
+          <input
+            classname="radio-btn"
+            type="radio"
+            id="landlord"
+            name="role"
+            value="landlord"
+          />
           <label htmlFor="landlord">Landlord</label>
 
-          <input type="radio" id="tenant" name="role" value="tenant" />
+          <input
+            classname="radio-btn"
+            type="radio"
+            id="tenant"
+            name="role"
+            value="tenant"
+          />
           <label htmlFor="tenant">Tenant</label>
         </div>
 
-        <button type="submit" form="signup-form" value="Signup" id="signup-btn">
+        <button
+          type="submit"
+          form="signup-form"
+          value="Signup"
+          className="signup-btn"
+        >
           Submit
         </button>
         {success && (
@@ -169,7 +182,10 @@ function Signup() {
         {error && <div className="signup__message">{error}</div>}
       </form>
       <p>
-        Already have an account? <Link to="/login">LOGIN</Link>
+        Already have an account?{" "}
+        <Link className="login-link" to="/login">
+          LOGIN
+        </Link>
       </p>
     </main>
   );

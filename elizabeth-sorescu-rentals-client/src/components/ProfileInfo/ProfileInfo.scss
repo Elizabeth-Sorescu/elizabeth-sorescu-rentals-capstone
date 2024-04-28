@@ -1,7 +1,9 @@
 @use "../../styles/partials/variables";
 @use "../../styles/partials/mixins";
+@use "../../styles/partials/fonts" as *;
 
 .profile-info {
+  font-family: $font-regular;
   background-color: white;
   position: fixed; //if this is not fixed, modal component
   top: 0;

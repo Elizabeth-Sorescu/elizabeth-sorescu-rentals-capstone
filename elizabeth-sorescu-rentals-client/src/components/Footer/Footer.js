@@ -2,7 +2,7 @@ import fbIcon from "../../assets/icons/soc-med/icons8-facebook-64.png";
 
 function Footer() {
   return (
-    <div>
+    <main className="footer-section">
       <div className="footer-icons">
         <div className="footer-icons__fb">
           <img
@@ -14,7 +14,7 @@ function Footer() {
         </div>
       </div>
       <label>Connect with us</label>
-    </div>
+    </main>
   );
 }
 

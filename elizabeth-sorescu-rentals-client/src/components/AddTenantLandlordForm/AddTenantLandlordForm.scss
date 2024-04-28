@@ -1,7 +1,9 @@
 @use "../../styles/partials/variables";
 @use "../../styles/partials/mixins";
+@use "../../styles/partials/fonts" as *;
 
 .add-tenant {
+  font-family: $font-regular;
   background-color: white; //modal
   position: fixed;
   left: 0;
