@@ -80,13 +80,14 @@ function Landing() {
     <main className="landing">
       <Header user={user} handleLogout={handleLogout} />
       <Properties user={user} />
-      <img
-        className="add-btn"
-        src={addIcon}
-        alt="add button"
-        onClick={() => handleAddProperty({ user, handleLogout })}
-      />
-
+      <div className="landing__add">
+        <img
+          className="landing__add--btn"
+          src={addIcon}
+          alt="add button"
+          onClick={() => handleAddProperty({ user, handleLogout })}
+        />
+      </div>
       <Footer />
     </main>
   );

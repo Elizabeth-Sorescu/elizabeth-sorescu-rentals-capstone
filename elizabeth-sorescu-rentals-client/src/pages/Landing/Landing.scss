@@ -1,12 +1,16 @@
-@use "../../styles/partials/variables";
-@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
 .landing {
-  // border: 1px solid red;
   font-family: $font-regular;
 }
-.add-btn {
-  width: 2.5rem;
-  height: 2.5rem;
+
+.landing__add {
+  text-align: center;
+}
+
+.landing__add--btn {
+  width: 3rem;
+  height: 3rem;
 }

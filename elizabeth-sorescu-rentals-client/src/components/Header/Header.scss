@@ -1,5 +1,5 @@
-@use "../../styles/partials/variables";
-@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 * {
   padding: 0;
@@ -9,6 +9,7 @@
 .header-nav {
   height: 7rem;
   width: 100%;
+  // background-color: rgb(189, 248, 102);
 }
 
 .header-nav__logo {

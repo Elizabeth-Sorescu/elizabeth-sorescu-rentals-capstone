@@ -25,7 +25,7 @@ const AddPropertyLandlordForm = () => {
   }, [id]);
 
   const formRef = useRef();
-  const typeInputRef = useRef(); // Create a ref for the Type input
+  const typeInputRef = useRef();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -39,6 +39,14 @@ const AddPropertyLandlordForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // If the name is "type", enforce the 8-character limit
+    if (name === "type" && value.length > 9) {
+      setError("Type should not exceed 8 characters");
+      return;
+    }
+
+    // If no validation error, clear previous error and update the state
+    setError("");
     setNewProperty({ ...newProperty, [name]: value });
   };
 
@@ -82,7 +90,7 @@ const AddPropertyLandlordForm = () => {
         description: "",
         monthly_rent: "",
       });
-      typeInputRef.current.focus(); // Return focus to the Type input
+      typeInputRef.current.focus();
     } catch (error) {
       console.error("Failed to submit form:", error);
       setSuccess(false);
@@ -121,7 +129,7 @@ const AddPropertyLandlordForm = () => {
             <input
               type="text"
               name="type"
-              ref={typeInputRef} // Assign ref to the Type input
+              ref={typeInputRef}
               value={newProperty.type || ""}
               onChange={handleChange}
             />
@@ -181,7 +189,6 @@ const AddPropertyLandlordForm = () => {
             Submit
           </button>
           {success && (
-            // &&
             <div className="addProperty__message">
               Successful! You can now view the new property on this
               <Link to="/current/user"> list </Link> or click the back button.
