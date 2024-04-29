@@ -6,11 +6,12 @@ const jwt = require("jsonwebtoken");
 //AUTHORIZATION
 // ## POST /api/users/register
 // - Creates a new user.
-// - Expected body: { landlord_name, phone, email, password, role }
+// - Expected body: { landlord_name,  email, phone, password, role }
 router.post("/register", async (req, res) => {
   const { name, phone, email, password, role } = req.body;
 
-  if (!name || !phone || !email || !password || !role) {
+  // Validate if all fields are non-empty except phone field is optional
+  if (!name || !email || !password || !role) {
     console.log(res.data);
     return res.status(400).send("Please enter the required fields.");
   }

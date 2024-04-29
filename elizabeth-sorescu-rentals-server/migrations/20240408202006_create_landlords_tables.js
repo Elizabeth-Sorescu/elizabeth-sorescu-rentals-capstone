@@ -15,7 +15,7 @@ exports.up = function (knex) {
     table.decimal("rating").notNullable().defaultTo(1);
     table.integer("num_reviews").notNullable().defaultTo(1);
     table.string("email", 255).notNullable().defaultTo("");
-    table.string("phone", 255).notNullable().defaultTo("");
+    table.string("phone", 255).notNullable().defaultTo("0000000000");
     table.string("password", 255).notNullable().defaultTo("");
     table.string("role", 255).notNullable().defaultTo("landlord");
     table.timestamp("created_at").defaultTo(knex.fn.now());

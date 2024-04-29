@@ -23,8 +23,8 @@ const getAllLandlords = async (_req, res) => {
         messages,
         rating,
         num_reviews,
-        email,
         phone,
+        email,
         password,
         role,
       };
