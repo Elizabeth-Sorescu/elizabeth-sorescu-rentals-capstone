@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import binIcon from "../../assets/icons/bin.svg";
 import editIcon from "../../assets/icons/edit1.svg";
 import star from "../../assets/icons/star.svg";
+// import star from "../../assets/icons/star-rating.svg";
 
 function PropertyCard({ property }) {
   const navigate = useNavigate();
