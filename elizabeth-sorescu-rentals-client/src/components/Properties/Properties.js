@@ -2,6 +2,8 @@ import PropertyCard from "../PropertyCard/PropertyCard";
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import backBtn from "../../assets/icons/back-button.svg";
+import "./Properties.scss";
 
 function Properties({ user }) {
   const [userPropertyData, setUserPropertyData] = useState([]);
@@ -32,13 +34,23 @@ function Properties({ user }) {
   }, [userPropertyData, userData, id, userData.role]);
 
   return (
-    <main>
-      <h1>Rental Properties</h1>
-      <p>Click on the property tab to view more info</p>
+    <section className="properties">
+      <div className="properties__heading">
+        <img
+          className="properties__heading--back-btn"
+          src={backBtn}
+          alt="back button"
+        ></img>
+        <h1 className="properties__heading--label">Rental Properties</h1>
+      </div>
+      <h2 className="properties__name-greetings">Hi {user.name}!</h2>
+      <p className="properties__label">
+        Click on a property tab to view more information.
+      </p>
       {userPropertyData.map((property) => {
         return <PropertyCard key={property.id} property={property} />;
       })}
-    </main>
+    </section>
   );
 }
 

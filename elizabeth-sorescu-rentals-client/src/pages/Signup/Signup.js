@@ -171,7 +171,12 @@ function Signup() {
                     id="show-password-checkbox"
                     onChange={() => setShowPassword(!showPassword)}
                   />
-                  <label htmlFor="show-password-checkbox">Show</label>
+                  <label
+                    className="signup__form--show"
+                    htmlFor="show-password-checkbox"
+                  >
+                    Show
+                  </label>
                 </div>
               </div>
             </div>
@@ -186,13 +191,15 @@ function Signup() {
                   name="role"
                   value="landlord"
                 />
-                <label className="roles__label-landlord" htmlFor="landlord">
+                <label className="roles__label" htmlFor="landlord">
                   Landlord
                 </label>
               </div>
               <div>
                 <input type="radio" id="tenant" name="role" value="tenant" />
-                <label htmlFor="tenant">Tenant</label>
+                <label className="roles__label" htmlFor="tenant">
+                  Tenant
+                </label>
               </div>
             </div>
           </div>

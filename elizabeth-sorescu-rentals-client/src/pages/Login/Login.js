@@ -86,7 +86,7 @@ function Login() {
         <h1 className="login__form--heading">Login</h1>
         <div className="login__form--inputs">
           <div className="login__form--inputs__textboxes">
-            <div className="signup__form--inputs__elem1">
+            <div className="login__form--inputs__elem1">
               <div>EMAIL</div>
               <input
                 className="login__form--input-box"
@@ -95,7 +95,7 @@ function Login() {
                 id="email"
               />
             </div>
-            <div className="signup__form--inputs__elem2">
+            <div className="login__form--inputs__elem2">
               <div>PASSWORD</div>
               <div>
                 <input
@@ -110,7 +110,12 @@ function Login() {
                     id="show-password-checkbox"
                     onChange={() => setShowPassword(!showPassword)}
                   />
-                  <label htmlFor="show-password-checkbox">Show</label>
+                  <label
+                    className="login__form--show"
+                    htmlFor="show-password-checkbox"
+                  >
+                    Show
+                  </label>
                 </div>
               </div>
             </div>
@@ -125,13 +130,15 @@ function Login() {
                   name="role"
                   value="landlord"
                 />
-                <label className="roles__label-landlord" htmlFor="landlord">
+                <label className="roles__label" htmlFor="landlord">
                   Landlord
                 </label>
               </div>
               <div>
                 <input type="radio" id="tenant" name="role" value="tenant" />
-                <label htmlFor="tenant">Tenant</label>
+                <label className="roles__label" htmlFor="tenant">
+                  Tenant
+                </label>
               </div>
             </div>
           </div>

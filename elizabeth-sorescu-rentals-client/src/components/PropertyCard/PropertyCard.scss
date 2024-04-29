@@ -1,5 +1,14 @@
-@use "../../styles/partials/variables";
-@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.property-card {
+  color: $color-data-darker-blue;
+  margin: 1rem 0rem;
+  border-radius: 0.5rem;
+  padding: 20px;
+  box-shadow: inset 0 -3em 3em rgb(0 200 0 / 30%), 0 0 0 2px white,
+    0.3em 0.3em 1em rgb(26 43 73 / 60%);
+}
 
 .del-btn,
 .ed-btn {

@@ -35,26 +35,22 @@ function PropertyCard({ property }) {
     navigate(`/properties/${property.id}`);
   };
   return (
-    <main>
-      <div>--------------------------------------</div>
-      <div
-        className="property-container"
-        onClick={() => handlePropertyClick({ property })}
-      >
-        <p>Type:{property.type}</p>
-        <p>Rating: {property.rating}</p>
-        <p>Num reviews: {property.num_reviews}</p>
-        <h3>Property Name: {property.property_name}</h3>
+    <section
+      className="property-card"
+      onClick={() => handlePropertyClick({ property })}
+    >
+      <p>{property.type}</p>
+      <p>{property.rating}</p>
+      <p> {property.num_reviews}</p>
+      <h1>{property.property_name}</h1>
 
-        <p>Description: {property.description}</p>
+      <p>{property.description}</p>
 
-        <p>{currentMonthName} Rent</p>
-        <p>${property.monthly_rent}</p>
-        <img className="del-btn" src={binIcon} alt="delete icon"></img>
-        <img className="ed-btn" src={editIcon} alt="edit icon"></img>
-      </div>
-      <div>--------------------------------------</div>
-    </main>
+      <p>{currentMonthName} Rent</p>
+      <p>${property.monthly_rent}</p>
+      <img className="del-btn" src={binIcon} alt="delete icon"></img>
+      <img className="ed-btn" src={editIcon} alt="edit icon"></img>
+    </section>
   );
 }
 

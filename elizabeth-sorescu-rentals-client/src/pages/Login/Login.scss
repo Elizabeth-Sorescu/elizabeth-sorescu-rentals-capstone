@@ -39,11 +39,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // background-color: pink;
 }
 
 .login__form--inputs__textboxes {
-  // border: 1px solid red;
   @include tablet {
     display: flex;
     flex-wrap: wrap;
@@ -55,7 +53,6 @@
   }
 }
 .login__form--input-box {
-  // border: 1px solid blue;
   background: $color-input-box;
   border-radius: 0.5rem;
   border: none;
@@ -73,10 +70,12 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 3rem;
+    padding-bottom: 0rem;
     padding-left: 1rem;
     padding-right: 2rem;
   }
@@ -88,19 +87,16 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  // background-color: yellow;
   @include tablet {
     width: 47%;
     padding: 1rem 0rem 0rem 0rem;
-    // justify-content: space-between;
   }
 }
 
-.role__options--landlord {
-  // margin-right: 2rem;
-  // background-color: pink;
+.roles__label,
+.login__form--show {
+  margin-left: 0.5rem;
 }
-
 .signup__link {
   text-align: center;
   @include tablet {

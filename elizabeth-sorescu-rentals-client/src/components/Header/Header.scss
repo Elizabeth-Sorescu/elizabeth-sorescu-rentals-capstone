@@ -7,29 +7,30 @@
   box-sizing: border-box;
 }
 .header-nav {
-  height: 80px;
-  width: 100vw;
+  height: 7rem;
+  width: 100%;
 }
 
 .header-nav__logo {
-  width: 8vw;
-  height: 2rem;
+  height: 3.5rem;
   display: flex;
   padding-left: 1.25rem;
   cursor: pointer;
   position: absolute;
-  top: 5%;
+  top: 3.5%;
   left: 2%;
 }
 
 .header-nav__menu {
   float: right;
-  margin-right: 35px;
-  margin-top: 50px;
+  margin-right: 2.188rem;
+  margin-top: 3.125rem;
   display: flex;
 }
 
 .header-nav__menu--pic {
   cursor: pointer;
   margin-left: 0.5rem;
+  width: 2rem;
+  height: 2rem;
 }

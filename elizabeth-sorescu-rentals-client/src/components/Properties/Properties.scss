@@ -1,0 +1,32 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.properties {
+  padding: 2rem;
+}
+
+.properties__heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.properties__heading--back-btn {
+  height: 2rem;
+}
+
+.properties__heading--label {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  color: $color-font-gray;
+}
+
+.properties__name-greetings {
+  font-size: 2.5rem;
+  color: $color-data-darker-blue;
+}
+.properties__label {
+  margin: 1rem 0rem 2rem 0rem;
+  color: $color-font-gray;
+}
