@@ -34,24 +34,35 @@ function Signup() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { name, email, password, role } = formRef.current;
+    const { name, phone, email, password, role } = formRef.current;
 
-    // Validate if all fields are non-empty
+    // Validate if all fields are non-empty (phone is optional)
     if (!name.value || !email.value || !password.value || !role.value) {
       setError("Please fill out all fields.");
+      setTimeout(() => setError(""), 3000);
       return;
     }
 
-    //Validate Email is in acceptable format
+    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.value)) {
       setError("Please enter a valid email address.");
+      setTimeout(() => setError(""), 3000);
       return;
     }
 
-    // Validate strength of the password
+    // Validate phone number format
+    const phoneRegex = /^\d{10}$/;
+    if (phone.value.length > 0 && !phoneRegex.test(phone.value)) {
+      setError("Please enter a valid 10-digit phone number.");
+      setTimeout(() => setError(""), 3000);
+      return;
+    }
+
+    // Validate password length
     if (password.value.length < 8) {
       setError("Password must be at least 8 characters long.");
+      setTimeout(() => setError(""), 3000);
       return;
     }
 
@@ -66,7 +77,8 @@ function Signup() {
     );
 
     if (isLandlordEmailRegistered && isTenantEmailRegistered) {
-      setError("This email is already registered.");
+      setError("This email is registered already.");
+      setTimeout(() => setError(""), 3000);
       return;
     }
 
@@ -74,6 +86,7 @@ function Signup() {
       // If email is not registered, proceed with user creation
       const userInput = {
         name: name.value,
+        phone: phone.value,
         email: email.value,
         password: password.value,
         role: role.value,
@@ -89,6 +102,8 @@ function Signup() {
 
       // Reset form fields after successful registration
       formRef.current.reset();
+
+      setTimeout(() => setSuccess(false), 3000);
 
       return response.data;
     } catch (error) {
@@ -106,84 +121,102 @@ function Signup() {
         </div>
       </NavLink>
 
-      <form className="signup__form" onSubmit={handleSubmit} ref={formRef}>
+      <form
+        className="signup__form"
+        id="signup-form"
+        onSubmit={handleSubmit}
+        ref={formRef}
+      >
         <h1 className="signup__form--heading">Sign up</h1>
-        {/* <div className="signup__form--input-label">NAME</div> */}
-        <input
-          className="signup__form--input-box"
-          type="text"
-          name="name"
-          id="name"
-          placeholder="NAME"
-        />
 
-        {/* <div>EMAIL</div> */}
-        <input
-          className="signup__form--input-box"
-          type="text"
-          name="email"
-          id="email"
-          placeholder="EMAIL"
-        />
+        <div className="signup__form--inputs">
+          <div className="signup__form--inputs__textboxes">
+            <div className="signup__form--inputs__elem1">
+              <div>NAME</div>
+              <input
+                className="signup__form--input-box"
+                type="text"
+                name="name"
+                id="name"
+              />
 
-        {/* <div>PASSWORD</div> */}
-        <div>
-          <input
-            className="signup__form--input-box"
-            type={showPassword ? "text" : "password"}
-            name="password"
-            id="password"
-            placeholder="PASSWORD"
-          />
-          <div>
-            <input
-              type="checkbox"
-              id="show-password"
-              onChange={() => setShowPassword(!showPassword)}
-            />
-            <label htmlFor="show-password">Show</label>
+              <div>PHONE (optional)</div>
+              <input
+                className="signup__form--input-box"
+                type="text"
+                name="phone"
+                id="phone"
+              />
+            </div>
+            <div className="signup__form--inputs__elem2">
+              <div>EMAIL</div>
+              <input
+                className="signup__form--input-box"
+                type="text"
+                name="email"
+                id="email"
+              />
+
+              <div>PASSWORD</div>
+              <div>
+                <input
+                  className="signup__form--input-box"
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  id="password"
+                />
+                <div>
+                  <input
+                    type="checkbox"
+                    id="show-password-checkbox"
+                    onChange={() => setShowPassword(!showPassword)}
+                  />
+                  <label htmlFor="show-password-checkbox">Show</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="role">
+            <p className="role__label">Click a role that applies to you:</p>
+            <div className="role__options">
+              <div className="role__options--landlord">
+                <input
+                  type="radio"
+                  id="landlord"
+                  name="role"
+                  value="landlord"
+                />
+                <label className="roles__label-landlord" htmlFor="landlord">
+                  Landlord
+                </label>
+              </div>
+              <div>
+                <input type="radio" id="tenant" name="role" value="tenant" />
+                <label htmlFor="tenant">Tenant</label>
+              </div>
+            </div>
           </div>
         </div>
-
-        <p>Click one that applies to your role</p>
-        <div id="roles">
-          <input
-            classname="radio-btn"
-            type="radio"
-            id="landlord"
-            name="role"
-            value="landlord"
-          />
-          <label htmlFor="landlord">Landlord</label>
-
-          <input
-            classname="radio-btn"
-            type="radio"
-            id="tenant"
-            name="role"
-            value="tenant"
-          />
-          <label htmlFor="tenant">Tenant</label>
+        <div className="form__cta">
+          <button
+            type="submit"
+            form="signup-form"
+            value="Signup"
+            className="form__btn"
+          >
+            Submit
+          </button>
         </div>
-
-        <button
-          type="submit"
-          form="signup-form"
-          value="Signup"
-          className="signup-btn"
-        >
-          Submit
-        </button>
         {success && (
-          <div className="signup__message">
+          <div className="signup__form--success-msg">
             You registered successfully! You can now sign in to your account.
           </div>
         )}
-        {error && <div className="signup__message">{error}</div>}
+        {error && <div className="signup__form--error-msg">{error}</div>}
       </form>
-      <p>
-        Already have an account?{" "}
-        <Link className="login-link" to="/login">
+      <p className="signup__login">
+        Already have an account?{"  "}
+        <Link className="signup__login--link" to="/login">
           LOGIN
         </Link>
       </p>

@@ -2,22 +2,24 @@ import "./Login.scss";
 import axios from "axios";
 import { useRef, useState } from "react";
 import { useNavigate, Link, NavLink } from "react-router-dom";
-import logo from "../../assets/logos/rentals-caps-logo1.svg";
+import logo from "../../assets/logos/main-rentals-logo.svg";
 
 function Login() {
   const formRef = useRef();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [authError, setAuthError] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const { email, password, role } = formRef.current;
 
     // Validate if email, password, and role are not empty
     if (!email.value || !password.value || !role.value) {
       setError("Please fill out all fields.");
+      setTimeout(() => setError(""), 3000);
       return;
     }
 
@@ -25,12 +27,14 @@ function Login() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.value)) {
       setError("Please enter a valid email address.");
+      setTimeout(() => setError(""), 3000);
       return;
     }
 
     // Validate strength of the password
     if (password.value.length < 8) {
       setError("Password must be at least 8 characters long.");
+      setTimeout(() => setError(""), 3000);
       return;
     }
 
@@ -40,75 +44,115 @@ function Login() {
       role: role.value,
     };
 
-    const createNewLogin = async () => {
-      let response = null;
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/users/login",
+        userInput
+      );
+      sessionStorage.setItem("token", response.data.token);
+      setSuccess(true);
+      setError("");
+      setAuthError(false);
 
-      try {
-        response = await axios.post(
-          "http://localhost:8080/api/users/login",
-          userInput
-        );
-        sessionStorage.setItem("token", response.data.token);
-        setSuccess(true);
-        setError("");
-
-        navigate("/current/user", {
-          state: {
-            userInput: userInput,
-          },
-        });
-      } catch (error) {
-        console.error(error);
+      navigate("/current/user", {
+        state: {
+          userInput: userInput,
+        },
+      });
+    } catch (error) {
+      console.error(error);
+      if (error.response.status === 401) {
+        setAuthError(true);
+        setError("Incorrect email or password.");
+      } else {
         setError(error.response.data);
       }
-    };
-    createNewLogin();
+
+      setTimeout(() => {
+        setError("");
+        setAuthError(false);
+      }, 3000);
+    }
   };
 
   return (
     <main className="login">
       <NavLink to="/">
-        <div className="header-nav__logo">
+        <div className="login__logo">
           <img src={logo} alt="rentals logo" />
         </div>
       </NavLink>
-      <form className="login" onSubmit={handleSubmit} ref={formRef}>
-        <label>EMAIL</label>
-        <input type="text" name="email" id="email" />
-
-        <label>PASSWORD</label>
-        <div className="password-container">
-          <input
-            type={showPassword ? "text" : "password"} // Toggle password visibility based on showPassword state
-            name="password"
-            id="password"
-          />
-          <input
-            type="checkbox"
-            id="showPassword"
-            onChange={() => setShowPassword(!showPassword)} // Toggle showPassword state
-          />
-          <label htmlFor="showPassword">Show Password</label>
+      <form className="login__form" onSubmit={handleSubmit} ref={formRef}>
+        <h1 className="login__form--heading">Login</h1>
+        <div className="login__form--inputs">
+          <div className="login__form--inputs__textboxes">
+            <div className="signup__form--inputs__elem1">
+              <div>EMAIL</div>
+              <input
+                className="login__form--input-box"
+                type="text"
+                name="email"
+                id="email"
+              />
+            </div>
+            <div className="signup__form--inputs__elem2">
+              <div>PASSWORD</div>
+              <div>
+                <input
+                  className="login__form--input-box"
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  id="password"
+                />
+                <div>
+                  <input
+                    type="checkbox"
+                    id="show-password-checkbox"
+                    onChange={() => setShowPassword(!showPassword)}
+                  />
+                  <label htmlFor="show-password-checkbox">Show</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="role">
+            <p className="role__label">Click a role that applies to you:</p>
+            <div className="role__options">
+              <div className="role__options--landlord">
+                <input
+                  type="radio"
+                  id="landlord"
+                  name="role"
+                  value="landlord"
+                />
+                <label className="roles__label-landlord" htmlFor="landlord">
+                  Landlord
+                </label>
+              </div>
+              <div>
+                <input type="radio" id="tenant" name="role" value="tenant" />
+                <label htmlFor="tenant">Tenant</label>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <p>Click one that applies to your role</p>
-        <div id="roles">
-          <input type="radio" id="landlord" name="role" value="landlord" />
-          <label htmlFor="landlord">Landlord</label>
-
-          <input type="radio" id="tenant" name="role" value="tenant" />
-          <label htmlFor="tenant">Tenant</label>
+        <div className="form__cta">
+          <button className="form__btn">Submit</button>
         </div>
-
-        <button className="login-btn">Login</button>
-
         {success && (
-          <div className="login__message">You have successfuly logged in!</div>
+          <div className="login__form--success-msg">
+            You have successfuly logged in!
+          </div>
         )}
-        {error && <div className="login__message">{error}</div>}
+        {error && !authError && (
+          <div className="login__form--error-msg">{error}</div>
+        )}
+        {authError && <div className="login__form--error-msg">{error}</div>}
       </form>
-      <p>
-        <Link to="/signup">SIGN UP FOR FREE</Link>
+      <p className="signup__link">
+        <Link className="signup__link--decor" to="/signup">
+          SIGN UP FOR FREE
+        </Link>
       </p>
     </main>
   );

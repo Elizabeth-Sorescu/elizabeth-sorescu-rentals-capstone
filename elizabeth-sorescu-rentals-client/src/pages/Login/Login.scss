@@ -1,10 +1,126 @@
 @use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .login {
-  border: 1px solid red;
   font-family: $font-regular;
+  margin: 3rem 2rem;
+  color: $color-font-gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.login__message {
-  color: red;
+.login__logo {
+  display: flex;
+  justify-content: center;
+}
+
+.login__form--error-msg {
+  color: $color-red;
+  font-weight: 700;
+  text-align: center;
+  @include tablet {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3rem;
+  }
+}
+
+.login__form--heading {
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  color: $color-signup-dark-blue;
+  margin: 3rem 0rem 2rem 0rem;
+}
+
+.login__form--inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // background-color: pink;
+}
+
+.login__form--inputs__textboxes {
+  // border: 1px solid red;
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 101%;
+    height: 200px;
+    margin-left: 1rem;
+    box-sizing: border-box;
+  }
+}
+.login__form--input-box {
+  // border: 1px solid blue;
+  background: $color-input-box;
+  border-radius: 0.5rem;
+  border: none;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  padding-left: 1rem;
+  margin: 0.5rem 0rem;
+  @include tablet {
+    width: 91%;
+  }
+}
+
+.role {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 3rem;
+    padding-left: 1rem;
+    padding-right: 2rem;
+  }
+}
+.role__label {
+  text-align: center;
+}
+.role__options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  // background-color: yellow;
+  @include tablet {
+    width: 47%;
+    padding: 1rem 0rem 0rem 0rem;
+    // justify-content: space-between;
+  }
+}
+
+.role__options--landlord {
+  // margin-right: 2rem;
+  // background-color: pink;
+}
+
+.signup__link {
+  text-align: center;
+  @include tablet {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3rem;
+  }
+}
+.signup__link--decor {
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.login__form--success-msg {
+  color: $color-btns-lighter-green;
+  font-weight: 700;
+  text-align: center;
+  @include tablet {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1.5rem;
+  }
 }

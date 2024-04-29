@@ -7,6 +7,7 @@ function AddTenantLandlordForm({ onSubmit, propertyTenants }) {
     room_location: "",
     monthly_rent: "",
     email: "",
+    phone: "",
   });
   const nameInputRef = useRef();
 
@@ -74,7 +75,15 @@ function AddTenantLandlordForm({ onSubmit, propertyTenants }) {
               onChange={handleChange}
             />
           </label>
-
+          <label>
+            Phone:
+            <input
+              type="tel"
+              name="phone"
+              value={newTenant.phone}
+              onChange={handleChange}
+            />
+          </label>
           <button type="submit">Submit</button>
         </form>
       </section>

@@ -1,10 +1,14 @@
 @use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .signup {
-  border: 1px solid green;
   font-family: $font-regular;
-  margin: 2rem;
-  color: #737b7d;
+  margin: 3rem 2rem;
+  color: $color-font-gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .signup__logo {
@@ -13,33 +17,58 @@
 }
 
 .signup__form--heading {
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   font-size: 1rem;
-  color: #22215b;
+  color: $color-signup-dark-blue;
+  margin: 3rem 0rem 2rem 0rem;
 }
 
-.signup__form--input-label {
-  border: 1px solid blue;
+.signup__form--inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup__form--inputs__textboxes {
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 101%;
+    height: 200px;
+    margin-left: 1rem;
+    box-sizing: border-box;
+  }
 }
 .signup__form--input-box {
-  background: #f2f3f3;
+  background: $color-input-box;
   border-radius: 0.5rem;
   border: none;
-  width: 95%;
+  width: 100%;
   height: 50px;
+  box-sizing: border-box;
   padding-left: 1rem;
+
   margin: 0.5rem 0rem;
+  @include tablet {
+    width: 91%;
+  }
 }
 
 input[type="radio"]:checked {
-  accent-color: #008f17;
+  accent-color: $color-btns-lighter-green;
 }
-
-.signup-btn {
-  background-color: #008f17;
-  color: white;
+.form__cta {
+  @include tablet {
+    display: flex;
+    padding: 5rem 1.5rem 0rem 0rem;
+    flex-direction: row-reverse;
+  }
+}
+.form__btn {
+  background-color: $color-btns-lighter-green;
+  color: $color-white;
   border-radius: 0.5rem;
   border: none;
   width: 100%;
@@ -47,8 +76,76 @@ input[type="radio"]:checked {
   font-size: 1.7rem;
   font-weight: 600;
   justify-content: center;
+  cursor: pointer;
+  @include tablet {
+    width: 45%;
+    flex-direction: row-reverse;
+  }
 }
 
-.login-link {
+.signup__login {
+  text-align: center;
+  @include tablet {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3rem;
+  }
+}
+.signup__login--link {
   text-decoration: none;
+  margin-left: 1rem;
+}
+
+.role {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 3rem;
+    padding-left: 1rem;
+    padding-right: 2rem;
+  }
+}
+.role__label {
+  text-align: center;
+}
+.role__options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  @include tablet {
+    width: 47%;
+    padding: 1rem 0rem 0rem 0rem;
+  }
+}
+
+.role__options--landlord {
+  margin-right: 5rem;
+}
+
+.signup__form--btn {
+  margin-top: 2rem;
+}
+
+.signup__form--success-msg {
+  color: $color-btns-lighter-green;
+  font-weight: 700;
+  text-align: center;
+  @include tablet {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1.5rem;
+  }
+}
+.signup__form--error-msg {
+  color: $color-red;
+  font-weight: 700;
+  text-align: center;
+  @include tablet {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3rem;
+  }
 }

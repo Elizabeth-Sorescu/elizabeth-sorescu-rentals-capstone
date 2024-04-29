@@ -1,5 +1,5 @@
-@use "../../styles/partials/variables";
-@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
 .rentals {
@@ -9,7 +9,6 @@
 }
 
 .rentals__backdrop {
-  border: 1px solid red;
   width: 100vw;
 }
 
@@ -29,12 +28,13 @@
   min-width: 15rem;
   height: 3rem;
   text-align: center;
-  background-color: green;
+  background-color: $color-btns-lighter-green;
   cursor: pointer;
   transition: box-shadow 0.2s;
-  color: white;
+  color: $color-white;
   font-weight: 400;
+
   &:hover {
-    background-color: yellowgreen;
+    background-color: $color-btns-hover-green;
   }
 }
