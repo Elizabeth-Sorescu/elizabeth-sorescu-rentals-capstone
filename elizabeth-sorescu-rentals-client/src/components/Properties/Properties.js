@@ -1,8 +1,8 @@
 import PropertyCard from "../PropertyCard/PropertyCard";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import backBtn from "../../assets/icons/back-button.svg";
+// import backBtn from "../../assets/icons/back-button.svg";
 import "./Properties.scss";
 
 function Properties({ user }) {
@@ -35,20 +35,11 @@ function Properties({ user }) {
 
   return (
     <section className="properties">
+      <h2 className="properties__name-greetings">Hi, {user.name}!</h2>
       <div className="properties__heading">
-        <div className="logo">
-          <Link to="/current/user">
-            <img
-              className="properties__heading--back-btn"
-              src={backBtn}
-              alt="back button"
-            ></img>
-          </Link>
-        </div>
-
         <h1 className="properties__heading--label">Rental Properties</h1>
       </div>
-      <h2 className="properties__name-greetings">Hi {user.name}!</h2>
+
       <p className="properties__label">
         Click on a property tab to view more information.
       </p>

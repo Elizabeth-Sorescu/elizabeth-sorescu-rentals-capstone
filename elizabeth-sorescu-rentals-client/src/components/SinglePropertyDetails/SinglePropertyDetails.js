@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import "./SinglePropertyDetails.scss";
 import Header from "../Header/Header";
+import backBtn from "../../assets/icons/back-button.svg";
 import PropertyTenantsList from "../PropertyTenantsList/PropertyTenantsList";
 
 function SinglePropertyDetails({ handleLogout }) {
@@ -38,14 +40,80 @@ function SinglePropertyDetails({ handleLogout }) {
     fetchPropertyTenants();
   }, [propertyData]);
 
+  // Create a new Date object
+  const currentDate = new Date();
+
+  // Define an array of month names
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  // Get the current month (months are zero-indexed)
+  const currentMonthIndex = currentDate.getMonth();
+
+  // Get the month name based on the current month index
+  const currentMonthName = monthNames[currentMonthIndex];
+
+  // Calculate the total monthly expense
+  const totalExpense =
+    propertyData.mortgage +
+    propertyData.strata_fee +
+    propertyData.property_tax +
+    propertyData.property_insurance +
+    propertyData.maintenance_fee;
+
+  // Calculate the net income
+  const netIncome = propertyData.monthly_rent - totalExpense;
+  const netIncomeClass = netIncome >= 0 ? "positive" : "negative";
+
   return (
-    <main>
+    <main className="property">
       <Header user={propertyData.landlord_id} handleLogout={handleLogout} />
-      <div>
-        <h1>Single Property Details</h1>
-        <p>{propertyData.id}</p>
-        <p>{propertyData.landlord_id}</p>
-        <p>{propertyData.property_name}</p>
+      <div className="property__heading">
+        <Link to="/current/user">
+          <img
+            className="property__heading--back-btn"
+            src={backBtn}
+            alt="back button"
+          ></img>
+        </Link>
+        <h1 className="property__heading--label">View Property</h1>
+      </div>
+      <div className="property__info">
+        <div className="property__info--gross-income">
+          <p>{currentMonthName} Rent: </p>
+          <p className="property__info--gross-income__val">
+            $ {propertyData.monthly_rent}
+          </p>
+        </div>
+        <div className="property__info--expenses">
+          <p>Monthly Expenditures:</p>
+          <p>Mortgage: ${propertyData.mortgage}</p>
+          <p>Strata fee: ${propertyData.strata_fee}</p>
+          <p>Property Tax: ${propertyData.property_tax}</p>
+          <p>Property Insurance: ${propertyData.property_insurance}</p>
+          <p>Repairs & others: ${propertyData.maintenance_fee}</p>
+          <div className="property__info--expenses__total">
+            Less Total Expense: $ {totalExpense}
+          </div>
+        </div>
+        <div className="property__info--net">
+          <p>Net Income:</p>
+          <p className={`property__info--net__${netIncomeClass}`}>
+            $ {netIncome}
+          </p>
+        </div>
       </div>
       <div className="tenants-list">
         <PropertyTenantsList

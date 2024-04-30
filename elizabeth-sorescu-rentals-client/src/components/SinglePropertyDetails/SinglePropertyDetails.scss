@@ -1,0 +1,49 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.property {
+  padding: 0rem 2rem;
+}
+
+.property__heading {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+}
+
+.property__info {
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  box-shadow: inset 0 -3em 3em rgb(0 200 0 / 30%), 0 0 0 2px white,
+    0.3em 0.3em 1em rgb(26 43 73 / 60%);
+}
+
+.property__heading--back-btn {
+  height: 2rem;
+}
+
+.property__heading--label {
+  font-size: 1.5rem;
+  color: $color-font-gray;
+  margin-left: 1rem;
+}
+
+.property__info--gross-income,
+.property__info--expenses__total,
+.property__info--net {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 0.5rem;
+}
+
+.property__info--gross-income__val {
+  margin-left: 1rem;
+}
+
+.property__info--net__positive {
+  color: green;
+}
+
+.property__info--net__negative {
+  color: red;
+}
