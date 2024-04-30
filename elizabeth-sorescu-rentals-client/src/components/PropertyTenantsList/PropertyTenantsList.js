@@ -172,7 +172,7 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
           </section>
         ))}
       </div>
-      {/* should I move Add button to SinglePropertyDetails? */}
+
       {showAddTenantForm ? (
         <AddTenantLandlordForm
           className="add-tenant-form__elem"
