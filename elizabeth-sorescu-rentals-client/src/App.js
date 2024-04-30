@@ -55,8 +55,8 @@ function App() {
           {/* Route for tenant page */}
           {/* <Route path="/tenant/*" element={<Tenant />} /> */}
 
-          {/* Route for other path */}
-          {/* <Route path="/*" element={<OtherRoutes />} /> */}
+          {/* Other route */}
+          {/* <Route path="/*" element={<NotFound />} /> */}
         </Routes>
       </BrowserRouter>
     </>

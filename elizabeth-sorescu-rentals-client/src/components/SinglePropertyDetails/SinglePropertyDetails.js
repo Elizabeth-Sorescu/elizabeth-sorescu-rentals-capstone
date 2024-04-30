@@ -5,6 +5,7 @@ import "./SinglePropertyDetails.scss";
 import Header from "../Header/Header";
 import backBtn from "../../assets/icons/back-button.svg";
 import PropertyTenantsList from "../PropertyTenantsList/PropertyTenantsList";
+import Footer from "../../components/Footer/Footer";
 
 function SinglePropertyDetails({ handleLogout }) {
   const [propertyData, setPropertyData] = useState([]);
@@ -116,13 +117,15 @@ function SinglePropertyDetails({ handleLogout }) {
             $ {netIncome}
           </p>
         </div>
+        <Link className="property__info--details">View More Info</Link>
       </div>
-      <div className="tenants-list">
+      <div className="property__info--tenants-list">
         <PropertyTenantsList
           propertyTenants={propertyTenants}
           setPropertyTenants={setPropertyTenants}
         />
       </div>
+      <Footer />
     </main>
   );
 }

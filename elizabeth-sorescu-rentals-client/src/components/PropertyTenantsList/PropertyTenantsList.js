@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AddTenantLandlordForm from "../AddTenantLandlordForm/AddTenantLandlordForm";
 import "./PropertyTenantsList.scss";
+import avatar from "../../assets/icons/avatar-blue.svg";
+import chatbox from "../../assets/icons/chat.svg";
+import editTenant from "../../assets/icons/edit-icon.svg";
+import star from "../../assets/icons/star.svg";
+import addIcon from "../../assets/icons/add.svg";
 
 function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
   const [error, setError] = useState("");
@@ -21,17 +26,28 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
   }, [propertyTenants]);
 
   useEffect(() => {
-    // Fetch existing tenants to check for duplicates
-    const fetchTenants = async () => {
-      try {
-        const response = await axios.get("http://localhost:8080/api/tenants");
-        setPropertyTenants(response.data);
-      } catch (error) {
-        console.error("Error fetching tenants:", error);
-      }
+    let errorTimeout, successTimeout;
+
+    // Clear error message after 3 seconds
+    if (error) {
+      errorTimeout = setTimeout(() => {
+        setError("");
+      }, 3000);
+    }
+
+    // Clear success message after 3 seconds
+    if (success) {
+      successTimeout = setTimeout(() => {
+        setSuccess(false);
+      }, 3000);
+    }
+
+    // Clear timeouts on component unmount
+    return () => {
+      clearTimeout(errorTimeout);
+      clearTimeout(successTimeout);
     };
-    fetchTenants();
-  }, []);
+  }, [error, success]);
 
   const handleSubmit = async (newTenant) => {
     const propertyId =
@@ -45,7 +61,7 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
     if (isDuplicateEmail) {
       setError("Tenant with this email already exists.");
       setSuccess(false);
-      return;
+      return setError("Tenant with this email already exists.");
     }
 
     const newTenantInput = { ...newTenant, property_id: propertyId };
@@ -67,7 +83,7 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
     } catch (error) {
       console.error("Failed to submit form:", error);
       setSuccess(false);
-      setError(error.response.data);
+      setError("Failed to submit form. Please try again later.");
     }
   };
 
@@ -80,59 +96,100 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
   };
 
   const getFormattedDate = (dateString) => {
-    const date = new Date(dateString);
-    const month = date.getMonth() + 1; // January is 0
-    const day = date.getDate();
-    const year = date.getFullYear();
-    return `${month}/${day}/${year}`;
+    if (dateString) {
+      const date = new Date(dateString);
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      const year = date.getFullYear();
+      return `${month}/${day}/${year}`;
+    } else {
+      return "";
+    }
   };
 
   return (
     <main>
-      <h1>Tenants List:</h1>
       <div className="tenant-card">
         {propertyTenants.map((tenant) => (
-          <div className="tenant-card__info" key={tenant.id}>
-            <img src="" alt="user avatar"></img>
-            <p> Room {tenant.room_location}</p>
-            <p> {tenant.name}</p>
-            <img src="" alt="stars rating"></img>
-            <p>{tenant.rating}</p>
-            <p>({tenant.num_reviews})</p>
-            <p>{tenant.message}</p>
-            {paymentStatus[tenant.id] && (
-              <p className="monthly-payment-date">
-                {getFormattedDate(tenant.rent_payment_date)}
+          <section className="tenant-card__info" key={tenant.id}>
+            <h1 className="tenant-card__info-subheading">
+              Room {tenant.room_location}
+            </h1>
+            <div className="tenant-card__info-details">
+              <img
+                className="tenant-card__info-details--elem tenant-card__info-details--img"
+                src={avatar}
+                alt="user avatar"
+              ></img>
+
+              <p className="tenant-card__info-details--elem tenant-card__info-details--name">
+                {tenant.name}
               </p>
-            )}
-            <p
-              className="amount"
-              style={{ color: paymentStatus[tenant.id] ? "green" : "red" }}
-            >
-              {tenant.monthly_rent}
-            </p>
-            <input
-              type="checkbox"
-              id={`payment-status-${tenant.id}`}
-              onChange={() => handlePaidButtonClick(tenant.id)}
-              checked={paymentStatus[tenant.id] || false}
-            />
-            <label htmlFor={`payment-status-${tenant.id}`}>
-              Payment Status
-            </label>
-          </div>
+              <div className="tenant-card__info-details--elem tenant-card__info-details--elem__ratings">
+                <img
+                  className="tenant-card__info-details--star"
+                  src={star}
+                  alt="user avatar"
+                ></img>
+                <p>{tenant.rating}</p>
+                <p>({tenant.num_reviews})</p>
+              </div>
+              <p
+                className="tenant-card__info-details--elem tenant-card__info-details--amount"
+                style={{ color: paymentStatus[tenant.id] ? "green" : "red" }}
+              >
+                {tenant.monthly_rent}
+              </p>
+              <div className="tenant-card__info-details--elem">
+                <input
+                  type="checkbox"
+                  id={`payment-status-${tenant.id}`}
+                  onChange={() => handlePaidButtonClick(tenant.id)}
+                  checked={paymentStatus[tenant.id] || false}
+                />
+                <label htmlFor={`payment-status-${tenant.id}`}>Paid</label>
+              </div>
+              {paymentStatus[tenant.id] ? (
+                <p className="tenant-card__info-details--elem">
+                  {getFormattedDate(tenant.rent_payment_date)}
+                </p>
+              ) : (
+                <p className="tenant-card__info-details--elem">No Payment</p>
+              )}
+              <div>
+                <img
+                  className="tenant-card__info-details--elem tenant-card__info-details--chat"
+                  src={chatbox}
+                  alt="chat box"
+                ></img>
+                <img
+                  className="tenant-card__info-details--elem tenant-card__info-details--edit"
+                  src={editTenant}
+                  alt="edit tenant info icon"
+                ></img>
+              </div>
+            </div>
+          </section>
         ))}
       </div>
-
+      {/* should I move Add button to SinglePropertyDetails? */}
       {showAddTenantForm ? (
         <AddTenantLandlordForm
+          className="add-tenant-form__elem"
           onSubmit={handleSubmit}
           propertyTenants={propertyTenants}
         />
       ) : (
-        <button onClick={() => setShowAddTenantForm(true)}>Add Tenant</button>
+        <div className="landing__add">
+          <img
+            className="landing__add--btn"
+            src={addIcon}
+            alt="add button"
+            onClick={() => setShowAddTenantForm(true)}
+          />
+        </div>
       )}
-
+      {/* error message is not rendering */}
       {error && <div className="error-message">{error}</div>}
       {success && (
         <div className="success-message">Tenant added successfully!</div>

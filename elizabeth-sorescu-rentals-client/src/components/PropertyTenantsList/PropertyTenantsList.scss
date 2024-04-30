@@ -1,3 +1,62 @@
-.amount {
-  color: red;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.tenant-card {
+  font-family: $font-regular;
+}
+
+.tenant-card__info {
+  margin: 1rem 00rem;
+
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  border: 1px solid lightgray;
+}
+
+.tenant-card__info-subheading {
+  font-size: 1.2rem;
+  color: #7d7f88;
+  padding-bottom: 1rem;
+}
+
+.tenant-card__info-details {
+  display: flex;
+  flex-direction: row;
+  color: #1a2b49;
+}
+
+.tenant-card__info-details--elem {
+  width: 25%;
+}
+.tenant-card__info-details--name {
+  font-weight: 800;
+}
+
+.tenant-card__info-details--amount {
+  font-weight: 600;
+}
+.tenant-card__info-details--star {
+  width: 1.2rem;
+  margin-right: 0.2rem;
+}
+.tenant-card__info-details--elem__ratings {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.tenant-card__info-details--img,
+.tenant-card__info-details--chat,
+.tenant-card__info-details--edit {
+  width: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.tenant-card__info-details--img {
+  width: 3rem;
+}
+.tenant-card__info-details--name {
+  width: 70%;
 }

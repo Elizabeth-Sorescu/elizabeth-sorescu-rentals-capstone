@@ -4,16 +4,13 @@
 
 .footer-section {
   margin-top: 2rem;
-  padding-top: 1rem;
+  padding: 1.5rem 0rem;
   font-family: $font-regular;
   background-color: $color-footer-darker-green;
-  color: white;
+  color: $color-white;
   text-align: center;
 }
 
-.footer-section__left-grp--icons {
-  // border: 1px solid red;
-}
 .footer-section__icons--elem-icon {
   width: 5rem;
   margin: 0rem 0.3rem;

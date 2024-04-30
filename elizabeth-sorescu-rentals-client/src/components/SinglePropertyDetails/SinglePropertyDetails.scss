@@ -1,7 +1,9 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
 
 .property {
+  font-family: $font-regular;
   padding: 0rem 2rem;
 }
 
@@ -41,11 +43,18 @@
 }
 
 .property__info--net__positive {
-  color: green;
+  color: $color-btns-lighter-green;
   font-weight: 600;
 }
 
 .property__info--net__negative {
-  color: red;
+  color: $color-red;
   font-weight: 600;
+}
+
+.property__info--details {
+  text-decoration: none;
+}
+.property__info--tenants-list {
+  margin-top: 2rem;
 }

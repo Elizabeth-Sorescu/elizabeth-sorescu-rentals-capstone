@@ -88,6 +88,7 @@ function Landing() {
           onClick={() => handleAddProperty({ user, handleLogout })}
         />
       </div>
+
       <Footer />
     </main>
   );
