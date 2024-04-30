@@ -33,7 +33,9 @@ exports.up = function (knex) {
     table.decimal("mortgage").notNullable().defaultTo(0);
     table.decimal("strata_fee").notNullable().defaultTo(0);
     table.decimal("property_tax").notNullable().defaultTo(0);
+    table.decimal("property_insurance").notNullable().defaultTo(0);
     table.decimal("maintenance_fee").notNullable().defaultTo(0);
+    table.decimal("other_fees").notNullable().defaultTo(0);
     table.timestamp("created_at").defaultTo(knex.fn.now());
     table
       .timestamp("updated_at")

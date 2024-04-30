@@ -18,7 +18,9 @@ module.exports = [
     mortgage: 3700,
     strata_fee: 250,
     property_tax: 278.33,
+    property_insurance: 50,
     maintenance_fee: 600,
+    other_fees: 0,
   },
   {
     id: 2,
@@ -35,7 +37,9 @@ module.exports = [
     mortgage: 5500,
     strata_fee: 0,
     property_tax: 375,
+    property_insurance: 50,
     maintenance_fee: 1000,
+    other_fees: 0,
   },
   {
     id: 3,
@@ -52,7 +56,9 @@ module.exports = [
     mortgage: 3500,
     strata_fee: 300,
     property_tax: 350,
+    property_insurance: 50,
     maintenance_fee: 500,
+    other_fees: 0,
   },
   {
     id: 4,
@@ -69,7 +75,9 @@ module.exports = [
     mortgage: 2200,
     strata_fee: 150,
     property_tax: 150,
+    property_insurance: 50,
     maintenance_fee: 300,
+    other_fees: 0,
   },
   {
     id: 5,
@@ -86,7 +94,9 @@ module.exports = [
     mortgage: 4200,
     strata_fee: 0,
     property_tax: 300,
+    property_insurance: 50,
     maintenance_fee: 800,
+    other_fees: 0,
   },
   {
     id: 6,
@@ -103,7 +113,9 @@ module.exports = [
     mortgage: 2500,
     strata_fee: 0,
     property_tax: 200,
+    property_insurance: 50,
     maintenance_fee: 450,
+    other_fees: 0,
   },
   {
     id: 7,
@@ -120,7 +132,9 @@ module.exports = [
     mortgage: 2900,
     strata_fee: 0,
     property_tax: 250,
+    property_insurance: 50,
     maintenance_fee: 500,
+    other_fees: 0,
   },
   {
     id: 8,
@@ -137,7 +151,9 @@ module.exports = [
     mortgage: 3400,
     strata_fee: 0,
     property_tax: 280,
+    property_insurance: 50,
     maintenance_fee: 600,
+    other_fees: 0,
   },
   {
     id: 9,
@@ -154,7 +170,9 @@ module.exports = [
     mortgage: 2000,
     strata_fee: 0,
     property_tax: 150,
+    property_insurance: 50,
     maintenance_fee: 300,
+    other_fees: 0,
   },
   {
     id: 10,
@@ -171,6 +189,8 @@ module.exports = [
     mortgage: 3300,
     strata_fee: 200,
     property_tax: 270,
+    property_insurance: 50,
     maintenance_fee: 550,
+    other_fees: 0,
   },
 ];

@@ -20,7 +20,9 @@ const getAllProperties = async (_req, res) => {
         mortgage,
         strata_fee,
         property_tax,
+        property_insurance,
         maintenance_fee,
+        other_fees,
       } = propertyInfo;
 
       return {
@@ -38,7 +40,9 @@ const getAllProperties = async (_req, res) => {
         mortgage,
         strata_fee,
         property_tax,
+        property_insurance,
         maintenance_fee,
+        other_fees,
       };
     });
 
@@ -85,7 +89,9 @@ const postNewProperty = async (req, res) => {
       mortgage,
       strata_fee,
       property_tax,
+      property_insurance,
       maintenance_fee,
+      other_fees,
     } = req.body;
 
     // Insert new property into the database
@@ -103,7 +109,9 @@ const postNewProperty = async (req, res) => {
       mortgage,
       strata_fee,
       property_tax,
+      property_insurance,
       maintenance_fee,
+      other_fees,
     });
 
     // Retrieve and respond with the inserted item
@@ -124,7 +132,9 @@ const postNewProperty = async (req, res) => {
         "mortgage",
         "strata_fee",
         "property_tax",
-        "maintenance_fee"
+        " property_insurance",
+        "maintenance_fee",
+        "other_fees"
       )
       .first();
 
