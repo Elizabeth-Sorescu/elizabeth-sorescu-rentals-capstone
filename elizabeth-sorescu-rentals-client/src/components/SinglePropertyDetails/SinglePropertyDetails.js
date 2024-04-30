@@ -71,7 +71,8 @@ function SinglePropertyDetails({ handleLogout }) {
     propertyData.strata_fee +
     propertyData.property_tax +
     propertyData.property_insurance +
-    propertyData.maintenance_fee;
+    propertyData.maintenance_fee +
+    propertyData.other_fees;
 
   // Calculate the net income
   const netIncome = propertyData.monthly_rent - totalExpense;
@@ -103,13 +104,14 @@ function SinglePropertyDetails({ handleLogout }) {
           <p>Strata fee: ${propertyData.strata_fee}</p>
           <p>Property Tax: ${propertyData.property_tax}</p>
           <p>Property Insurance: ${propertyData.property_insurance}</p>
-          <p>Repairs & others: ${propertyData.maintenance_fee}</p>
+          <p>Repairs & maintenance: ${propertyData.maintenance_fee}</p>
+          <p>Other fees: ${propertyData.other_fees}</p>
           <div className="property__info--expenses__total">
             Less Total Expense: $ {totalExpense}
           </div>
         </div>
         <div className="property__info--net">
-          <p>Net Income:</p>
+          <p>Net Income: </p>
           <p className={`property__info--net__${netIncomeClass}`}>
             $ {netIncome}
           </p>
