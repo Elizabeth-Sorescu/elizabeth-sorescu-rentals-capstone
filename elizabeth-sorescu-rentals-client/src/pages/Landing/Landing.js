@@ -20,7 +20,6 @@ function Landing() {
       return setFailedAuth(true);
     }
 
-    // Get the user data from the API
     const fetchUser = async () => {
       try {
         const response = await axios.get(
@@ -70,7 +69,7 @@ function Landing() {
     if (user.role === "landlord") {
       navigate(`/landlords/${user.id}`);
     }
-    // This is for sprint 2 development
+
     if (user.role === "tenant") {
       navigate(`/tenants/${user.id}`);
     }
@@ -78,7 +77,7 @@ function Landing() {
 
   return (
     <main className="landing">
-      <Header user={user} handleLogout={handleLogout} />
+      <Header user={user} handleLogout={handleLogout} showProfileInfo={true} />
       <Properties user={user} />
       <div className="landing__add">
         <img

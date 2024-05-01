@@ -144,7 +144,7 @@ function Login() {
           </div>
         </div>
         <div className="form__cta">
-          <button className="form__btn">Submit</button>
+          <button className="form__btn">Login</button>
         </div>
         {success && (
           <div className="login__form--success-msg">
