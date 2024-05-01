@@ -11,7 +11,6 @@ const AddPropertyLandlordForm = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    // get data from the api using the user data passed as props
     const fetchProperties = async () => {
       try {
         let resp = await axios.get(

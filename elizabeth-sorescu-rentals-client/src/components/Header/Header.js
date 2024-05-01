@@ -15,7 +15,6 @@ function Header({ user, handleLogout }) {
 
   return (
     <nav className="header-nav">
-      {/* <div className="header-nav__elems"> */}
       <div>
         <NavLink to="/">
           <div className="header-nav__logo">
@@ -41,8 +40,7 @@ function Header({ user, handleLogout }) {
           </Link>
         </div>
       </div>
-      {/* </div> */}
-      {/* Check if user is defined before rendering ProfileInfo */}
+
       {user && showProfileInfo && (
         <ProfileInfo user={user} handleLogout={handleLogout} />
       )}
