@@ -178,6 +178,7 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
           className="add-tenant-form__elem"
           onSubmit={handleSubmit}
           propertyTenants={propertyTenants}
+          handleClose={() => setShowAddTenantForm(false)}
         />
       ) : (
         <div className="landing__add">

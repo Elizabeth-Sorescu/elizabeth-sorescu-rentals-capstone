@@ -3,15 +3,78 @@
 @use "../../styles/partials/fonts" as *;
 
 .add-tenant {
-  // font-family: $font-regular;
-  // background-color: white; //modal
-  // position: fixed;
-  // left: 0;
-  // right: 0;
-  // bottom: 0;
+  font-family: $font-regular;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  box-shadow: 0 -3em 3em rgb(0 200 0 / 10%), 0 0 0 2px white,
+    1em 1em 1em rgb(26 43 73 / 60%);
 }
 
-.add-tenant__elem {
-  // background-color: pink;
-  // border-radius: 1%;
+.add-tenant__heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.add-tenant__heading--label {
+  font-size: 1.5rem;
+  color: $color-font-gray;
+  margin-bottom: 1rem;
+}
+
+.add-tenant__heading--close {
+  width: 2rem;
+  cursor: pointer;
+}
+.add-tenant__form--label {
+  width: 100%;
+  color: $color-font-gray;
+}
+.add-tenant__form--inputbox {
+  background: $color-input-box;
+  border-radius: 0.5rem;
+  border: none;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  padding-left: 1rem;
+  margin: 0.5rem 0rem;
+  @include tablet {
+    height: 100px;
+  }
+}
+
+.add-tenant__form--btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include tablet {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+.add-tenant__form--btns__elem {
+  background-color: $color-btns-lighter-green;
+  color: $color-white;
+  border-radius: 0.5rem;
+  border: none;
+  width: 100%;
+  height: 50px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  justify-content: center;
+  margin: 0.5rem 0rem;
+  cursor: pointer;
+  @include tablet {
+    width: 21%;
+    margin: 2rem 0.5rem;
+  }
+}
+
+.add-tenant__form--btns__elem--cancel {
+  background-color: $color-orange;
+}
+
+.add-tenant__error-message {
+  color: $color-red;
 }
