@@ -1,18 +1,59 @@
-@use "../../styles/partials/variables";
-@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
 .profile-info {
   font-family: $font-regular;
-  background-color: white;
+  // background-color: white;
+  background-color: rgba($color-data-darker-blue, 0.5);
   position: fixed; //if this is not fixed, modal component
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-info__elem {
-  background-color: pink;
+  padding: 2rem;
+  background-color: white;
   border-radius: 1%;
+  width: 50%;
+  height: 60%;
+}
+
+.profile__heading {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+}
+
+.profile__heading--back-btn {
+  height: 2rem;
+}
+
+.profile__heading--label {
+  font-size: 1.5rem;
+  color: $color-font-gray;
+  margin-left: 1rem;
+}
+
+.profile-info__logout-btn {
+  background-color: $color-btns-lighter-green;
+  color: $color-white;
+  border-radius: 0.5rem;
+  border: none;
+  width: 100%;
+  height: 50px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  justify-content: center;
+  margin: 0.5rem 0rem;
+  cursor: pointer;
+  @include tablet {
+    width: 21%;
+    margin: 2rem 0.5rem;
+  }
 }
