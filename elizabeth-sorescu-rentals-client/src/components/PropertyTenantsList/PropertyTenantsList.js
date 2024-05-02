@@ -14,7 +14,6 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
   const [showAddTenantForm, setShowAddTenantForm] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState({});
 
-  // Set initial payment status based on rent payment date from database
   useEffect(() => {
     const initialPaymentStatus = {};
     propertyTenants.forEach((tenant) => {
@@ -28,21 +27,18 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
   useEffect(() => {
     let errorTimeout, successTimeout;
 
-    // Clear error message after 3 seconds
     if (error) {
       errorTimeout = setTimeout(() => {
         setError("");
-      }, 3000);
+      }, 4000);
     }
 
-    // Clear success message after 3 seconds
     if (success) {
       successTimeout = setTimeout(() => {
         setSuccess(false);
-      }, 3000);
+      }, 4000);
     }
 
-    // Clear timeouts on component unmount
     return () => {
       clearTimeout(errorTimeout);
       clearTimeout(successTimeout);
@@ -53,7 +49,6 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
     const propertyId =
       propertyTenants.length > 0 ? propertyTenants[0].property_id : "";
 
-    // Check if the new tenant's email already exists among property tenants
     const isDuplicateEmail = propertyTenants.some(
       (tenant) => tenant.email === newTenant.email
     );
@@ -75,7 +70,6 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
       setSuccess(true);
       setError("");
 
-      // Update propertyTenants state with the newly added tenant
       const updatedPropertyTenants = [...propertyTenants, response.data];
       setPropertyTenants(updatedPropertyTenants);
 
@@ -88,7 +82,6 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
   };
 
   const handlePaidButtonClick = (tenantId) => {
-    // Toggle payment status for the corresponding tenant
     setPaymentStatus((prevStatus) => ({
       ...prevStatus,
       [tenantId]: !prevStatus[tenantId],
@@ -137,8 +130,6 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
               </div>
 
               <p className="tenant__info--det--name">{tenant.name}</p>
-
-              {/* make this row below */}
 
               <div className="tenant__info--det--ratings ">
                 <img
@@ -208,7 +199,7 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
           />
         </div>
       )}
-      {/* error message is not rendering */}
+
       {error && <div className="error-message">{error}</div>}
       {success && (
         <div className="success-message">Tenant added successfully!</div>
