@@ -39,13 +39,12 @@ const AddPropertyLandlordForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // If the name is "type", enforce the 9-character limit
+
     if (name === "type" && value.length > 9) {
       setError("Type should not exceed 8 characters");
       return;
     }
 
-    // If no validation error, clear previous error and update the state
     setError("");
     setNewProperty({ ...newProperty, [name]: value });
   };
@@ -72,7 +71,6 @@ const AddPropertyLandlordForm = () => {
       landlord_id: id,
     };
 
-    // Create new property
     try {
       await axios.post(
         "http://localhost:8080/api/properties",
@@ -82,7 +80,6 @@ const AddPropertyLandlordForm = () => {
       setSuccess(true);
       setError("");
 
-      // Clear input fields after the form is submitted
       setNewProperty({
         property_name: "",
         street_address: "",
@@ -101,21 +98,18 @@ const AddPropertyLandlordForm = () => {
   useEffect(() => {
     let timeoutId;
     if (success) {
-      // Automatically hide the success message after 4 seconds
       timeoutId = setTimeout(() => {
         setSuccess(false);
       }, 4000);
     }
-
     return () => {
-      // Clear the timeout if component unmounts or success state changes
       clearTimeout(timeoutId);
     };
   }, [success]);
 
   const handleCancel = async (e) => {
     e.preventDefault();
-    // Clear input fields after the form is submitted
+
     setNewProperty({
       property_name: "",
       street_address: "",
@@ -127,8 +121,6 @@ const AddPropertyLandlordForm = () => {
   };
   return (
     <main className="add-property">
-      {/* Header is not rendering correct profile info */}
-      {/* <Header user={user} handleLogout={handleLogout} /> */}
       <Header />
       <div className="add-property__heading">
         <Link to="/current/user">
@@ -149,7 +141,9 @@ const AddPropertyLandlordForm = () => {
       >
         <div className="add-property__form--groups">
           <div className="add-property__form--groups__left">
-            <label className="add-property__form--label">Type: </label>
+            <label className="add-property__form--label">
+              Type (max 8 characters):
+            </label>
             <input
               className="add-property__form--inputbox"
               type="text"

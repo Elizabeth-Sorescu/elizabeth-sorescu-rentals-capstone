@@ -93,24 +93,69 @@ function SinglePropertyDetails({ handleLogout }) {
         <h1 className="property__heading--label">View Property</h1>
       </div>
       <div className="property__info">
+        <h1 className="property__info--heading">
+          {propertyData.property_name}
+        </h1>
         <div className="property__info--gross-income">
           <p>{currentMonthName} Rent: </p>
           <p className="property__info--gross-income__val">
             $ {propertyData.monthly_rent}
           </p>
         </div>
-        <div className="property__info--expenses">
-          <p>Monthly Expenditures:</p>
-          <p>Mortgage: ${propertyData.mortgage}</p>
-          <p>Strata fee: ${propertyData.strata_fee}</p>
-          <p>Property Tax: ${propertyData.property_tax}</p>
-          <p>Property Insurance: ${propertyData.property_insurance}</p>
-          <p>Repairs & maintenance: ${propertyData.maintenance_fee}</p>
-          <p>Other fees: ${propertyData.other_fees}</p>
-          <div className="property__info--expenses__total">
-            Less Total Expense: $ {totalExpense}
+        <section className="property__info--expenses">
+          <h2 className="property__info--expenses--heading">
+            Monthly Expenditures:
+          </h2>
+          <div className="property__info--expenses__container">
+            <label className="property__info--expenses__label">Mortgage:</label>
+            <p className="property__info--expenses__value">
+              ${propertyData.mortgage}
+            </p>
           </div>
-        </div>
+          <div className="property__info--expenses__container">
+            <label className="property__info--expenses__label">
+              Strata fee:
+            </label>
+            <p className="property__info--expenses__value">
+              ${propertyData.strata_fee}
+            </p>
+          </div>
+          <div className="property__info--expenses__container">
+            <label className="property__info--expenses__label">
+              Property Tax:
+            </label>
+            <p className="property__info--expenses__value">
+              ${propertyData.property_tax}
+            </p>
+          </div>
+          <div className="property__info--expenses__container">
+            <label className="property__info--expenses__label">
+              Property Insurance:
+            </label>
+            <p className="property__info--expenses__value">
+              ${propertyData.property_insurance}
+            </p>
+          </div>
+          <div className="property__info--expenses__container">
+            <label className="property__info--expenses__label">
+              Repairs & maintenance:
+            </label>
+            <p className="property__info--expenses__value">
+              ${propertyData.maintenance_fee}
+            </p>
+          </div>
+          <div className="property__info--expenses__container">
+            <label className="property__info--expenses__label">
+              Other fees:
+            </label>
+            <p className="property__info--expenses__value">
+              ${propertyData.other_fees}
+            </p>
+          </div>
+          <div className="property__info--expenses__total">
+            Less Total Expenses: $ {totalExpense}
+          </div>
+        </section>
         <div className="property__info--net">
           <p>Net Income: </p>
           <p className={`property__info--net__${netIncomeClass}`}>

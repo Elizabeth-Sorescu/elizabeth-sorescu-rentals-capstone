@@ -2,61 +2,85 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
-.tenant-card {
+.tenant {
   font-family: $font-regular;
+  @include tablet {
+    padding: 0rem 1rem;
+    margin: 0rem 10rem;
+  }
 }
 
-.tenant-card__info {
-  margin: 1rem 00rem;
-
+.tenant__info {
+  margin: 1rem 0rem;
   border-radius: 0.5rem;
-  padding: 1.25rem;
-  border: 1px solid lightgray;
+  padding: 0.5rem;
+  background-color: rgb(211 211 211 / 10%);
+  padding-bottom: 1rem;
+  width: 100%;
 }
 
-.tenant-card__info-subheading {
+.tenant__info--heading {
   font-size: 1.2rem;
-  color: #7d7f88;
+  color: $color-font-add-tenant-heading-gray;
   padding-bottom: 1rem;
 }
 
-.tenant-card__info-details {
-  display: flex;
-  flex-direction: row;
-  color: #1a2b49;
+.tenant__info--det {
+  color: $color-data-darker-blue;
 }
 
-.tenant-card__info-details--elem {
-  width: 25%;
-}
-.tenant-card__info-details--name {
+.tenant__info--det--name {
+  font-size: 1.3rem;
   font-weight: 800;
 }
 
-.tenant-card__info-details--amount {
+.tenant__info--det--ratings {
+  display: flex;
+  flex-direction: row;
+}
+.tenant__info--det--amount {
   font-weight: 600;
 }
-.tenant-card__info-details--star {
-  width: 1.2rem;
+
+.tenant__info--det--ratings__star {
+  width: 1rem;
   margin-right: 0.2rem;
 }
-.tenant-card__info-details--elem__ratings {
+
+.tenant__info--det--icons {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-}
-.tenant-card__info-details--img,
-.tenant-card__info-details--chat,
-.tenant-card__info-details--edit {
-  width: 2rem;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.tenant-card__info-details--img {
-  width: 3rem;
+.tenant__info--det--icons__avatar {
+  width: 2rem;
 }
-.tenant-card__info-details--name {
-  width: 70%;
+
+.tenant__info--det--icons__cta--chat {
+  width: 2rem;
+  margin: 0rem 0.2rem;
+}
+
+.tenant__info--det--icons__cta--edit {
+  width: 2rem;
+  margin: 0rem 0.2rem;
+}
+
+.tenant__info--group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tenant__info--group__paystat {
+  display: flex;
+  flex-direction: row;
+}
+
+.tenant__info--group__paystat--label {
+  margin-left: 0.2rem;
+}
+
+.tenant__info--group__paystat--date {
+  margin-left: 0.7rem;
 }

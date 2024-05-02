@@ -20,20 +20,20 @@ function ProfileInfo({ user, handleLogout }) {
     <main className="profile">
       <section className="profile__elem">
         <div className="profile__heading">
+          <h1 className="profile__heading--label">Profile</h1>
           <img
             src={closeIcon}
             alt="close button"
             className="add-tenant__heading--close"
             onClick={handleClose}
           />
-          <h1 className="profile__heading--label">Profile</h1>
         </div>
         <div className="profile_elem1">
           <img src={avatar} alt="user avatar" />
-          <h1>Welcome, {user.name}!</h1>
+          <h1>{user.name}</h1>
           <p>{user.email}</p>
           <p>{user.phone}</p>
-          <p>Role: {user.role}</p>
+          <p>{user.role}</p>
         </div>
         <div className="profile_elem2">
           <div>

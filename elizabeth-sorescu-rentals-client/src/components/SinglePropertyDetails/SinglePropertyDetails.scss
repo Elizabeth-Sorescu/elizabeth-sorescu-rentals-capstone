@@ -5,12 +5,14 @@
 .property {
   font-family: $font-regular;
   padding: 0rem 2rem;
+  color: $color-data-darker-blue;
 }
 
 .property__heading {
   display: flex;
   flex-direction: row;
   margin-bottom: 2rem;
+  background-color: rgb(211 211 211 / 10%);
 }
 
 .property__info {
@@ -42,6 +44,22 @@
   margin-left: 1rem;
 }
 
+.property__info--expenses--heading,
+.property__info--expenses--label {
+  color: $color-font-gray;
+}
+
+.property__info--expenses__container {
+  display: flex;
+  flex-direction: row;
+}
+.property__info--expenses__label {
+  width: 65%;
+}
+
+.property__info--expenses__value {
+  width: 20%;
+}
 .property__info--net__positive {
   color: $color-btns-lighter-green;
   font-weight: 600;

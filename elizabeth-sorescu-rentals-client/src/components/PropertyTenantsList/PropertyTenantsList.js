@@ -109,64 +109,82 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
 
   return (
     <main>
-      <div className="tenant-card">
+      <div className="tenant">
         {propertyTenants.map((tenant) => (
-          <section className="tenant-card__info" key={tenant.id}>
-            <h1 className="tenant-card__info-subheading">
+          <section className="tenant__info" key={tenant.id}>
+            <h1 className="tenant__info--heading">
               Room {tenant.room_location}
             </h1>
-            <div className="tenant-card__info-details">
-              <img
-                className="tenant-card__info-details--elem tenant-card__info-details--img"
-                src={avatar}
-                alt="user avatar"
-              ></img>
-
-              <p className="tenant-card__info-details--elem tenant-card__info-details--name">
-                {tenant.name}
-              </p>
-              <div className="tenant-card__info-details--elem tenant-card__info-details--elem__ratings">
+            <div className="tenant__info--det">
+              <div className="tenant__info--det--icons">
                 <img
-                  className="tenant-card__info-details--star"
+                  className="tenant__info--det--icons__avatar"
+                  src={avatar}
+                  alt="user avatar"
+                ></img>
+                <div className="tenant__info--det--icons__cta">
+                  <img
+                    className="tenant__info--det--icons__cta--chat"
+                    src={chatbox}
+                    alt="chat box"
+                  ></img>
+                  <img
+                    className="tenant__info--det--icons__cta--edit"
+                    src={editTenant}
+                    alt="edit tenant info icon"
+                  ></img>
+                </div>
+              </div>
+
+              <p className="tenant__info--det--name">{tenant.name}</p>
+
+              {/* make this row below */}
+
+              <div className="tenant__info--det--ratings ">
+                <img
+                  className="tenant__info--det--ratings__star"
                   src={star}
                   alt="user avatar"
                 ></img>
                 <p>{tenant.rating}</p>
                 <p>({tenant.num_reviews})</p>
               </div>
-              <p
-                className="tenant-card__info-details--elem tenant-card__info-details--amount"
-                style={{ color: paymentStatus[tenant.id] ? "green" : "red" }}
-              >
-                {tenant.monthly_rent}
-              </p>
-              <div className="tenant-card__info-details--elem">
-                <input
-                  type="checkbox"
-                  id={`payment-status-${tenant.id}`}
-                  onChange={() => handlePaidButtonClick(tenant.id)}
-                  checked={paymentStatus[tenant.id] || false}
-                />
-                <label htmlFor={`payment-status-${tenant.id}`}>Paid</label>
-              </div>
-              {paymentStatus[tenant.id] ? (
-                <p className="tenant-card__info-details--elem">
-                  {getFormattedDate(tenant.rent_payment_date)}
-                </p>
-              ) : (
-                <p className="tenant-card__info-details--elem">No Payment</p>
-              )}
-              <div>
-                <img
-                  className="tenant-card__info-details--elem tenant-card__info-details--chat"
-                  src={chatbox}
-                  alt="chat box"
-                ></img>
-                <img
-                  className="tenant-card__info-details--elem tenant-card__info-details--edit"
-                  src={editTenant}
-                  alt="edit tenant info icon"
-                ></img>
+
+              <div className="tenant__info--group">
+                <div className="tenant__info--group__rent">
+                  <p
+                    className="tenant__info--det--amount tenant__info--group__elem"
+                    style={{
+                      color: paymentStatus[tenant.id] ? "green" : "red",
+                    }}
+                  >
+                    ${tenant.monthly_rent}
+                  </p>
+                </div>
+                <div className="tenant__info--group__paystat">
+                  <input
+                    type="checkbox"
+                    id={`payment-status-${tenant.id}`}
+                    onChange={() => handlePaidButtonClick(tenant.id)}
+                    checked={paymentStatus[tenant.id] || false}
+                  />
+                  <label
+                    className="tenant__info--group__paystat--label"
+                    htmlFor={`payment-status-${tenant.id}`}
+                  >
+                    Paid
+                  </label>
+
+                  {paymentStatus[tenant.id] ? (
+                    <p className="tenant__info--group__paystat--date">
+                      {getFormattedDate(tenant.rent_payment_date)}
+                    </p>
+                  ) : (
+                    <p className="tenant__info--group__paystat--date">
+                      No Payment
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           </section>

@@ -7,90 +7,92 @@
   padding: 0rem 2rem 3rem 2rem;
   font-family: $font-regular;
   color: $color-font-gray;
-}
-
-.add-property__heading {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 2rem;
-}
-
-.add-property__form {
-  border-radius: 0.5rem;
-  padding: 1.25rem;
-  box-shadow: inset 0 -3em 3em rgb(0 200 0 / 30%), 0 0 0 2px white,
-    0.3em 0.3em 1em rgb(26 43 73 / 60%);
-}
-
-.add-property__form--groups {
-  @include tablet {
+  &__heading {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    margin-bottom: 2rem;
+    background-color: rgb(211 211 211 / 10%);
+
+    &--back-btn {
+      height: 2rem;
+    }
+
+    &--label {
+      font-size: 1.5rem;
+      color: $color-font-gray;
+      margin-left: 1rem;
+    }
   }
-}
 
-.add-property__form--groups__left,
-.add-property__form--groups__right {
-  @include tablet {
-    margin: 0rem 1rem;
+  &__form {
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    box-shadow: inset 0 -3em 3em rgb(0 200 0 / 30%), 0 0 0 2px white,
+      0.3em 0.3em 1em rgb(26 43 73 / 60%);
+
+    &--groups {
+      @include tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      &__left,
+      &__right {
+        @include tablet {
+          margin: 0rem 1rem;
+        }
+      }
+    }
+
+    &--label {
+      width: 100%;
+    }
+
+    &--inputbox {
+      background: $color-input-box;
+      border-radius: 0.5rem;
+      border: none;
+      width: 100%;
+      height: 50px;
+      box-sizing: border-box;
+      padding-left: 1rem;
+      margin: 0.5rem 0rem;
+      @include tablet {
+        height: 100px;
+      }
+    }
+
+    &--btns {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include tablet {
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+
+      &__elem {
+        background-color: $color-btns-lighter-green;
+        color: $color-white;
+        border-radius: 0.5rem;
+        border: none;
+        width: 100%;
+        height: 50px;
+        font-size: 1.7rem;
+        font-weight: 600;
+        justify-content: center;
+        margin: 0.5rem 0rem;
+        cursor: pointer;
+        @include tablet {
+          width: 21%;
+          margin: 2rem 0.5rem;
+        }
+      }
+
+      &__elem--cancel {
+        background-color: $color-orange;
+      }
+    }
   }
-}
-.add-property__heading--back-btn {
-  height: 2rem;
-}
-
-.add-property__heading--label {
-  font-size: 1.5rem;
-  color: $color-font-gray;
-  margin-left: 1rem;
-}
-
-.add-property__form--label {
-  width: 100%;
-}
-.add-property__form--inputbox {
-  background: $color-input-box;
-  border-radius: 0.5rem;
-  border: none;
-  width: 100%;
-  height: 50px;
-  box-sizing: border-box;
-  padding-left: 1rem;
-  margin: 0.5rem 0rem;
-  @include tablet {
-    height: 100px;
-  }
-}
-
-.add-property__form--btns {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  @include tablet {
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-}
-
-.add-property__form--btns__elem {
-  background-color: $color-btns-lighter-green;
-  color: $color-white;
-  border-radius: 0.5rem;
-  border: none;
-  width: 100%;
-  height: 50px;
-  font-size: 1.7rem;
-  font-weight: 600;
-  justify-content: center;
-  margin: 0.5rem 0rem;
-  cursor: pointer;
-  @include tablet {
-    width: 21%;
-    margin: 2rem 0.5rem;
-  }
-}
-
-.add-property__form--btns__elem--cancel {
-  background-color: $color-orange;
 }
