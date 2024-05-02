@@ -83,7 +83,7 @@ function Login() {
         </div>
       </NavLink>
       <form className="login__form" onSubmit={handleSubmit} ref={formRef}>
-        <h1 className="login__form--heading">Login</h1>
+        <h1 className="login__form--heading">Sign in</h1>
         <div className="login__form--inputs">
           <div className="login__form--inputs__textboxes">
             <div className="login__form--inputs__elem1">

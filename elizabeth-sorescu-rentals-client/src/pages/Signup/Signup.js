@@ -103,7 +103,7 @@ function Signup() {
       // Reset form fields after successful registration
       formRef.current.reset();
 
-      setTimeout(() => setSuccess(false), 3000);
+      setTimeout(() => setSuccess(false), 5000);
 
       return response.data;
     } catch (error) {
