@@ -3,29 +3,28 @@
 
 .properties {
   padding: 2rem;
-}
+  &__heading {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+    background-color: rgb(211 211 211 / 10%);
 
-.properties__heading {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 2rem;
-  background-color: rgb(211 211 211 / 10%);
-}
+    &--back-btn {
+      height: 2rem;
+    }
 
-.properties__heading--back-btn {
-  height: 2rem;
-}
+    &--label {
+      font-size: 1.5rem;
+      color: $color-font-gray;
+    }
+  }
 
-.properties__heading--label {
-  font-size: 1.5rem;
-  color: $color-font-gray;
-}
-
-.properties__name-greetings {
-  font-size: 2.5rem;
-  color: $color-data-darker-blue;
-}
-.properties__label {
-  margin: 1rem 0rem 2rem 0rem;
-  color: $color-font-gray;
+  &__name-greetings {
+    font-size: 2.5rem;
+    color: $color-data-darker-blue;
+  }
+  &__label {
+    margin: 1rem 0rem 2rem 0rem;
+    color: $color-font-gray;
+  }
 }

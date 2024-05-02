@@ -70,7 +70,7 @@ function AddTenantLandlordForm({ onSubmit, propertyTenants, handleClose }) {
           onClick={handleCancel}
         />
       </div>
-      <form onSubmit={handleSubmit}>
+      <form className="add-tenant__form" onSubmit={handleSubmit}>
         <label className="add-tenant__form--label">Name:</label>
         <input
           className="add-tenant__form--inputbox"
@@ -124,10 +124,6 @@ function AddTenantLandlordForm({ onSubmit, propertyTenants, handleClose }) {
             Clear
           </button>
         </div>
-
-        {errorMessage && (
-          <div className="add-tenant__error-message">{errorMessage}</div>
-        )}
       </form>
     </section>
   );

@@ -4,15 +4,12 @@ import { useNavigate } from "react-router-dom";
 import binIcon from "../../assets/icons/bin.svg";
 import editIcon from "../../assets/icons/edit1.svg";
 import star from "../../assets/icons/star.svg";
-// import star from "../../assets/icons/star-rating.svg";
 
 function PropertyCard({ property }) {
   const navigate = useNavigate();
 
-  // Create a new Date object
   const currentDate = new Date();
 
-  // Define an array of month names
   const monthNames = [
     "January",
     "February",
@@ -28,10 +25,8 @@ function PropertyCard({ property }) {
     "December",
   ];
 
-  // Get the current month (months are zero-indexed)
   const currentMonthIndex = currentDate.getMonth();
 
-  // Get the month name based on the current month index
   const currentMonthName = monthNames[currentMonthIndex];
 
   const handlePropertyClick = () => {

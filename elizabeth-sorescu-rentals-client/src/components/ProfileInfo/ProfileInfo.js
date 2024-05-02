@@ -66,8 +66,8 @@ function ProfileInfo({ user, handleLogout }) {
             </div>
           </div>
         </div>
-        <div className="profile-info__logout">
-          <button className="profile-info__logout--btn" onClick={handleLogout}>
+        <div className="profile__logout">
+          <button className="profile__logout--btn" onClick={handleLogout}>
             Logout
           </button>
         </div>

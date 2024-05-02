@@ -9,7 +9,6 @@ function Footer() {
     <main className="footer-section">
       <div className="footer-section__left-grp">
         <div className="footer-section__left-grp--icons">
-          {/* <div className="footer-section__icons--elem"> */}
           <img
             className="footer-section__icons--elem-icon"
             src={fbIcon}
@@ -17,9 +16,7 @@ function Footer() {
             href="https://www.facebook.com/"
             target="_blank"
           ></img>
-          {/* </div> */}
 
-          {/* <div className="footer-icons__fb"> */}
           <img
             className="footer-section__icons--elem-icon"
             src={igIcon}
@@ -27,8 +24,7 @@ function Footer() {
             href="https://www.instagram.com/"
             target="_blank"
           ></img>
-          {/* </div> */}
-          {/* <div className="footer-icons__fb"> */}
+
           <img
             className="footer-section__icons--elem-icon"
             src={twIcon}
@@ -36,9 +32,7 @@ function Footer() {
             href="https://www.twitter.com/"
             target="_blank"
           ></img>
-          {/* </div> */}
 
-          {/* <div className="footer-icons__fb"> */}
           <img
             className="footer-section__icons--elem-icon"
             src={tkIcon}
@@ -46,7 +40,6 @@ function Footer() {
             href="https://www.tiktok.com/"
             target="_blank"
           ></img>
-          {/* </div> */}
         </div>
         <p className="footer-section__left-grp--label">Connect with us</p>
       </div>

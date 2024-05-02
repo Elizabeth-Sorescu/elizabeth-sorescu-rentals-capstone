@@ -84,3 +84,10 @@
 .tenant__info--group__paystat--date {
   margin-left: 0.7rem;
 }
+
+.error-message {
+  padding-top: 2rem;
+  color: red;
+  display: flex;
+  justify-content: center;
+}

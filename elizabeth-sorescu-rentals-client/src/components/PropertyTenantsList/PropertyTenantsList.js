@@ -83,7 +83,7 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
     } catch (error) {
       console.error("Failed to submit form:", error);
       setSuccess(false);
-      setError("Failed to submit form. Please try again later.");
+      setError("Failed to submit form. Please complete fields.");
     }
   };
 
