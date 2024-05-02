@@ -4,14 +4,13 @@
 
 .landing {
   font-family: $font-regular;
-}
 
-.landing__add {
-  text-align: center;
-}
-
-.landing__add--btn {
-  width: 3rem;
-  height: 3rem;
-  cursor: pointer;
+  &__add {
+    text-align: center;
+    &--btn {
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+    }
+  }
 }

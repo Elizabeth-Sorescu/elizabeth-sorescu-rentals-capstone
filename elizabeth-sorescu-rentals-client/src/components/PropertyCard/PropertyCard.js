@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import binIcon from "../../assets/icons/bin.svg";
 import editIcon from "../../assets/icons/edit1.svg";
 import star from "../../assets/icons/star.svg";
+// import SinglePropertyDetails from "../SinglePropertyDetails/SinglePropertyDetails";
 
-function PropertyCard({ property }) {
+function PropertyCard({ property, user }) {
   const navigate = useNavigate();
 
   const currentDate = new Date();
@@ -30,7 +31,10 @@ function PropertyCard({ property }) {
   const currentMonthName = monthNames[currentMonthIndex];
 
   const handlePropertyClick = () => {
-    navigate(`/properties/${property.id}`);
+    if (user.role === "landlord") {
+      navigate(`/properties/${property.id}`, { state: { user: user } });
+    }
+    // navigate(`/properties/${property.id}`);
   };
   return (
     <section
@@ -74,9 +78,17 @@ function PropertyCard({ property }) {
         </div>
         <div className="property-card__grp2--details">
           <p>{currentMonthName} Rent</p>
-          <p className="property-card__grp2--details-rent">
-            ${property.monthly_rent}
-          </p>
+
+          {user.role === "landlord" && (
+            <p className="property-card__grp2--details-rent">
+              ${property.monthly_rent}
+            </p>
+          )}
+          {user.role === "tenant" && (
+            <p className="property-card__grp2--details-rent">
+              ${user.monthly_rent}
+            </p>
+          )}
         </div>
       </div>
     </section>

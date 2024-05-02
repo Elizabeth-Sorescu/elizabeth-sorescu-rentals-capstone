@@ -186,7 +186,11 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
         <AddTenantLandlordForm
           className="add-tenant-form__elem"
           onSubmit={handleSubmit}
+          onSubmitSuccess={(newTenant) =>
+            setPropertyTenants([...propertyTenants, newTenant])
+          }
           propertyTenants={propertyTenants}
+          setPropertyTenants={setPropertyTenants}
           handleClose={() => setShowAddTenantForm(false)}
         />
       ) : (
@@ -200,9 +204,11 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
         </div>
       )}
 
-      {error && <div className="error-message">{error}</div>}
+      {error && <div className="tenant__error-message">{error}</div>}
       {success && (
-        <div className="success-message">Tenant added successfully!</div>
+        <div className="tenant__success-message">
+          Tenant added successfully!
+        </div>
       )}
     </main>
   );

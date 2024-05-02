@@ -1,5 +1,5 @@
 import axios from "axios";
-import "../Landing/Landing.scss";
+import "./Landing.scss";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
@@ -69,24 +69,28 @@ function Landing() {
     if (user.role === "landlord") {
       navigate(`/landlords/${user.id}`);
     }
-
-    if (user.role === "tenant") {
-      navigate(`/tenants/${user.id}`);
-    }
   };
 
   return (
     <main className="landing">
-      <Header user={user} handleLogout={handleLogout} showProfileInfo={true} />
+      <Header
+        className="landing__nav"
+        user={user}
+        handleLogout={handleLogout}
+        showProfileInfo={true}
+      />
       <Properties user={user} />
-      <div className="landing__add">
-        <img
-          className="landing__add--btn"
-          src={addIcon}
-          alt="add button"
-          onClick={() => handleAddProperty({ user, handleLogout })}
-        />
-      </div>
+
+      {user.role === "landlord" && (
+        <div className="landing__add">
+          <img
+            className="landing__add--btn"
+            src={addIcon}
+            alt="add button"
+            onClick={() => handleAddProperty({ user, handleLogout })}
+          />
+        </div>
+      )}
 
       <Footer />
     </main>

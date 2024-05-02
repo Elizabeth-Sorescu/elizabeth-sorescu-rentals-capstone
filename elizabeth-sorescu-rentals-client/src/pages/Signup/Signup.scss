@@ -3,154 +3,86 @@
 @use "../../styles/partials/mixins" as *;
 
 .signup {
-  font-family: $font-regular;
-  margin: 3rem 2rem;
-  color: $color-font-gray;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  @include login-signup-main-form;
 
-.signup__logo {
-  display: flex;
-  justify-content: center;
-}
-
-.signup__form--heading {
-  display: flex;
-  justify-content: center;
-  font-size: 1rem;
-  color: $color-signup-dark-blue;
-  margin: 3rem 0rem 2rem 0rem;
-}
-
-.signup__form--inputs {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.signup__form--inputs__textboxes {
-  @include tablet {
+  &__logo {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 101%;
-    height: 200px;
-    margin-left: 1rem;
-    box-sizing: border-box;
+    justify-content: center;
   }
-}
-.signup__form--input-box {
-  background: $color-input-box;
-  border-radius: 0.5rem;
-  border: none;
-  width: 100%;
-  height: 50px;
-  box-sizing: border-box;
-  padding-left: 1rem;
 
-  margin: 0.5rem 0rem;
-  @include tablet {
-    width: 91%;
+  &__form {
+    &--heading {
+      display: flex;
+      justify-content: center;
+      font-size: 1rem;
+      color: $color-signup-dark-blue;
+      margin: 3rem 0rem 2rem 0rem;
+    }
+
+    &--inputs {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &__textboxes {
+        @include login-signup-texboxes;
+      }
+    }
+
+    &--input-box {
+      @include login-signup-input-box;
+    }
+
+    &--cta {
+      @include ctas-sign-log;
+    }
+    &--btn {
+      @include btns-sign-log;
+    }
+
+    &--show {
+      margin-left: 0.5rem;
+    }
+
+    &--btn {
+      margin-top: 2rem;
+    }
+
+    &--success-msg {
+      color: $color-btns-lighter-green;
+      font-weight: 700;
+      text-align: center;
+      @include tablet {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 1.5rem;
+      }
+    }
+
+    &--error-msg {
+      @include login-signup-error-msg;
+    }
   }
-}
 
-input[type="radio"]:checked {
-  accent-color: $color-btns-lighter-green;
-}
-.form__cta {
-  @include tablet {
-    display: flex;
-    padding: 5rem 1.5rem 0rem 0rem;
-    flex-direction: row-reverse;
+  input[type="radio"]:checked {
+    accent-color: $color-btns-lighter-green;
   }
-}
-.form__btn {
-  background-color: $color-btns-lighter-green;
-  color: $color-white;
-  border-radius: 0.5rem;
-  border: none;
-  width: 100%;
-  height: 50px;
-  font-size: 1.7rem;
-  font-weight: 600;
-  justify-content: center;
-  cursor: pointer;
-  @include tablet {
-    width: 45%;
-    flex-direction: row-reverse;
+
+  &__login {
+    text-align: center;
+    @include tablet {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 3rem;
+    }
+
+    &--link {
+      text-decoration: none;
+      margin-left: 1rem;
+    }
   }
-}
 
-.signup__login {
-  text-align: center;
-  @include tablet {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 3rem;
-  }
-}
-.signup__login--link {
-  text-decoration: none;
-  margin-left: 1rem;
-}
-
-.role {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  @include tablet {
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 3rem;
-    padding-left: 1rem;
-    padding-right: 2rem;
-  }
-}
-.role__label {
-  text-align: center;
-}
-.role__options {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  @include tablet {
-    width: 47%;
-    padding: 1rem 0rem 0rem 0rem;
-  }
-}
-
-.role__options--landlord {
-  margin-right: 5rem;
-}
-
-.roles__label,
-.signup__form--show {
-  margin-left: 0.5rem;
-}
-
-.signup__form--btn {
-  margin-top: 2rem;
-}
-
-.signup__form--success-msg {
-  color: $color-btns-lighter-green;
-  font-weight: 700;
-  text-align: center;
-  @include tablet {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 1.5rem;
-  }
-}
-.signup__form--error-msg {
-  color: $color-red;
-  font-weight: 700;
-  text-align: center;
-  @include tablet {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 3rem;
+  .role {
+    @include role-style;
   }
 }

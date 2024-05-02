@@ -43,7 +43,9 @@ function Properties({ user }) {
         Click on a property tab to view more information.
       </p>
       {userPropertyData.map((property) => {
-        return <PropertyCard key={property.id} property={property} />;
+        return (
+          <PropertyCard key={property.id} property={property} user={user} />
+        );
       })}
     </section>
   );

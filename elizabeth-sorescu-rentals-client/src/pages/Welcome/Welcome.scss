@@ -6,35 +6,34 @@
   display: relative;
   padding: 0rem;
   font-family: $font-regular;
-}
+  &__backdrop {
+    width: 100%;
+  }
 
-.rentals__backdrop {
-  width: 100vw;
-}
+  &__btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
 
-.rentals__btn {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-}
+    &--cta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 10px;
+      min-width: 15rem;
+      height: 3rem;
+      text-align: center;
+      background-color: $color-btns-lighter-green;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+      color: $color-white;
+      font-weight: 400;
 
-.rentals__btn--cta {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 10px;
-  min-width: 15rem;
-  height: 3rem;
-  text-align: center;
-  background-color: $color-btns-lighter-green;
-  cursor: pointer;
-  transition: box-shadow 0.2s;
-  color: $color-white;
-  font-weight: 400;
-
-  &:hover {
-    background-color: $color-btns-hover-green;
+      &:hover {
+        background-color: $color-btns-hover-green;
+      }
+    }
   }
 }

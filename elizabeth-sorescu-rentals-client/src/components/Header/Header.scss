@@ -10,21 +10,24 @@
 .header-nav {
   height: 7rem;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 2rem;
+  padding: 0rem 2rem;
   &__logo {
     height: 3.5rem;
     display: flex;
     cursor: pointer;
     position: absolute;
     top: 3.5%;
-    left: 2%;
   }
 
   &__menu {
     float: right;
-    margin-right: 2.188rem;
+    margin-right: 0rem;
     margin-top: 3.125rem;
     display: flex;
-
     &--pic {
       cursor: pointer;
       margin-left: 0.5rem;
@@ -33,26 +36,3 @@
     }
   }
 }
-
-// .header-nav__logo {
-//   height: 3.5rem;
-//   display: flex;
-//   cursor: pointer;
-//   position: absolute;
-//   top: 3.5%;
-//   left: 2%;
-// }
-
-// .header-nav__menu {
-//   float: right;
-//   margin-right: 2.188rem;
-//   margin-top: 3.125rem;
-//   display: flex;
-// }
-
-// .header-nav__menu--pic {
-//   cursor: pointer;
-//   margin-left: 0.5rem;
-//   width: 2rem;
-//   height: 2rem;
-// }

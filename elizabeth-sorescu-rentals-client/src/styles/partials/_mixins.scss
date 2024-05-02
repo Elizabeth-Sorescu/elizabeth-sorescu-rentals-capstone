@@ -1,4 +1,5 @@
 @use "./variables" as *;
+@use "./fonts" as *;
 
 @mixin tablet {
   @media screen and (min-width: $tablet-breakpoint) {
@@ -9,5 +10,112 @@
 @mixin mobile {
   @media screen and (max-width: $tablet-breakpoint) {
     @content;
+  }
+}
+
+// Style mixin for Signup and Login
+
+@mixin login-signup-main-form {
+  font-family: $font-regular;
+  margin: 3rem 2rem;
+  color: $color-font-gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@mixin login-signup-texboxes {
+  @include tablet {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 101%;
+    height: 200px;
+    margin-left: 1rem;
+    box-sizing: border-box;
+  }
+}
+
+@mixin login-signup-input-box {
+  background: $color-input-box;
+  border-radius: 0.5rem;
+  border: none;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  padding-left: 1rem;
+  margin: 0.5rem 0rem;
+  @include tablet {
+    width: 91%;
+  }
+}
+
+@mixin btns-sign-log {
+  background-color: $color-btns-lighter-green;
+  color: $color-white;
+  border-radius: 0.5rem;
+  border: none;
+  width: 100%;
+  height: 50px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  justify-content: center;
+  cursor: pointer;
+  @include tablet {
+    width: 45%;
+    flex-direction: row-reverse;
+  }
+}
+
+@mixin ctas-sign-log {
+  @include tablet {
+    display: flex;
+    padding: 5rem 1.5rem 0rem 0rem;
+    flex-direction: row-reverse;
+  }
+}
+
+@mixin role-style {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3rem 2rem 0rem 1rem;
+  }
+
+  &__label {
+    text-align: center;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 2rem;
+    @include tablet {
+      width: 47%;
+      padding: 1rem 0rem 0rem 0rem;
+    }
+
+    &--landlord {
+      margin-right: 5rem;
+    }
+  }
+
+  &__labels {
+    margin-left: 0.5rem;
+  }
+}
+
+@mixin login-signup-error-msg {
+  color: $color-red;
+  font-weight: 700;
+  text-align: center;
+  @include tablet {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3rem;
   }
 }

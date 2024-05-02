@@ -39,7 +39,7 @@ function Signup() {
     // Validate if all fields are non-empty (phone is optional)
     if (!name.value || !email.value || !password.value || !role.value) {
       setError("Please fill out all fields.");
-      setTimeout(() => setError(""), 3000);
+      setTimeout(() => setError(""), 4000);
       return;
     }
 
@@ -47,7 +47,7 @@ function Signup() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.value)) {
       setError("Please enter a valid email address.");
-      setTimeout(() => setError(""), 3000);
+      setTimeout(() => setError(""), 4000);
       return;
     }
 
@@ -55,14 +55,14 @@ function Signup() {
     const phoneRegex = /^\d{10}$/;
     if (phone.value.length > 0 && !phoneRegex.test(phone.value)) {
       setError("Please enter a valid 10-digit phone number.");
-      setTimeout(() => setError(""), 3000);
+      setTimeout(() => setError(""), 4000);
       return;
     }
 
     // Validate password length
     if (password.value.length < 8) {
       setError("Password must be at least 8 characters long.");
-      setTimeout(() => setError(""), 3000);
+      setTimeout(() => setError(""), 4000);
       return;
     }
 
@@ -78,7 +78,7 @@ function Signup() {
 
     if (isLandlordEmailRegistered && isTenantEmailRegistered) {
       setError("This email is registered already.");
-      setTimeout(() => setError(""), 3000);
+      setTimeout(() => setError(""), 4000);
       return;
     }
 
@@ -191,25 +191,25 @@ function Signup() {
                   name="role"
                   value="landlord"
                 />
-                <label className="roles__label" htmlFor="landlord">
+                <label className="role__labels" htmlFor="landlord">
                   Landlord
                 </label>
               </div>
               <div>
                 <input type="radio" id="tenant" name="role" value="tenant" />
-                <label className="roles__label" htmlFor="tenant">
+                <label className="role__labels" htmlFor="tenant">
                   Tenant
                 </label>
               </div>
             </div>
           </div>
         </div>
-        <div className="form__cta">
+        <div className="signup__form--cta">
           <button
             type="submit"
             form="signup-form"
             value="Signup"
-            className="form__btn"
+            className="signup__form--btn"
           >
             Submit
           </button>

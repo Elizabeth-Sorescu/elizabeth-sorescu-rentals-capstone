@@ -38,13 +38,13 @@ function SinglePropertyDetails({ handleLogout }) {
         console.error("Error fetching tenants:", error);
       }
     };
-    fetchPropertyTenants();
+    if (propertyData.id) {
+      fetchPropertyTenants();
+    }
   }, [propertyData]);
 
-  // Create a new Date object
   const currentDate = new Date();
-
-  // Define an array of month names
+  const currentMonthIndex = currentDate.getMonth();
   const monthNames = [
     "January",
     "February",
@@ -60,13 +60,8 @@ function SinglePropertyDetails({ handleLogout }) {
     "December",
   ];
 
-  // Get the current month (months are zero-indexed)
-  const currentMonthIndex = currentDate.getMonth();
-
-  // Get the month name based on the current month index
   const currentMonthName = monthNames[currentMonthIndex];
 
-  // Calculate the total monthly expense
   const totalExpense =
     propertyData.mortgage +
     propertyData.strata_fee +
@@ -75,7 +70,6 @@ function SinglePropertyDetails({ handleLogout }) {
     propertyData.maintenance_fee +
     propertyData.other_fees;
 
-  // Calculate the net income
   const netIncome = propertyData.monthly_rent - totalExpense;
   const netIncomeClass = netIncome >= 0 ? "positive" : "negative";
 

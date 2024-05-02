@@ -6,73 +6,78 @@
   font-family: $font-regular;
   padding: 0rem 2rem;
   color: $color-data-darker-blue;
-}
 
-.property__heading {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 2rem;
-  background-color: rgb(211 211 211 / 10%);
-}
+  &__heading {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+    background-color: rgb(211 211 211 / 10%);
 
-.property__info {
-  border-radius: 0.5rem;
-  padding: 1.25rem;
-  box-shadow: inset 0 -3em 3em rgb(0 200 0 / 30%), 0 0 0 2px white,
-    0.3em 0.3em 1em rgb(26 43 73 / 60%);
-}
+    &--back-btn {
+      height: 2rem;
+    }
 
-.property__heading--back-btn {
-  height: 2rem;
-}
+    &--label {
+      font-size: 1.5rem;
+      color: $color-font-gray;
+      margin-left: 1rem;
+    }
+  }
 
-.property__heading--label {
-  font-size: 1.5rem;
-  color: $color-font-gray;
-  margin-left: 1rem;
-}
+  &__info {
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    box-shadow: inset 0 -3em 3em rgb(0 200 0 / 30%), 0 0 0 2px $color-white,
+      0.3em 0.3em 1em rgb(26 43 73 / 60%);
 
-.property__info--gross-income,
-.property__info--expenses__total,
-.property__info--net {
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 0.5rem;
-}
+    &--gross-income,
+    &--expenses__total,
+    &--net {
+      display: flex;
+      justify-content: flex-end;
+      padding-bottom: 0.5rem;
+    }
 
-.property__info--gross-income__val {
-  margin-left: 1rem;
-}
+    &--gross-income__val {
+      margin-left: 1rem;
+    }
 
-.property__info--expenses--heading,
-.property__info--expenses--label {
-  color: $color-font-gray;
-}
+    &--expenses {
+      &--heading,
+      &--label {
+        color: $color-font-gray;
+      }
 
-.property__info--expenses__container {
-  display: flex;
-  flex-direction: row;
-}
-.property__info--expenses__label {
-  width: 65%;
-}
+      &__container {
+        display: flex;
+        flex-direction: row;
+      }
+      &__label {
+        width: 65%;
+      }
+      &__value {
+        width: 20%;
+      }
+    }
 
-.property__info--expenses__value {
-  width: 20%;
-}
-.property__info--net__positive {
-  color: $color-btns-lighter-green;
-  font-weight: 600;
-}
+    &--net {
+      &__positive {
+        color: $color-btns-lighter-green;
+        font-weight: 600;
+      }
 
-.property__info--net__negative {
-  color: $color-red;
-  font-weight: 600;
-}
+      &__negative {
+        color: $color-red;
+        font-weight: 600;
+      }
+    }
 
-.property__info--details {
-  text-decoration: none;
-}
-.property__info--tenants-list {
-  margin-top: 2rem;
+    &--details {
+      text-decoration: none;
+    }
+  }
+
+  &__info--tenants-list {
+    margin-top: 2rem;
+  }
 }

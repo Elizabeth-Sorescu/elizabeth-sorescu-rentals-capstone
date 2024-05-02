@@ -78,5 +78,9 @@
         background-color: $color-orange;
       }
     }
+
+    &--error-message {
+      color: $color-red;
+    }
   }
 }

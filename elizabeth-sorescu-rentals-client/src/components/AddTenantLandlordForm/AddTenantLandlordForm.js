@@ -1,8 +1,9 @@
-import "../AddTenantLandlordForm/AddTenantLandlordForm.scss";
 import React, { useState, useRef } from "react";
 import closeIcon from "../../assets/icons/close.svg";
+import axios from "axios";
+import "../AddTenantLandlordForm/AddTenantLandlordForm.scss";
 
-function AddTenantLandlordForm({ onSubmit, propertyTenants, handleClose }) {
+function AddTenantLandlordForm({ onSubmitSuccess, handleClose }) {
   const [newTenant, setNewTenant] = useState({
     name: "",
     room_location: "",
@@ -18,21 +19,37 @@ function AddTenantLandlordForm({ onSubmit, propertyTenants, handleClose }) {
     setNewTenant({ ...newTenant, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(propertyTenants);
 
-    const isDuplicateEmail = propertyTenants.some(
-      (tenant) => tenant.email === newTenant.email
-    );
-
-    if (isDuplicateEmail) {
-      setErrorMessage("Tenant with this email already exists.");
+    if (
+      !newTenant.name ||
+      !newTenant.room_location ||
+      !newTenant.monthly_rent ||
+      !newTenant.email
+    ) {
+      setErrorMessage("Please complete all required fields.");
       return;
     }
 
-    onSubmit(newTenant);
-    console.log(newTenant);
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/tenants",
+        newTenant
+      );
+
+      onSubmitSuccess(response.data);
+      setNewTenant({
+        name: "",
+        room_location: "",
+        monthly_rent: "",
+        email: "",
+        phone: "",
+      });
+      setErrorMessage("");
+    } catch (error) {
+      setErrorMessage("Failed to submit form. Please complete fields.");
+    }
   };
 
   const handleCancel = () => {
@@ -105,7 +122,7 @@ function AddTenantLandlordForm({ onSubmit, propertyTenants, handleClose }) {
           value={newTenant.email}
           onChange={handleChange}
         />
-        <label className="add-tenant__form--label">Phone:</label>
+        <label className="add-tenant__form--label">Phone(optional):</label>
         <input
           className="add-tenant__form--inputbox"
           type="tel"
@@ -124,6 +141,10 @@ function AddTenantLandlordForm({ onSubmit, propertyTenants, handleClose }) {
             Clear
           </button>
         </div>
+
+        {errorMessage && (
+          <div className="add-tenant__form--error-message">{errorMessage}</div>
+        )}
       </form>
     </section>
   );
