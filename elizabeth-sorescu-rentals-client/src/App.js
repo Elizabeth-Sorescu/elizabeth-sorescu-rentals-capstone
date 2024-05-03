@@ -16,19 +16,14 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          {/* Routes for welcomepage */}
           <Route path="/" element={<Welcome />} />
 
-          {/* Routes for signup */}
           <Route path="/signup" element={<Signup />} />
 
-          {/* Routes for signup */}
           <Route path="/login" element={<Login />} />
 
-          {/* Routes for welcomepage */}
           <Route path="/current/user" element={<Landing />} />
 
-          {/* Route for add property page*/}
           <Route
             path="/landlords/:id"
             element={<AddPropertyLandlordForm user={user} />}
@@ -38,7 +33,7 @@ function App() {
             path="/properties/:id"
             element={<SinglePropertyDetails property={property} />}
           />
-          {/* Route for tenant page */}
+
           <Route path="/tenants/:id" element={<AddTenantLandlordForms />} />
         </Routes>
       </BrowserRouter>
