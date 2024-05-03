@@ -1,0 +1,99 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.tenant {
+  font-family: $font-regular;
+  @include tablet {
+    padding: 0rem 1rem;
+    margin: 0rem 10rem;
+  }
+
+  &__info {
+    margin: 1rem 0rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgb(211 211 211 / 10%);
+    padding-bottom: 1rem;
+    width: 100%;
+
+    &--heading {
+      font-size: 1.2rem;
+      color: $color-font-add-tenant-heading-gray;
+      padding-bottom: 1rem;
+    }
+
+    &--det {
+      color: $color-data-darker-blue;
+
+      &--name {
+        font-size: 1.3rem;
+        font-weight: 800;
+      }
+
+      &--ratings {
+        display: flex;
+        flex-direction: row;
+      }
+      &--amount {
+        font-weight: 600;
+      }
+
+      &--ratings__star {
+        width: 1rem;
+        margin-right: 0.2rem;
+      }
+
+      &--icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &__avatar {
+          width: 2rem;
+        }
+
+        &__cta--chat {
+          width: 2rem;
+          margin: 0rem 0.2rem;
+        }
+
+        &__cta--edit {
+          width: 2rem;
+          margin: 0rem 0.2rem;
+        }
+      }
+    }
+
+    &--group {
+      display: flex;
+      justify-content: space-between;
+
+      &__paystat {
+        display: flex;
+        flex-direction: row;
+      }
+
+      &__paystat--label {
+        margin-left: 0.2rem;
+      }
+
+      &__paystat--date {
+        margin-left: 0.7rem;
+      }
+    }
+  }
+
+  &__error-message,
+  &__success-message {
+    padding-top: 2rem;
+    color: $color-red;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__success-message {
+    color: $color-footer-darker-green;
+    font-weight: 700;
+  }
+}

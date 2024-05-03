@@ -1,0 +1,22 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.footer-section {
+  margin-top: 2rem;
+  padding: 1.5rem 0rem;
+  font-family: $font-regular;
+  background-color: $color-footer-darker-green;
+  color: $color-white;
+  text-align: center;
+  &__icons--elem-icon {
+    width: 5rem;
+    margin: 0rem 0.3rem;
+    cursor: pointer;
+  }
+
+  &__left-grp--label {
+    font-size: 1.5rem;
+    padding-bottom: 3rem;
+  }
+}

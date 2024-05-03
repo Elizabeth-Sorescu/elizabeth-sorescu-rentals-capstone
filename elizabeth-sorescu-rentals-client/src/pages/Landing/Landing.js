@@ -1,0 +1,98 @@
+import axios from "axios";
+import "./Landing.scss";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Header from "../../components/Header/Header";
+import Properties from "../../components/Properties/Properties";
+import Footer from "../../components/Footer/Footer";
+import addIcon from "../../assets/icons/add.svg";
+
+function Landing() {
+  let [user, setUser] = useState(null);
+  const [failedAuth, setFailedAuth] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+
+    if (!token) {
+      return setFailedAuth(true);
+    }
+
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:8080/api/users/current/user",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setUser(response.data);
+      } catch (error) {
+        setFailedAuth(true);
+      }
+    };
+    fetchUser();
+  }, []);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("token");
+    setUser(null);
+    setFailedAuth(true);
+    navigate(`/`);
+  };
+
+  if (failedAuth) {
+    return (
+      <main className="profile">
+        <p>You must be logged in to see this page.</p>
+        <p>
+          <Link to="/login">Log in</Link>
+        </p>
+      </main>
+    );
+  }
+
+  if (user === null) {
+    return (
+      <main className="profile">
+        <p>Loading...</p>
+      </main>
+    );
+  }
+
+  const handleAddProperty = ({ user }) => {
+    if (user.role === "landlord") {
+      navigate(`/landlords/${user.id}`);
+    }
+  };
+
+  return (
+    <main className="landing">
+      <Header
+        className="landing__nav"
+        user={user}
+        handleLogout={handleLogout}
+        showProfileInfo={true}
+      />
+      <Properties user={user} />
+
+      {user.role === "landlord" && (
+        <div className="landing__add">
+          <img
+            className="landing__add--btn"
+            src={addIcon}
+            alt="add button"
+            onClick={() => handleAddProperty({ user, handleLogout })}
+          />
+        </div>
+      )}
+
+      <Footer />
+    </main>
+  );
+}
+
+export default Landing;

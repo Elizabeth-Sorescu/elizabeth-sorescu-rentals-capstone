@@ -1,0 +1,73 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.login {
+  @include login-signup-main-form;
+  &__logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__form {
+    &--error-msg {
+      @include login-signup-error-msg;
+    }
+
+    &--heading {
+      display: flex;
+      justify-content: center;
+      font-size: 1rem;
+      color: $color-signup-dark-blue;
+      margin: 3rem 0rem 2rem 0rem;
+    }
+
+    &--inputs {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &__textboxes {
+        @include login-signup-texboxes;
+      }
+    }
+
+    &--input-box {
+      @include login-signup-input-box;
+    }
+
+    &--show {
+      margin-left: 0.5rem;
+    }
+
+    &--show {
+      margin-left: 0.5rem;
+    }
+
+    &--cta {
+      @include ctas-sign-log;
+    }
+
+    &--btn {
+      @include btns-sign-log;
+    }
+  }
+
+  &__link {
+    text-align: center;
+    @include tablet {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 3rem;
+    }
+
+    &--decor {
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+  }
+
+  .role {
+    @include role-style;
+  }
+}

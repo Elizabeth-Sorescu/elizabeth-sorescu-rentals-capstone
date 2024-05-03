@@ -1,0 +1,16 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.landing {
+  font-family: $font-regular;
+
+  &__add {
+    text-align: center;
+    &--btn {
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+    }
+  }
+}

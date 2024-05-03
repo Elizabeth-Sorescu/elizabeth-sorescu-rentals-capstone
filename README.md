@@ -100,7 +100,7 @@ Desktop Flexibility:
 ### Tech Stack
 
 - React
-- TypeScript
+- Javascript
 - MySQL
 - Express
 - Client libraries:
@@ -199,7 +199,11 @@ Tenant’s rating feature functionality
 - Get all properties if the user is logged in
 
 - Response body example:
+<<<<<<< HEAD
   [
+=======
+- [
+>>>>>>> develop
   {
   id: 1,
   landlord_id: 1,
@@ -242,7 +246,11 @@ Tenant’s rating feature functionality
 - Post a new property
 
 - Request body example:
+<<<<<<< HEAD
   [
+=======
+- [
+>>>>>>> develop
   {
   property_name: "Richmond",
   street_address: "789 No. 3 Road",
@@ -287,7 +295,11 @@ Parameters:
 - id : property id as number
 
 - Response body example:
+<<<<<<< HEAD
   {
+=======
+- {
+>>>>>>> develop
   id: 3,
   landlord_id: 1,
   property_name: "Vancouver",
@@ -315,7 +327,11 @@ Parameters:
 
 - /api/properties/1/tenants
 - Response body example:
+<<<<<<< HEAD
   [
+=======
+- [
+>>>>>>> develop
   {
   id: 1,
   property_id: 1,
@@ -378,7 +394,11 @@ Parameters:
 -Get all tenants from all properties
 
 - Response body example:
+<<<<<<< HEAD
   [
+=======
+- [
+>>>>>>> develop
   {
   id: 1,
   property_id: 1,
@@ -541,3 +561,20 @@ Phase 5: (This phase will not be implemented yet)
 
 - Draw SQL DB Schema Diagram Tool
   https://drawsql.app/teams/eli-rental-team/diagrams/eli-proj
+
+## Sample user data to Login into the application
+
+-For landlord user, email: eli.za@gmail.com password: testtest
+-For tenant user, email: marie.taylor@gmail.com password: testtest
+
+## Functionalities for Sprint 1(Phase 1):
+
+-Login as a new landlord user
+-View properties
+-Add new property
+-Add tenants to the property
+-Signup as a new landlord user
+
+-Login as a new tenant user
+-For tenant user, view rented properties
+-Signup as a new tenant user

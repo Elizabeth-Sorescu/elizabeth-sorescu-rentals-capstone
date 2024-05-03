@@ -1,0 +1,83 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+.property {
+  font-family: $font-regular;
+  padding: 0rem 2rem;
+  color: $color-data-darker-blue;
+
+  &__heading {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+    background-color: rgb(211 211 211 / 10%);
+
+    &--back-btn {
+      height: 2rem;
+    }
+
+    &--label {
+      font-size: 1.5rem;
+      color: $color-font-gray;
+      margin-left: 1rem;
+    }
+  }
+
+  &__info {
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    box-shadow: inset 0 -3em 3em rgb(0 200 0 / 30%), 0 0 0 2px $color-white,
+      0.3em 0.3em 1em rgb(26 43 73 / 60%);
+
+    &--gross-income,
+    &--expenses__total,
+    &--net {
+      display: flex;
+      justify-content: flex-end;
+      padding-bottom: 0.5rem;
+    }
+
+    &--gross-income__val {
+      margin-left: 1rem;
+    }
+
+    &--expenses {
+      &--heading,
+      &--label {
+        color: $color-font-gray;
+      }
+
+      &__container {
+        display: flex;
+        flex-direction: row;
+      }
+      &__label {
+        width: 65%;
+      }
+      &__value {
+        width: 20%;
+      }
+    }
+
+    &--net {
+      &__positive {
+        color: $color-btns-lighter-green;
+        font-weight: 600;
+      }
+
+      &__negative {
+        color: $color-red;
+        font-weight: 600;
+      }
+    }
+
+    &--details {
+      text-decoration: none;
+    }
+  }
+
+  &__info--tenants-list {
+    margin-top: 2rem;
+  }
+}

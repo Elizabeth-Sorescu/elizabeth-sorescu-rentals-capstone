@@ -1,0 +1,38 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header-nav {
+  height: 7rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 2rem;
+  padding: 0rem 2rem;
+  &__logo {
+    height: 3.5rem;
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    top: 3.5%;
+  }
+
+  &__menu {
+    float: right;
+    margin-right: 0rem;
+    margin-top: 3.125rem;
+    display: flex;
+    &--pic {
+      cursor: pointer;
+      margin-left: 0.5rem;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
