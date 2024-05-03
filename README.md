@@ -572,7 +572,7 @@ Phase 5: (This phase will not be implemented yet)
 
 -Login as a new landlord user
 -View properties
--View Profile
+-Double-click icon to view Profile
 -Click Home that navigates to list of properties
 -Add new property
 -Add tenants to the property
@@ -580,6 +580,6 @@ Phase 5: (This phase will not be implemented yet)
 
 -Login as a new tenant user
 -For tenant user, view rented properties
--View Profile
+-Double-click icon to view Profile
 -Click Home that navigates to list of properties
 -Signup as a new tenant user
