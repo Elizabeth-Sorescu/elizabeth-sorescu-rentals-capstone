@@ -199,94 +199,95 @@ Tenant’s rating feature functionality
 - Get all properties if the user is logged in
 
 - Response body example:
-<<<<<<< HEAD
+  <<<<<<< HEAD
   [
-=======
+  =======
 - [
->>>>>>> develop
-  {
-  id: 1,
-  landlord_id: 1,
-  property_name: "New Westminster",
-  street_address: "1115 Rupert avenue",
-  city: "New Westminster",
-  country: "Canada",
-  description: "3BR 2BA",
-  type: "Townhome",
-  monthly_rent: 3500,
-  rating: 4.8,
-  num_reviews: 11,
-  mortgage: 3700,
-  strata_fee: 250,
-  property_tax: 278.33,
-  maintenance_fee: 600,
-  },
-  {
-  id: 2,
-  landlord_id: 1,
-  property_name: "South Surrey",
-  address: "28 avenue 160 St.",
-  city: " South Surrey ",
-  country: "Canada",
-  description: "6BR 3BA",
-  type: "House",
-  monthly_rent: "5500",
-  rating: 4.5,
-  num_reviews: 8,
-  mortgage: 5500,
-  strata_fee: 0,
-  property_tax: 375,
-  maintenance_fee: 1000,
-  },
-  ...
-  ]
+  > > > > > > > develop
+  > > > > > > > {
+  > > > > > > > id: 1,
+  > > > > > > > landlord_id: 1,
+  > > > > > > > property_name: "New Westminster",
+  > > > > > > > street_address: "1115 Rupert avenue",
+  > > > > > > > city: "New Westminster",
+  > > > > > > > country: "Canada",
+  > > > > > > > description: "3BR 2BA",
+  > > > > > > > type: "Townhome",
+  > > > > > > > monthly_rent: 3500,
+  > > > > > > > rating: 4.8,
+  > > > > > > > num_reviews: 11,
+  > > > > > > > mortgage: 3700,
+  > > > > > > > strata_fee: 250,
+  > > > > > > > property_tax: 278.33,
+  > > > > > > > maintenance_fee: 600,
+  > > > > > > > },
+  > > > > > > > {
+  > > > > > > > id: 2,
+  > > > > > > > landlord_id: 1,
+  > > > > > > > property_name: "South Surrey",
+  > > > > > > > address: "28 avenue 160 St.",
+  > > > > > > > city: " South Surrey ",
+  > > > > > > > country: "Canada",
+  > > > > > > > description: "6BR 3BA",
+  > > > > > > > type: "House",
+  > > > > > > > monthly_rent: "5500",
+  > > > > > > > rating: 4.5,
+  > > > > > > > num_reviews: 8,
+  > > > > > > > mortgage: 5500,
+  > > > > > > > strata_fee: 0,
+  > > > > > > > property_tax: 375,
+  > > > > > > > maintenance_fee: 1000,
+  > > > > > > > },
+  > > > > > > > ...
+  > > > > > > > ]
 
 ** POST /api/properties **
 
 - Post a new property
 
 - Request body example:
-<<<<<<< HEAD
+  <<<<<<< HEAD
   [
-=======
+  =======
 - [
->>>>>>> develop
-  {
-  property_name: "Richmond",
-  street_address: "789 No. 3 Road",
-  city: "Richmond",
-  country: "Canada",
-  description: "1BR 1BA",
-  type: "Loft",
-  monthly_rent: 2000,
-  rating: 4.6,
-  num_reviews: 9,
-  mortgage: 2200,
-  strata_fee: 150,
-  property_tax: 150,
-  maintenance_fee: 300,
-  }
-  • Response returns 400 if unsuccessful because of missing properties in the request bodyResponse returns 201 if successful
-  • Response body example:
-  {
-  id: 4,
-  landlord_id: 2,
-  property_name: "Richmond",
-  street_address: "789 No. 3 Road",
-  city: "Richmond",
-  country: "Canada",
-  description: "1BR 1BA",
-  type: "Loft",
-  monthly_rent: 2000,
-  rating: 4.6,
-  num_reviews: 9,
-  mortgage: 2200,
-  strata_fee: 150,
-  property_tax: 150,
-  maintenance_fee: 300,
-  }
-  ]
-  ** GET /api/properties/:id **
+
+  > > > > > > > develop
+  > > > > > > > {
+  > > > > > > > property_name: "Richmond",
+  > > > > > > > street_address: "789 No. 3 Road",
+  > > > > > > > city: "Richmond",
+  > > > > > > > country: "Canada",
+  > > > > > > > description: "1BR 1BA",
+  > > > > > > > type: "Loft",
+  > > > > > > > monthly_rent: 2000,
+  > > > > > > > rating: 4.6,
+  > > > > > > > num_reviews: 9,
+  > > > > > > > mortgage: 2200,
+  > > > > > > > strata_fee: 150,
+  > > > > > > > property_tax: 150,
+  > > > > > > > maintenance_fee: 300,
+  > > > > > > > }
+  > > > > > > > • Response returns 400 if unsuccessful because of missing properties in the request bodyResponse returns 201 if successful
+  > > > > > > > • Response body example:
+  > > > > > > > {
+  > > > > > > > id: 4,
+  > > > > > > > landlord_id: 2,
+  > > > > > > > property_name: "Richmond",
+  > > > > > > > street_address: "789 No. 3 Road",
+  > > > > > > > city: "Richmond",
+  > > > > > > > country: "Canada",
+  > > > > > > > description: "1BR 1BA",
+  > > > > > > > type: "Loft",
+  > > > > > > > monthly_rent: 2000,
+  > > > > > > > rating: 4.6,
+  > > > > > > > num_reviews: 9,
+  > > > > > > > mortgage: 2200,
+  > > > > > > > strata_fee: 150,
+  > > > > > > > property_tax: 150,
+  > > > > > > > maintenance_fee: 300,
+  > > > > > > > }
+  > > > > > > > ]
+  > > > > > > > ** GET /api/properties/:id **
 
 - Get a single property given a specific id
 
@@ -295,27 +296,27 @@ Parameters:
 - id : property id as number
 
 - Response body example:
-<<<<<<< HEAD
+  <<<<<<< HEAD
   {
-=======
+  =======
 - {
->>>>>>> develop
-  id: 3,
-  landlord_id: 1,
-  property_name: "Vancouver",
-  address: "1133 Hornby St",
-  city: "Vancouver",
-  country: "Canada",
-  description: "1BR 1BA",
-  type: "Condominium",
-  monthly_rent: "2500",
-  rating: 4.8,
-  num_reviews: 10,
-  mortgage: 3500,
-  strata_fee: 300,
-  property_tax: 350,
-  maintenance_fee: 500,
-  }
+  > > > > > > > develop
+  > > > > > > > id: 3,
+  > > > > > > > landlord_id: 1,
+  > > > > > > > property_name: "Vancouver",
+  > > > > > > > address: "1133 Hornby St",
+  > > > > > > > city: "Vancouver",
+  > > > > > > > country: "Canada",
+  > > > > > > > description: "1BR 1BA",
+  > > > > > > > type: "Condominium",
+  > > > > > > > monthly_rent: "2500",
+  > > > > > > > rating: 4.8,
+  > > > > > > > num_reviews: 10,
+  > > > > > > > mortgage: 3500,
+  > > > > > > > strata_fee: 300,
+  > > > > > > > property_tax: 350,
+  > > > > > > > maintenance_fee: 500,
+  > > > > > > > }
 
 ** GET /api/properties/:id/tenants **
 
@@ -327,120 +328,120 @@ Parameters:
 
 - /api/properties/1/tenants
 - Response body example:
-<<<<<<< HEAD
+  <<<<<<< HEAD
   [
-=======
+  =======
 - [
->>>>>>> develop
-  {
-  id: 1,
-  property_id: 1,
-  tenant_name: "Marie Taylor",
-  room_location: "1: Master bedroom",
-  monthly_rent: 650,
-  messages: "I created a request for the washer repair.",
-  rating: 4.9,
-  num_reviews: 11,
-  email: "marie.taylor@gmail.com",
-  phone: 6046532357,
-  password: "test",
-  role: "tenant",
-  },
-  {
-  id: 2,
-  property_id: 1,
-  tenant_name: "Mercedez Muga",
-  room_location: "1: Master bedroom",
-  monthly_rent: 650,
-  messages: "I cannot pay this month's rent",
-  rating: 4.5,
-  num_reviews: 9,
-  email: "mercedez.muga @hotmail.com",
-  phone: "7783462457",
-  password: "test",
-  role: "tenant",
-  },
-  {
-  id: 3,
-  property_id: 1,
-  tenant_name: "Glory Lin",
-  room_location: "2: Single room west-side",
-  monthly_rent: 1100,
-  messages: "I lost the mail key.",
-  rating: 4.6,
-  num_reviews: 5,
-  email: "glory.lin@hotmail.com",
-  phone: "2363570864",
-  },
-  {
-  id: 4,
-  property_id: 1,
-  tenant_name: "Esther Victoria",
-  room_location: "2: Single room east-side",
-  monthly_rent: 1100,
-  messages: "I just fill in the form to end my tenancy by June.",
-  rating: 4.5,
-  num_reviews: 9,
-  email: "esther.victoria@yahoo.com",
-  phone: "6049865689",
-  password: "test",
-  role: "tenant",
-  },
-  ...
-  ]
+  > > > > > > > develop
+  > > > > > > > {
+  > > > > > > > id: 1,
+  > > > > > > > property_id: 1,
+  > > > > > > > tenant_name: "Marie Taylor",
+  > > > > > > > room_location: "1: Master bedroom",
+  > > > > > > > monthly_rent: 650,
+  > > > > > > > messages: "I created a request for the washer repair.",
+  > > > > > > > rating: 4.9,
+  > > > > > > > num_reviews: 11,
+  > > > > > > > email: "marie.taylor@gmail.com",
+  > > > > > > > phone: 6046532357,
+  > > > > > > > password: "test",
+  > > > > > > > role: "tenant",
+  > > > > > > > },
+  > > > > > > > {
+  > > > > > > > id: 2,
+  > > > > > > > property_id: 1,
+  > > > > > > > tenant_name: "Mercedez Muga",
+  > > > > > > > room_location: "1: Master bedroom",
+  > > > > > > > monthly_rent: 650,
+  > > > > > > > messages: "I cannot pay this month's rent",
+  > > > > > > > rating: 4.5,
+  > > > > > > > num_reviews: 9,
+  > > > > > > > email: "mercedez.muga @hotmail.com",
+  > > > > > > > phone: "7783462457",
+  > > > > > > > password: "test",
+  > > > > > > > role: "tenant",
+  > > > > > > > },
+  > > > > > > > {
+  > > > > > > > id: 3,
+  > > > > > > > property_id: 1,
+  > > > > > > > tenant_name: "Glory Lin",
+  > > > > > > > room_location: "2: Single room west-side",
+  > > > > > > > monthly_rent: 1100,
+  > > > > > > > messages: "I lost the mail key.",
+  > > > > > > > rating: 4.6,
+  > > > > > > > num_reviews: 5,
+  > > > > > > > email: "glory.lin@hotmail.com",
+  > > > > > > > phone: "2363570864",
+  > > > > > > > },
+  > > > > > > > {
+  > > > > > > > id: 4,
+  > > > > > > > property_id: 1,
+  > > > > > > > tenant_name: "Esther Victoria",
+  > > > > > > > room_location: "2: Single room east-side",
+  > > > > > > > monthly_rent: 1100,
+  > > > > > > > messages: "I just fill in the form to end my tenancy by June.",
+  > > > > > > > rating: 4.5,
+  > > > > > > > num_reviews: 9,
+  > > > > > > > email: "esther.victoria@yahoo.com",
+  > > > > > > > phone: "6049865689",
+  > > > > > > > password: "test",
+  > > > > > > > role: "tenant",
+  > > > > > > > },
+  > > > > > > > ...
+  > > > > > > > ]
 
 ** GET /api/tenants **
 
 -Get all tenants from all properties
 
 - Response body example:
-<<<<<<< HEAD
+  <<<<<<< HEAD
   [
-=======
+  =======
 - [
->>>>>>> develop
-  {
-  id: 1,
-  property_id: 1,
-  tenant_name: "Marie Taylor",
-  room_location: "1: Master bedroom",
-  monthly_rent: 650,
-  messages: "I created a request for the washer repair.",
-  rating: 4.9,
-  num_reviews: 11,
-  email: "marie.taylor@gmail.com",
-  phone: 6046532357,
-  password: "test",
-  role: "tenant",
-  },
-  {
-  id: 2,
-  property_id: 1,
-  tenant_name: "Mercedez Muga",
-  room_location: "1: Master bedroom",
-  monthly_rent: 650,
-  messages: "I cannot pay this month's rent",
-  rating: 4.5,
-  num_reviews: 9,
-  email: "mercedez.muga @hotmail.com",
-  phone: "7783462457",
-  password: "test",
-  role: "tenant",
-  },
-  {
-  id: 3,
-  property_id: 1,
-  tenant_name: "Glory Lin",
-  room_location: "2: Single room west-side",
-  monthly_rent: 1100,
-  messages: "I lost the mail key.",
-  rating: 4.6,
-  num_reviews: 5,
-  email: "glory.lin@hotmail.com",
-  phone: "2363570864",
-  }
-  ...
-  ]
+  > > > > > > > develop
+  > > > > > > > {
+  > > > > > > > id: 1,
+  > > > > > > > property_id: 1,
+  > > > > > > > tenant_name: "Marie Taylor",
+  > > > > > > > room_location: "1: Master bedroom",
+  > > > > > > > monthly_rent: 650,
+  > > > > > > > messages: "I created a request for the washer repair.",
+  > > > > > > > rating: 4.9,
+  > > > > > > > num_reviews: 11,
+  > > > > > > > email: "marie.taylor@gmail.com",
+  > > > > > > > phone: 6046532357,
+  > > > > > > > password: "test",
+  > > > > > > > role: "tenant",
+  > > > > > > > },
+  > > > > > > > {
+  > > > > > > > id: 2,
+  > > > > > > > property_id: 1,
+  > > > > > > > tenant_name: "Mercedez Muga",
+  > > > > > > > room_location: "1: Master bedroom",
+  > > > > > > > monthly_rent: 650,
+  > > > > > > > messages: "I cannot pay this month's rent",
+  > > > > > > > rating: 4.5,
+  > > > > > > > num_reviews: 9,
+  > > > > > > > email: "mercedez.muga @hotmail.com",
+  > > > > > > > phone: "7783462457",
+  > > > > > > > password: "test",
+  > > > > > > > role: "tenant",
+  > > > > > > > },
+  > > > > > > > {
+  > > > > > > > id: 3,
+  > > > > > > > property_id: 1,
+  > > > > > > > tenant_name: "Glory Lin",
+  > > > > > > > room_location: "2: Single room west-side",
+  > > > > > > > monthly_rent: 1100,
+  > > > > > > > messages: "I lost the mail key.",
+  > > > > > > > rating: 4.6,
+  > > > > > > > num_reviews: 5,
+  > > > > > > > email: "glory.lin@hotmail.com",
+  > > > > > > > phone: "2363570864",
+  > > > > > > > }
+  > > > > > > > ...
+  > > > > > > > ]
 
 ### Auth
 
@@ -571,10 +572,14 @@ Phase 5: (This phase will not be implemented yet)
 
 -Login as a new landlord user
 -View properties
+-View Profile
+-Click Home that navigates to list of properties
 -Add new property
 -Add tenants to the property
 -Signup as a new landlord user
 
 -Login as a new tenant user
 -For tenant user, view rented properties
+-View Profile
+-Click Home that navigates to list of properties
 -Signup as a new tenant user
