@@ -14,7 +14,6 @@ function Landing() {
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
-    console.log("this is the token : " + token);
 
     if (!token) {
       return setFailedAuth(true);
@@ -32,7 +31,6 @@ function Landing() {
         );
         setUser(response.data);
       } catch (error) {
-        console.log(error);
         setFailedAuth(true);
       }
     };

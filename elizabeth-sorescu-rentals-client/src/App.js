@@ -40,23 +40,6 @@ function App() {
           />
           {/* Route for tenant page */}
           <Route path="/tenants/:id" element={<AddTenantLandlordForms />} />
-          {/* <Route
-            path="/tenants/:id"
-            element={<AddPropertyTenantForm user={user} />}
-          /> */}
-          {/* Route for a properties list page*/}
-          {/* <Route path="/properties" element={<Properties />} /> */}
-
-          {/* <Route
-            path="/properties/:id/tenants"
-            element={<PropertyTenants key={selectedProperty.id} />}
-          /> */}
-
-          {/* Route for tenant page */}
-          {/* <Route path="/tenant/*" element={<Tenant />} /> */}
-
-          {/* Other route */}
-          {/* <Route path="/*" element={<NotFound />} /> */}
         </Routes>
       </BrowserRouter>
     </>

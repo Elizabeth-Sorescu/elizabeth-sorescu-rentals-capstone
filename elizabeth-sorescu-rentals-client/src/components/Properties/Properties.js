@@ -25,7 +25,6 @@ function Properties({ user }) {
         setUserPropertyData(resp.data);
         return userData;
       } catch (error) {
-        console.log(id);
         console.error("Error fetching properties:", error);
       }
     };

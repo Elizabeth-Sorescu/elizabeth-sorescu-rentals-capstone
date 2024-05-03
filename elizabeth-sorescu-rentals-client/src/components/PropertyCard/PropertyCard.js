@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import binIcon from "../../assets/icons/bin.svg";
 import editIcon from "../../assets/icons/edit1.svg";
 import star from "../../assets/icons/star.svg";
-// import SinglePropertyDetails from "../SinglePropertyDetails/SinglePropertyDetails";
 
 function PropertyCard({ property, user }) {
   const navigate = useNavigate();
@@ -34,7 +33,6 @@ function PropertyCard({ property, user }) {
     if (user.role === "landlord") {
       navigate(`/properties/${property.id}`, { state: { user: user } });
     }
-    // navigate(`/properties/${property.id}`);
   };
   return (
     <section

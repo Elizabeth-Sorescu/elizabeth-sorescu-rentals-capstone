@@ -98,9 +98,7 @@ function Signup() {
       );
       setSuccess(true);
       setError("");
-      console.log("Registered new user successfully");
 
-      // Reset form fields after successful registration
       formRef.current.reset();
 
       setTimeout(() => setSuccess(false), 5000);
