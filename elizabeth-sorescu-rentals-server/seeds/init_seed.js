@@ -3,7 +3,6 @@ const tenantsData = require("../seed-data/tenants");
 const landlordsData = require("../seed-data/landlords");
 
 exports.seed = async function (knex) {
-  // Deletes ALL existing entries
   await knex("landlords").del();
   await knex("properties").del();
   await knex("tenants").del();

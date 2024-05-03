@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const tenantController = require("../controllers/tenant-controller");
 
-//routes handlers
 router
   .route("/")
   .get(tenantController.getAllTenants)
@@ -13,7 +12,6 @@ router
   .delete(tenantController.deleteTenantById)
   .patch(tenantController.updateTenantData);
 
-// Lists all properties in a specific tenant id
 router
   .route("/:id/properties")
   .get(tenantController.getPropertiesOfATenantById);

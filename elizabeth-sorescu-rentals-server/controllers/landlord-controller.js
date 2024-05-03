@@ -1,6 +1,5 @@
 const knex = require("knex")(require("../knexfile"));
 
-//GET ALL landlords data
 const getAllLandlords = async (_req, res) => {
   try {
     const data = await knex("landlords");
@@ -36,7 +35,6 @@ const getAllLandlords = async (_req, res) => {
   }
 };
 
-//GET one landlord with its respective id
 const getLandlordById = async (req, res) => {
   try {
     const landlordFound = await knex("landlords").where({
@@ -56,7 +54,6 @@ const getLandlordById = async (req, res) => {
   }
 };
 
-//POST a new landlord
 const postNewLandlord = async (req, res) => {
   try {
     const {
@@ -70,7 +67,6 @@ const postNewLandlord = async (req, res) => {
       role,
     } = req.body;
 
-    // Insert new landlord into the database
     const [newItemId] = await knex("landlords").insert({
       name,
       messages,
@@ -82,7 +78,6 @@ const postNewLandlord = async (req, res) => {
       role,
     });
 
-    // Retrieve and respond with the inserted item
     const insertedItem = await knex("landlords")
       .where({ id: newItemId })
       .select(
@@ -106,7 +101,6 @@ const postNewLandlord = async (req, res) => {
   }
 };
 
-// This method will delete a single landlord with specific id
 const deleteLandlordById = async (req, res) => {
   try {
     const landlordRowDeleted = await knex("landlords").where({
@@ -129,7 +123,6 @@ const deleteLandlordById = async (req, res) => {
   }
 };
 
-// UPDATE SOME fields value of a landlord
 const updateLandlordData = async (req, res) => {
   try {
     const rowsUpdated = await knex("landlords")
@@ -154,7 +147,6 @@ const updateLandlordData = async (req, res) => {
   }
 };
 
-//Get all properties of a single landlord by id
 const getPropertiesOfALandlordById = async (req, res) => {
   try {
     const properties = await knex("landlords")
