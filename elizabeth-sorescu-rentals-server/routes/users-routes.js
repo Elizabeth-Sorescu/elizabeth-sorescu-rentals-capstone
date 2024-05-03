@@ -12,7 +12,6 @@ router.post("/register", async (req, res) => {
 
   // Validate if all fields are non-empty except phone field is optional
   if (!name || !email || !password || !role) {
-    console.log(res.data);
     return res.status(400).send("Please enter the required fields.");
   }
 
@@ -45,7 +44,6 @@ router.post("/register", async (req, res) => {
     }
     res.status(201).send("Registered successfully");
   } catch (error) {
-    console.log(error);
     res.status(400).send("Failed registration");
   }
 });
@@ -126,7 +124,6 @@ router.get("/current/user", async (req, res) => {
     delete user.password;
     res.json(user);
   } catch (error) {
-    console.log(error);
     return res.status(401).send("Invalid auth token");
   }
 });
