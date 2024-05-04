@@ -8,7 +8,11 @@ import editTenant from "../../assets/icons/edit-icon.svg";
 import star from "../../assets/icons/star.svg";
 import addIcon from "../../assets/icons/add.svg";
 
-function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
+function PropertyTenantsList({
+  propertyTenants,
+  setPropertyTenants,
+  propertyId,
+}) {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [showAddTenantForm, setShowAddTenantForm] = useState(false);
@@ -192,6 +196,7 @@ function PropertyTenantsList({ propertyTenants, setPropertyTenants }) {
           propertyTenants={propertyTenants}
           setPropertyTenants={setPropertyTenants}
           handleClose={() => setShowAddTenantForm(false)}
+          propertyId={propertyId}
         />
       ) : (
         <div className="landing__add">

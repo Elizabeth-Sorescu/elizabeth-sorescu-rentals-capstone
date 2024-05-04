@@ -3,8 +3,9 @@ import closeIcon from "../../assets/icons/close.svg";
 import axios from "axios";
 import "../AddTenantLandlordForm/AddTenantLandlordForm.scss";
 
-function AddTenantLandlordForm({ onSubmitSuccess, handleClose }) {
+function AddTenantLandlordForm({ onSubmitSuccess, handleClose, propertyId }) {
   const [newTenant, setNewTenant] = useState({
+    property_id: propertyId,
     name: "",
     room_location: "",
     monthly_rent: "",
@@ -21,7 +22,7 @@ function AddTenantLandlordForm({ onSubmitSuccess, handleClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(newTenant);
     if (
       !newTenant.name ||
       !newTenant.room_location ||

@@ -25,7 +25,7 @@ function SinglePropertyDetails({ handleLogout }) {
     };
     fetchSinglePropertyById();
   }, [id]);
-
+  console.log(propertyData.id);
   useEffect(() => {
     const fetchPropertyTenants = async () => {
       try {
@@ -42,7 +42,7 @@ function SinglePropertyDetails({ handleLogout }) {
       fetchPropertyTenants();
     }
   }, [propertyData]);
-
+  console.log(propertyData.id);
   const currentDate = new Date();
   const currentMonthIndex = currentDate.getMonth();
   const monthNames = [
@@ -162,6 +162,7 @@ function SinglePropertyDetails({ handleLogout }) {
         <PropertyTenantsList
           propertyTenants={propertyTenants}
           setPropertyTenants={setPropertyTenants}
+          propertyId={propertyData.id}
         />
       </div>
       <Footer />
