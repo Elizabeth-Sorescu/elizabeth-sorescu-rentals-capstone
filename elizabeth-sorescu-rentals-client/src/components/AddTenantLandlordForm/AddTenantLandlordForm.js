@@ -22,7 +22,6 @@ function AddTenantLandlordForm({ onSubmitSuccess, handleClose, propertyId }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(newTenant);
     if (
       !newTenant.name ||
       !newTenant.room_location ||
