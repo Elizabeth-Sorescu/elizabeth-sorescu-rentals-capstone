@@ -4,7 +4,8 @@
  */
 module.exports = [
   {
-    id: 1,
+    // id: 1,
+    id: "43f885ca-aed4-4b8c-b855-00780985d9f6",
     name: "Eli Za",
     messages: "Please fill-in the form for ending the tenancy. Thanks.",
     rating: 4.3,
@@ -15,7 +16,8 @@ module.exports = [
     role: "landlord",
   },
   {
-    id: 2,
+    // id: 2,
+    id: "9095b1a2-3862-40ae-9282-4fdf972b9a7f",
     name: "Esther Lee",
     messages: "Reminder: Rent is due by the end of the month. Thank you.",
     rating: 4.8,
@@ -26,7 +28,8 @@ module.exports = [
     role: "landlord",
   },
   {
-    id: 3,
+    // id: 3,
+    id: "85d392c9-d3e6-42f4-be28-493e3ec931de",
     name: "Marius Smith",
     messages:
       "Maintenance work will be conducted next week. Please ensure availability.",

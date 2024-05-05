@@ -1,11 +1,11 @@
 const knex = require("knex")(require("../knexfile"));
+const { v4: uuidv4 } = require("uuid");
 
 const getAllLandlords = async (_req, res) => {
   try {
     const data = await knex("landlords");
     const landlordData = data.map((landlordInfo) => {
       const {
-        id,
         name,
         messages,
         rating,
@@ -15,6 +15,8 @@ const getAllLandlords = async (_req, res) => {
         password,
         role,
       } = landlordInfo;
+
+      const id = uuidv4(); // Generate UUID for landlord id
 
       return {
         id,

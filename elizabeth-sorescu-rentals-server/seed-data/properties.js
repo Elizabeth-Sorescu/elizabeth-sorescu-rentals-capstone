@@ -1,11 +1,15 @@
+const landlords = require("./landlords");
+
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
 module.exports = [
   {
-    id: 1,
-    landlord_id: 1,
+    // id: 1,
+    id: "2170249c-4557-43d6-8c31-f45b622ee487",
+    // landlord_id: 1,
+    landlord_id: "43f885ca-aed4-4b8c-b855-00780985d9f6",
     property_name: "New Westminster",
     street_address: "1115 Rupert avenue",
     city: "New Westminster",
@@ -23,8 +27,10 @@ module.exports = [
     other_fees: 0,
   },
   {
-    id: 2,
-    landlord_id: 1,
+    // id: 2,
+    id: "5792cce9-dd64-4da3-832e-bb973f7a6f22",
+    // landlord_id: 1,
+    landlord_id: "43f885ca-aed4-4b8c-b855-00780985d9f6",
     property_name: "South Surrey",
     street_address: "28 avenue 160 St.",
     city: " South Surrey ",
@@ -42,8 +48,10 @@ module.exports = [
     other_fees: 0,
   },
   {
-    id: 3,
-    landlord_id: 1,
+    // id: 3,
+    id: "6447a225-770d-4986-82f9-19558c78c55e",
+    // landlord_id: 1,
+    landlord_id: "43f885ca-aed4-4b8c-b855-00780985d9f6",
     property_name: "Vancouver",
     street_address: "1133 Hornby St",
     city: "Vancouver",
@@ -61,8 +69,10 @@ module.exports = [
     other_fees: 0,
   },
   {
-    id: 4,
-    landlord_id: 2,
+    // id: 4,
+    id: "65222280-9463-4e2f-bdc8-c84323aa00f5",
+    //landlord_id: 2,
+    landlord_id: "9095b1a2-3862-40ae-9282-4fdf972b9a7f",
     property_name: "Richmond",
     street_address: "789 No. 3 Road",
     city: "Richmond",
@@ -80,8 +90,10 @@ module.exports = [
     other_fees: 0,
   },
   {
-    id: 5,
-    landlord_id: 2,
+    // id: 5,
+    id: "26c6d1fa-ac71-43f5-9add-df86948482c8",
+    // landlord_id: 2,
+    landlord_id: "9095b1a2-3862-40ae-9282-4fdf972b9a7f",
     property_name: "Surrey",
     street_address: "1010 King George Blvd",
     city: "Surrey",
@@ -99,8 +111,10 @@ module.exports = [
     other_fees: 0,
   },
   {
-    id: 6,
-    landlord_id: 2,
+    // id: 6,
+    id: "bd067b33-31ba-471c-9f51-327ad71f7c85",
+    // landlord_id: 2,
+    landlord_id: "9095b1a2-3862-40ae-9282-4fdf972b9a7f",
     property_name: "Coquitlam",
     street_address: "2020 Lincoln Avenue",
     city: "Coquitlam",
@@ -118,8 +132,10 @@ module.exports = [
     other_fees: 0,
   },
   {
-    id: 7,
-    landlord_id: 3,
+    // id: 7,
+    id: "f723f803-e21f-4dcd-972e-c87ea5c59002",
+    // landlord_id: 3,
+    landlord_id: "85d392c9-d3e6-42f4-be28-493e3ec931de",
     property_name: "Delta",
     street_address: "1515 Boundary Bay Road",
     city: "Delta",
@@ -137,8 +153,10 @@ module.exports = [
     other_fees: 0,
   },
   {
-    id: 8,
-    landlord_id: 3,
+    // id: 8,
+    id: "9e05abbc-96a1-4d42-8f44-a634d4ac7cd3",
+    // landlord_id: 3,
+    landlord_id: "85d392c9-d3e6-42f4-be28-493e3ec931de",
     property_name: "Port Coquitlam",
     street_address: "1717 Shaughnessy Street",
     city: "Port Coquitlam",
@@ -156,8 +174,10 @@ module.exports = [
     other_fees: 0,
   },
   {
-    id: 9,
-    landlord_id: 3,
+    // id: 9,
+    id: "ed14f13c-775d-41b9-a02b-480cda2bdd5c",
+    // landlord_id: 3,
+    landlord_id: "85d392c9-d3e6-42f4-be28-493e3ec931de",
     property_name: "Langley",
     street_address: "1818 Fraser Highway",
     city: "Langley",
@@ -175,8 +195,10 @@ module.exports = [
     other_fees: 0,
   },
   {
-    id: 10,
-    landlord_id: 3,
+    // id: 10,
+    id: "d6728821-a852-417b-8e9a-59ea3ccb151f",
+    // landlord_id: 3,
+    landlord_id: "85d392c9-d3e6-42f4-be28-493e3ec931de",
     property_name: "North Vancouver",
     street_address: "1919 Lonsdale Avenue",
     city: "North Vancouver",

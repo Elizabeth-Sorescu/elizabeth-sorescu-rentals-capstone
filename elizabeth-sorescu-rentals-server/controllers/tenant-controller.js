@@ -1,11 +1,11 @@
 const knex = require("knex")(require("../knexfile"));
+const { v4: uuidv4 } = require("uuid");
 
 const getAllTenants = async (_req, res) => {
   try {
     const data = await knex("tenants");
     const tenantData = data.map((tenantInfo) => {
       const {
-        id,
         property_id,
         name,
         room_location,
@@ -19,7 +19,8 @@ const getAllTenants = async (_req, res) => {
         password,
         role,
       } = tenantInfo;
-
+      const id = uuidv4(); // Generate UUID for landlord id
+      // const property_id = uuidv4(); // Generate UUID for landlord id
       return {
         id,
         property_id,
@@ -65,6 +66,7 @@ const getTenantById = async (req, res) => {
 const postNewTenant = async (req, res) => {
   try {
     const {
+      id,
       property_id,
       name,
       room_location,
@@ -80,6 +82,7 @@ const postNewTenant = async (req, res) => {
     } = req.body;
 
     const [newItemId] = await knex("tenants").insert({
+      id,
       property_id,
       name,
       room_location,
