@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "Poppins-Regular";
+  font-weight: 400;
+  src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Bold";
+  font-weight: 600;
+  src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-ExtraBold";
+  font-weight: 700;
+  src: url("../../assets/fonts/Poppins/Poppins-ExtraBold.ttf") format("truetype");
+}
+.add-tenant {
+  font-family: "Poppins-Regular";
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  box-shadow: 0 -3em 3em rgba(0, 200, 0, 0.1), 0 0 0 2px #ffffff, 1em 1em 1em rgba(26, 43, 73, 0.6);
+}
+.add-tenant__heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(211, 211, 211, 0.1);
+}
+.add-tenant__heading--label {
+  font-size: 1.5rem;
+  color: #737b7d;
+  margin-bottom: 1rem;
+}
+.add-tenant__heading--close {
+  width: 2rem;
+  cursor: pointer;
+}
+.add-tenant__form--label {
+  width: 100%;
+  color: #737b7d;
+}
+.add-tenant__form--inputbox {
+  background: #f2f3f3;
+  border-radius: 0.5rem;
+  border: none;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  padding-left: 1rem;
+  margin: 0.5rem 0rem;
+}
+@media screen and (min-width: 768px) {
+  .add-tenant__form--inputbox {
+    height: 100px;
+  }
+}
+.add-tenant__form--btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media screen and (min-width: 768px) {
+  .add-tenant__form--btns {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+.add-tenant__form--btns__elem {
+  background-color: #008f17;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  border: none;
+  width: 100%;
+  height: 50px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  justify-content: center;
+  margin: 0.5rem 0rem;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .add-tenant__form--btns__elem {
+    width: 21%;
+    margin: 2rem 0.5rem;
+  }
+}
+.add-tenant__form--btns__elem--cancel {
+  background-color: #ffa500;
+}
+.add-tenant__form--error-message {
+  color: #ff0000;
+}/*# sourceMappingURL=AddTenantLandlordForm.css.map */

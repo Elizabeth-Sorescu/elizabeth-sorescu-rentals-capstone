@@ -1,0 +1,99 @@
+@font-face {
+  font-family: "Poppins-Regular";
+  font-weight: 400;
+  src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Bold";
+  font-weight: 600;
+  src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-ExtraBold";
+  font-weight: 700;
+  src: url("../../assets/fonts/Poppins/Poppins-ExtraBold.ttf") format("truetype");
+}
+.property-card {
+  color: #1a2b49;
+  margin: 1rem 0rem;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  box-shadow: inset 0 -3em 3em rgba(0, 200, 0, 0.3), 0 0 0 2px #ffffff, 0.3em 0.3em 1em rgba(26, 43, 73, 0.6);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.property-card__grp1 {
+  width: 58%;
+  font-size: 1.2rem;
+}
+@media screen and (min-width: 768px) {
+  .property-card__grp1 {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 5%;
+  }
+}
+.property-card__grp1--elem1 {
+  display: flex;
+  flex-direction: row;
+}
+.property-card__grp1--elem1-type, .property-card__grp1--elem1-star, .property-card__grp1--elem1-rating, .property-card__grp1--elem1-reviews {
+  font-size: 0.9rem;
+  margin-right: 0.3rem;
+}
+@media screen and (min-width: 768px) {
+  .property-card__grp1--elem1-type, .property-card__grp1--elem1-star, .property-card__grp1--elem1-rating, .property-card__grp1--elem1-reviews {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+}
+.property-card__grp1--elem1-star {
+  width: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .property-card__grp1--elem1-star {
+    width: 1.5rem;
+  }
+}
+.property-card__grp1--elem2 {
+  font-size: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .property-card__grp1--elem2 {
+    font-size: 2rem;
+  }
+}
+.property-card__grp2 {
+  width: 40%;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+@media screen and (min-width: 768px) {
+  .property-card__grp2 {
+    width: 40%;
+    flex-direction: row-reverse;
+    text-align: right;
+    justify-content: space-between;
+    padding-left: 5%;
+  }
+}
+.property-card__grp2--details-rent {
+  font-weight: 600;
+}
+.property-card__del-btn, .property-card__ed-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: 0.5rem;
+}
+@media screen and (min-width: 768px) {
+  .property-card__del-btn, .property-card__ed-btn {
+    width: 3rem;
+    height: 3rem;
+  }
+}/*# sourceMappingURL=PropertyCard.css.map */

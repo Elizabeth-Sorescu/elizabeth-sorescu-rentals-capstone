@@ -46,6 +46,7 @@ function Login() {
         "http://localhost:8080/api/users/login",
         userInput
       );
+      console.log(userInput);
       sessionStorage.setItem("token", response.data.token);
       setSuccess(true);
       setError("");
@@ -56,7 +57,10 @@ function Login() {
           userInput: userInput,
         },
       });
+
+      console.log(userInput);
     } catch (error) {
+      console.log(userInput);
       console.error(error);
       if (
         error.response.status === 400 &&

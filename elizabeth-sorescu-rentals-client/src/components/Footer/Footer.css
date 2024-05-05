@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Poppins-Regular";
+  font-weight: 400;
+  src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Bold";
+  font-weight: 600;
+  src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-ExtraBold";
+  font-weight: 700;
+  src: url("../../assets/fonts/Poppins/Poppins-ExtraBold.ttf") format("truetype");
+}
+.footer-section {
+  margin-top: 2rem;
+  padding: 1.5rem 0rem;
+  font-family: "Poppins-Regular";
+  background-color: #0f711e;
+  color: #ffffff;
+  text-align: center;
+}
+.footer-section__icons--elem-icon {
+  width: 5rem;
+  margin: 0rem 0.3rem;
+  cursor: pointer;
+}
+.footer-section__left-grp--label {
+  font-size: 1.5rem;
+  padding-bottom: 3rem;
+}/*# sourceMappingURL=Footer.css.map */

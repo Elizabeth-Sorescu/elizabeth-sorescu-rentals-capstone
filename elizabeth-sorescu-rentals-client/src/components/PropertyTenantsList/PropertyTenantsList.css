@@ -1,0 +1,95 @@
+@font-face {
+  font-family: "Poppins-Regular";
+  font-weight: 400;
+  src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Bold";
+  font-weight: 600;
+  src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-ExtraBold";
+  font-weight: 700;
+  src: url("../../assets/fonts/Poppins/Poppins-ExtraBold.ttf") format("truetype");
+}
+.tenant {
+  font-family: "Poppins-Regular";
+}
+@media screen and (min-width: 768px) {
+  .tenant {
+    padding: 0rem 1rem;
+    margin: 0rem 10rem;
+  }
+}
+.tenant__info {
+  margin: 1rem 0rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgba(211, 211, 211, 0.1);
+  padding-bottom: 1rem;
+  width: 100%;
+}
+.tenant__info--heading {
+  font-size: 1.2rem;
+  color: #737b7d;
+  padding-bottom: 1rem;
+}
+.tenant__info--det {
+  color: #1a2b49;
+}
+.tenant__info--det--name {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+.tenant__info--det--ratings {
+  display: flex;
+  flex-direction: row;
+}
+.tenant__info--det--amount {
+  font-weight: 600;
+}
+.tenant__info--det--ratings__star {
+  width: 1rem;
+  margin-right: 0.2rem;
+}
+.tenant__info--det--icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.tenant__info--det--icons__avatar {
+  width: 2rem;
+}
+.tenant__info--det--icons__cta--chat {
+  width: 2rem;
+  margin: 0rem 0.2rem;
+}
+.tenant__info--det--icons__cta--edit {
+  width: 2rem;
+  margin: 0rem 0.2rem;
+}
+.tenant__info--group {
+  display: flex;
+  justify-content: space-between;
+}
+.tenant__info--group__paystat {
+  display: flex;
+  flex-direction: row;
+}
+.tenant__info--group__paystat--label {
+  margin-left: 0.2rem;
+}
+.tenant__info--group__paystat--date {
+  margin-left: 0.7rem;
+}
+.tenant__error-message, .tenant__success-message {
+  padding-top: 2rem;
+  color: #ff0000;
+  display: flex;
+  justify-content: center;
+}
+.tenant__success-message {
+  color: #0f711e;
+  font-weight: 700;
+}/*# sourceMappingURL=PropertyTenantsList.css.map */

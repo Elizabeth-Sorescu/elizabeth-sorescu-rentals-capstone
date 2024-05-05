@@ -1,0 +1,74 @@
+@font-face {
+  font-family: "Poppins-Regular";
+  font-weight: 400;
+  src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Bold";
+  font-weight: 600;
+  src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-ExtraBold";
+  font-weight: 700;
+  src: url("../../assets/fonts/Poppins/Poppins-ExtraBold.ttf") format("truetype");
+}
+.property {
+  font-family: "Poppins-Regular";
+  padding: 0rem 2rem;
+  color: #1a2b49;
+}
+.property__heading {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  background-color: rgba(211, 211, 211, 0.1);
+}
+.property__heading--back-btn {
+  height: 2rem;
+}
+.property__heading--label {
+  font-size: 1.5rem;
+  color: #737b7d;
+  margin-left: 1rem;
+}
+.property__info {
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  box-shadow: inset 0 -3em 3em rgba(0, 200, 0, 0.3), 0 0 0 2px #ffffff, 0.3em 0.3em 1em rgba(26, 43, 73, 0.6);
+}
+.property__info--gross-income, .property__info--expenses__total, .property__info--net {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 0.5rem;
+}
+.property__info--gross-income__val {
+  margin-left: 1rem;
+}
+.property__info--expenses--heading, .property__info--expenses--label {
+  color: #737b7d;
+}
+.property__info--expenses__container {
+  display: flex;
+  flex-direction: row;
+}
+.property__info--expenses__label {
+  width: 65%;
+}
+.property__info--expenses__value {
+  width: 20%;
+}
+.property__info--net__positive {
+  color: #008f17;
+  font-weight: 600;
+}
+.property__info--net__negative {
+  color: #ff0000;
+  font-weight: 600;
+}
+.property__info--details {
+  text-decoration: none;
+}
+.property__info--tenants-list {
+  margin-top: 2rem;
+}/*# sourceMappingURL=SinglePropertyDetails.css.map */

@@ -1,0 +1,170 @@
+@font-face {
+  font-family: "Poppins-Regular";
+  font-weight: 400;
+  src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Bold";
+  font-weight: 600;
+  src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-ExtraBold";
+  font-weight: 700;
+  src: url("../../assets/fonts/Poppins/Poppins-ExtraBold.ttf") format("truetype");
+}
+.signup {
+  font-family: "Poppins-Regular";
+  margin: 3rem 2rem;
+  color: #737b7d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.signup__logo {
+  display: flex;
+  justify-content: center;
+}
+.signup__form--heading {
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  color: #22215b;
+  margin: 3rem 0rem 2rem 0rem;
+}
+.signup__form--inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media screen and (min-width: 768px) {
+  .signup__form--inputs__textboxes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 101%;
+    height: 200px;
+    margin-left: 1rem;
+    box-sizing: border-box;
+  }
+}
+.signup__form--input-box {
+  background: #f2f3f3;
+  border-radius: 0.5rem;
+  border: none;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  padding-left: 1rem;
+  margin: 0.5rem 0rem;
+}
+@media screen and (min-width: 768px) {
+  .signup__form--input-box {
+    width: 91%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .signup__form--cta {
+    display: flex;
+    padding: 5rem 1.5rem 0rem 0rem;
+    flex-direction: row-reverse;
+  }
+}
+.signup__form--btn {
+  background-color: #008f17;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  border: none;
+  width: 100%;
+  height: 50px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  justify-content: center;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .signup__form--btn {
+    width: 45%;
+    flex-direction: row-reverse;
+  }
+}
+.signup__form--show {
+  margin-left: 0.5rem;
+}
+.signup__form--btn {
+  margin-top: 2rem;
+}
+.signup__form--success-msg {
+  color: #008f17;
+  font-weight: 700;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .signup__form--success-msg {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1.5rem;
+  }
+}
+.signup__form--error-msg {
+  color: #ff0000;
+  font-weight: 700;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .signup__form--error-msg {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3rem;
+  }
+}
+.signup input[type=radio]:checked {
+  accent-color: #008f17;
+}
+.signup__login {
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .signup__login {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3rem;
+  }
+}
+.signup__login--link {
+  text-decoration: none;
+  margin-left: 1rem;
+}
+.signup .role {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .signup .role {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3rem 2rem 0rem 1rem;
+  }
+}
+.signup .role__label {
+  text-align: center;
+}
+.signup .role__options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .signup .role__options {
+    width: 47%;
+    padding: 1rem 0rem 0rem 0rem;
+  }
+}
+.signup .role__options--landlord {
+  margin-right: 5rem;
+}
+.signup .role__labels {
+  margin-left: 0.5rem;
+}/*# sourceMappingURL=Signup.css.map */

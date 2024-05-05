@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "Poppins-Regular";
+  font-weight: 400;
+  src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Bold";
+  font-weight: 600;
+  src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-ExtraBold";
+  font-weight: 700;
+  src: url("../../assets/fonts/Poppins/Poppins-ExtraBold.ttf") format("truetype");
+}
+.landing {
+  font-family: "Poppins-Regular";
+}
+.landing__add {
+  text-align: center;
+}
+.landing__add--btn {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+}/*# sourceMappingURL=Landing.css.map */
