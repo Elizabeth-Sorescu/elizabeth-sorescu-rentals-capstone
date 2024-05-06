@@ -4,12 +4,9 @@
  */
 module.exports = [
   {
-    // id: 1,
     id: "f2587e4f-78c6-45f2-965f-8f3533ca56a3",
-    // property_id: 1,
     property_id: "2170249c-4557-43d6-8c31-f45b622ee487",
     name: "Marie Taylor",
-    // room_location: "1: Master bedroom",
     room_location: "3: Single room east-side",
     monthly_rent: 1100,
     rent_payment_date: "2024/05/01",
@@ -22,9 +19,7 @@ module.exports = [
     role: "tenant",
   },
   {
-    // id: 2,
     id: "be934c79-6ead-444b-91ac-418ec0719211",
-    // property_id: 1,
     property_id: "2170249c-4557-43d6-8c31-f45b622ee487",
     name: "Mercedez Muga",
     room_location: "1: Master bedroom",
@@ -39,12 +34,9 @@ module.exports = [
     role: "tenant",
   },
   {
-    // id: 3,
     id: "6f391480-ba63-4b75-b417-a714849a1b3f",
-    // property_id: 1,
     property_id: "2170249c-4557-43d6-8c31-f45b622ee487",
     name: "Glory Lin",
-    // room_location: "2: Single room west-side",
     room_location: "1: Master bedroom",
     monthly_rent: 650,
     rent_payment_date: "2024/05/01",
@@ -57,13 +49,10 @@ module.exports = [
     role: "tenant",
   },
   {
-    // id: 4,
     id: "bfce9096-ece9-4cc7-b5df-3dcd96f68826",
-    // property_id: 1,
     property_id: "2170249c-4557-43d6-8c31-f45b622ee487",
     name: "Esther Victoria",
     room_location: "2: Single room west-side",
-    // room_location: "3: Single room east-side",
     monthly_rent: 1100,
     rent_payment_date: "2024/05/01",
     messages: "I just fill in the form to end my tenancy by June.",
@@ -75,9 +64,7 @@ module.exports = [
     role: "tenant",
   },
   {
-    // id: 5,
     id: "3ac57075-9592-4b3f-9148-07ab72618ef6",
-    // property_id: 2,
     property_id: "5792cce9-dd64-4da3-832e-bb973f7a6f22",
     name: "Anne Smith",
     room_location: "3: 2nd floor wet-side",
@@ -93,9 +80,7 @@ module.exports = [
   },
 
   {
-    // id: 6,
     id: "993d4676-719c-417c-b73b-3170b4602bb5",
-    // property_id: 2,
     property_id: "5792cce9-dd64-4da3-832e-bb973f7a6f22",
     name: "Mary Cruz",
     room_location: "5: Basement east-side",
@@ -110,9 +95,7 @@ module.exports = [
     role: "tenant",
   },
   {
-    // id: 7,
     id: "02c1d900-3e57-4446-9535-7bcf0db609b4",
-    // property_id: 2,
     property_id: "5792cce9-dd64-4da3-832e-bb973f7a6f22",
     name: "Alice Kim",
     room_location: "1: 2nd floor south-side",
@@ -127,9 +110,7 @@ module.exports = [
     role: "tenant",
   },
   {
-    // id: 8,
     id: "bc722cc3-458b-40cc-b418-10a14d239fdb",
-    // property_id: 2,
     property_id: "5792cce9-dd64-4da3-832e-bb973f7a6f22",
     name: "Danica Santos",
     room_location: "6: Basement west-side",
@@ -145,9 +126,7 @@ module.exports = [
     role: "tenant",
   },
   {
-    // id: 9,
     id: "47042c59-e836-4580-8e34-740044c06a98",
-    // property_id: 2,
     property_id: "5792cce9-dd64-4da3-832e-bb973f7a6f22",
     name: "Emma Garcia",
     room_location: "4: 1st Floor room",
@@ -162,9 +141,7 @@ module.exports = [
     role: "tenant",
   },
   {
-    // id: 10,
     id: "1af06e59-8590-4d96-94c0-81b42655053c",
-    // property_id: 2,
     property_id: "5792cce9-dd64-4da3-832e-bb973f7a6f22",
     name: "Emily Chui",
     room_location: "2: 2nd floor east-side",
@@ -179,9 +156,7 @@ module.exports = [
     role: "tenant",
   },
   {
-    // id: 11,
     id: "7c1494b2-f6fc-4782-8d2d-233c70681c57",
-    // property_id: 3,
     property_id: "6447a225-770d-4986-82f9-19558c78c55e",
     name: "Carla Aquino",
     room_location: "Unit 143",
