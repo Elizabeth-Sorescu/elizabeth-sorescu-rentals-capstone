@@ -1,6 +1,8 @@
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
+ * creating properties table without using uuid
+ * no changes of id on the seed data
  */
 exports.up = function (knex) {
   return knex.schema.createTable("properties", (table) => {
