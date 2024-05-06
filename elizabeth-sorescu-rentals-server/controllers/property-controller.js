@@ -24,7 +24,7 @@ const getAllProperties = async (_req, res) => {
         other_fees,
       } = propertyInfo;
 
-      const id = uuidv4(); // Generate UUID for property id
+      const id = uuidv4();
 
       return {
         id,

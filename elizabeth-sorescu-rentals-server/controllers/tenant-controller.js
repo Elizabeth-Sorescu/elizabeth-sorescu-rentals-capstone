@@ -19,8 +19,9 @@ const getAllTenants = async (_req, res) => {
         password,
         role,
       } = tenantInfo;
-      const id = uuidv4(); // Generate UUID for landlord id
-      // const property_id = uuidv4(); // Generate UUID for landlord id
+
+      const id = uuidv4();
+
       return {
         id,
         property_id,
