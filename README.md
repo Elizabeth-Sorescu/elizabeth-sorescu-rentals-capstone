@@ -446,8 +446,8 @@ Parameters:
 ### Auth
 
 - JWT auth
-  - Auth is not applied during the signup and login of Phase 1
-  - Before adding auth, all API requests will be using a fake user with id 1
+  - Auth is applied during the signup and login of Phase 1
+  - Before adding auth, all API requests will be using a fake user with specific id
   - Added after core features of Phase 1 have first been implemented
   - Store JWT in localStorage, remove when a user logs out
   - Add states for logged in showing different UI in places listed in mockups
