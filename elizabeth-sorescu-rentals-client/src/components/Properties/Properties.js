@@ -14,22 +14,32 @@ function Properties({ user }) {
       try {
         let resp;
         if (userData.role === "landlord") {
-          resp = await axios.get(
-            `http://localhost:8080/api/landlords/${userData.id}/properties`
-          );
+          if (userData.property_id === null) {
+            return;
+          } else {
+            resp = await axios.get(
+              `http://localhost:8080/api/landlords/${userData.id}/properties`
+            );
+          }
         } else if (userData.role === "tenant") {
-          resp = await axios.get(
-            `http://localhost:8080/api/tenants/${userData.id}/properties`
-          );
+          if (userData.property_id === null) {
+            return;
+          } else {
+            resp = await axios.get(
+              `http://localhost:8080/api/tenants/${userData.id}/properties`
+            );
+          }
         }
         setUserPropertyData(resp.data);
         return userData;
       } catch (error) {
-        console.error("Error fetching properties:", error);
+        console.log("The user has not added properties yet.");
+        // console.error("Error fetching properties:", error);
       }
     };
     fetchProperties();
-  }, [userPropertyData, userData, id, userData.role]);
+    // }, [userPropertyData, userData, id, userData.role]);
+  }, []);
 
   return (
     <section className="properties">

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import closeIcon from "../../assets/icons/close.svg";
 import axios from "axios";
 import "../AddTenantLandlordForm/AddTenantLandlordForm.scss";
@@ -19,6 +19,24 @@ function AddTenantLandlordForm({ onSubmitSuccess, handleClose, propertyId }) {
     const { name, value } = e.target;
     setNewTenant({ ...newTenant, [name]: value });
   };
+  let [tenantData, setTenantData] = useState(null);
+
+  useEffect(() => {
+    const fetchTenants = async () => {
+      try {
+        let resp = await axios.get(`http://localhost:8080/api/tenants`);
+
+        setTenantData(resp.data);
+        console.log(tenantData);
+        return tenantData;
+      } catch (error) {
+        console.log("The user has not added properties yet.");
+        // console.error("Error fetching properties:", error);
+      }
+    };
+    fetchTenants();
+    // }, [userPropertyData, userData, id, userData.role]);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,6 +49,7 @@ function AddTenantLandlordForm({ onSubmitSuccess, handleClose, propertyId }) {
       setErrorMessage("Please complete all required fields.");
       return;
     }
+    // before posting, check if the tenant email is registered user
 
     try {
       const response = await axios.post(

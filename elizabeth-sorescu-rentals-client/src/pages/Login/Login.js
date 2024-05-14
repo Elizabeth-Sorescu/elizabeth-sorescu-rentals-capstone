@@ -47,6 +47,8 @@ function Login() {
         userInput
       );
       sessionStorage.setItem("token", response.data.token);
+      // console.log(userInput);
+      // console.log(response.data.token);
       setSuccess(true);
       setError("");
       setAuthError(false);
